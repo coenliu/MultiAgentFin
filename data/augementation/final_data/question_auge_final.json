@@ -1,0 +1,2062 @@
+[
+    {
+        "instruction": "What was the percentage difference in rental expenses between 2005 and 2006?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{E_{2006} - E_{2005}}{E_{2005}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "By what percent did rental costs change from 2005 to 2006?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{E_{2006} - E_{2005}}{E_{2005}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "Calculate the percentage change in rental expenditure from the year 2005 to 2006.",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{E_{2006} - E_{2005}}{E_{2005}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "Determine the percent variation in rental expenses from 2005 to 2006.",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{E_{2006} - E_{2005}}{E_{2005}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What is the percentage shift in rental costs from 2005 to 2006?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{E_{2006} - E_{2005}}{E_{2005}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What percentage of the total net notional value of commodity derivatives is associated with agricultural inputs?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Agricultural Inputs} = \\frac{\\text{Net Notional Value of Agricultural Inputs}}{\\text{Total Net Notional Value of Commodity Derivatives}}\n\\]"
+    },
+    {
+        "instruction": "2. What fraction of commodity derivatives' net notional value pertains to agricultural inputs?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Agricultural Inputs} = \\frac{\\text{Net Notional Value of Agricultural Inputs}}{\\text{Total Net Notional Value of Commodity Derivatives}}\n\\]"
+    },
+    {
+        "instruction": "3. Regarding commodity derivatives, what segment of the net notional value is linked to agricultural inputs?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Agricultural Inputs} = \\frac{\\text{Net Notional Value of Agricultural Inputs}}{\\text{Total Net Notional Value of Commodity Derivatives}}\n\\]"
+    },
+    {
+        "instruction": "4. In the context of commodity derivatives, how much of the net notional value is connected to agricultural inputs?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Agricultural Inputs} = \\frac{\\text{Net Notional Value of Agricultural Inputs}}{\\text{Total Net Notional Value of Commodity Derivatives}}\n\\]"
+    },
+    {
+        "instruction": "5. What share of the net notional value in commodity derivatives is related to agricultural inputs?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Agricultural Inputs} = \\frac{\\text{Net Notional Value of Agricultural Inputs}}{\\text{Total Net Notional Value of Commodity Derivatives}}\n\\]"
+    },
+    {
+        "instruction": "What was the difference in the effective income tax rate, in percentage points, between 2016 and 2017?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{ETR} = \\text{ETR}_{2017} - \\text{ETR}_{2016}\n\\]"
+    },
+    {
+        "instruction": "By how many percentage points did the effective income tax rate change from 2016 to 2017?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{ETR} = \\text{ETR}_{2017} - \\text{ETR}_{2016}\n\\]"
+    },
+    {
+        "instruction": "What change in percentage points occurred in the effective income tax rate from 2016 to 2017?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{ETR} = \\text{ETR}_{2017} - \\text{ETR}_{2016}\n\\]"
+    },
+    {
+        "instruction": "How much did the effective income tax rate increase or decrease in percentage points from 2016 compared to 2017?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{ETR} = \\text{ETR}_{2017} - \\text{ETR}_{2016}\n\\]"
+    },
+    {
+        "instruction": "Calculate the shift in the effective income tax rate, measured in percentage points, for the year 2017 relative to 2016.",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{ETR} = \\text{ETR}_{2017} - \\text{ETR}_{2016}\n\\]"
+    },
+    {
+        "instruction": "1. What was the total net cash outflow associated with future lease payments in the year 2005?<sep >\n2. In 2005, what amount represents the net cash outflow pertaining to forthcoming lease payments?<sep >\n3. What is the calculated net cash outflow for future lease obligations during 2005?<sep >\n4. During 2005, what was the net cash outflow concerning upcoming lease payments?<sep >\n5. For the year 2005, what constitutes the net cash outflow related to future lease agreements?",
+        "input": "",
+        "output": "\\[\n\\text{Net Cash Outflow}_{2005} = \\sum_{t=1}^{n} \\frac{PMT_t}{(1 + r)^t}\n\\]"
+    },
+    {
+        "instruction": "What was the overall change in the balance of level 3 investment assets in 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Level 3 Investments} = \\text{Level 3 Investments}_{\\text{End of 2008}} - \\text{Level 3 Investments}_{\\text{Beginning of 2008}}\n\\]"
+    },
+    {
+        "instruction": "During 2008, how did the balance of level 3 investment assets change overall?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Level 3 Investments} = \\text{Level 3 Investments}_{\\text{End of 2008}} - \\text{Level 3 Investments}_{\\text{Beginning of 2008}}\n\\]"
+    },
+    {
+        "instruction": "What net variation occurred in the level 3 investments asset balance throughout 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Level 3 Investments} = \\text{Level 3 Investments}_{\\text{End of 2008}} - \\text{Level 3 Investments}_{\\text{Beginning of 2008}}\n\\]"
+    },
+    {
+        "instruction": "In 2008, what was the net alteration in the balance for level 3 investment assets?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Level 3 Investments} = \\text{Level 3 Investments}_{\\text{End of 2008}} - \\text{Level 3 Investments}_{\\text{Beginning of 2008}}\n\\]"
+    },
+    {
+        "instruction": "What is the total net shift in the balance of level 3 investment assets during the year 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Level 3 Investments} = \\text{Level 3 Investments}_{\\text{End of 2008}} - \\text{Level 3 Investments}_{\\text{Beginning of 2008}}\n\\]"
+    },
+    {
+        "instruction": "1. What is the cumulative interest income for the years 2011 and 2012, expressed in millions?<sep >\n2. How much interest income was earned in total during 2011 and 2012, measured in millions?<sep >\n3. Identify the combined interest income for 2011 and 2012, in millions of dollars.<sep >\n4. What sum of interest income was recorded for the years 2011 and 2012, in millions?<sep >\n5. Determine the total interest earnings for 2011 and 2012 combined, reported in millions.",
+        "input": "",
+        "output": "\\[\nTI = I_{2011} + I_{2012}\n\\]"
+    },
+    {
+        "instruction": "1. What were the total foreign currency gains (in millions) for the years 2006, 2005, and 2004, as included in net interest and other financing costs (income)?<sep >\n2. For 2006, 2005, and 2004, what amounts (in millions) represent total foreign currency gains included in net interest and other financing costs (income)?<sep >\n3. Included within net interest and other financing costs (income), what were the foreign currency gains total (in millions) for the years 2006, 2005, and 2004?<sep >\n4. What were the total foreign currency gains, measured in millions, for 2006, 2005, and 2004, as part of net interest and other financing costs (income)?<sep >\n5. For the years 2006, 2005, and 2004, what was the total foreign currency gains (in millions) included in net interest and other financing costs (income)?",
+        "input": "",
+        "output": "\\[\n\\text{Total Foreign Currency Gains} = \\text{Foreign Currency Transaction Gains} + \\text{Foreign Currency Translation Gains}\n\\]"
+    },
+    {
+        "instruction": "What was the overall adjustment in other retained interests not shown in the table for the year 2018, in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Other Retained Interests} = \\text{Other Retained Interests}_{\\text{End}} - \\text{Other Retained Interests}_{\\text{Begin}} + \\text{Dividends Declared} - \\text{Net Income} - \\text{Other Adjustments}\n\\]"
+    },
+    {
+        "instruction": "During 2018, what is the total change in other retained interests not displayed in the table, measured in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Other Retained Interests} = \\text{Other Retained Interests}_{\\text{End}} - \\text{Other Retained Interests}_{\\text{Begin}} + \\text{Dividends Declared} - \\text{Net Income} - \\text{Other Adjustments}\n\\]"
+    },
+    {
+        "instruction": "How much did the net variation in other retained interests not presented in the table amount to in 2018, in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Other Retained Interests} = \\text{Other Retained Interests}_{\\text{End}} - \\text{Other Retained Interests}_{\\text{Begin}} + \\text{Dividends Declared} - \\text{Net Income} - \\text{Other Adjustments}\n\\]"
+    },
+    {
+        "instruction": "In the year 2018, what was the net difference in other retained interests not reflected in the table, expressed in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Other Retained Interests} = \\text{Other Retained Interests}_{\\text{End}} - \\text{Other Retained Interests}_{\\text{Begin}} + \\text{Dividends Declared} - \\text{Net Income} - \\text{Other Adjustments}\n\\]"
+    },
+    {
+        "instruction": "What is the net alteration of other retained interests not included in the table for 2018, in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Other Retained Interests} = \\text{Other Retained Interests}_{\\text{End}} - \\text{Other Retained Interests}_{\\text{Begin}} + \\text{Dividends Declared} - \\text{Net Income} - \\text{Other Adjustments}\n\\]"
+    },
+    {
+        "instruction": "What was the market capitalization of common stock as of March 28, 2005?",
+        "input": "",
+        "output": "\\[\n\\text{Market Capitalization} = P \\times N\n\\]"
+    },
+    {
+        "instruction": "As of March 28, 2005, what was the market cap for common stock?",
+        "input": "",
+        "output": "\\[\n\\text{Market Capitalization} = P \\times N\n\\]"
+    },
+    {
+        "instruction": "Determine the market cap of common shares on March 28, 2005.",
+        "input": "",
+        "output": "\\[\n\\text{Market Capitalization} = P \\times N\n\\]"
+    },
+    {
+        "instruction": "On March 28, 2005, what was the market capitalization of the company's common stock?",
+        "input": "",
+        "output": "\\[\n\\text{Market Capitalization} = P \\times N\n\\]"
+    },
+    {
+        "instruction": "What was the common stock's market cap dated March 28, 2005?",
+        "input": "",
+        "output": "\\[\n\\text{Market Capitalization} = P \\times N\n\\]"
+    },
+    {
+        "instruction": "1. Regarding the AWCC commercial paper program supported by the revolving credit facility, how much did the maximum total outstanding amount change in billions from March 2018 to December 2018?",
+        "input": "",
+        "output": "\\[\n\\Delta A = A_{\\text{Dec 2018}} - A_{\\text{Mar 2018}}\n\\]"
+    },
+    {
+        "instruction": "2. What was the variation in billions of the maximum aggregate outstanding amount for the AWCC commercial paper program, which is underpinned by the revolving credit facility, between March 2018 and December 2018?",
+        "input": "",
+        "output": "\\[\n\\Delta A = A_{\\text{Dec 2018}} - A_{\\text{Mar 2018}}\n\\]"
+    },
+    {
+        "instruction": "3. For the revolving credit facility-backed AWCC commercial paper program, what was the billion-dollar change in the maximum aggregate outstanding amount from March 2018 to December 2018?",
+        "input": "",
+        "output": "\\[\n\\Delta A = A_{\\text{Dec 2018}} - A_{\\text{Mar 2018}}\n\\]"
+    },
+    {
+        "instruction": "4. Between March 2018 and December 2018, how many billions did the maximum aggregate outstanding amount of the AWCC commercial paper program, backed by the revolving credit facility, change?",
+        "input": "",
+        "output": "\\[\n\\Delta A = A_{\\text{Dec 2018}} - A_{\\text{Mar 2018}}\n\\]"
+    },
+    {
+        "instruction": "5. What was the increase or decrease in billions of the maximum aggregate outstanding amount for the AWCC commercial paper program supported by the revolving credit facility from March 2018 to December 2018?",
+        "input": "",
+        "output": "\\[\n\\Delta A = A_{\\text{Dec 2018}} - A_{\\text{Mar 2018}}\n\\]"
+    },
+    {
+        "instruction": "What was the minimum return on the investment in the past year?<sep >What is the smallest annual return of the investment over the last year?<sep >What was the lowest investment return during the last twelve months?<sep >What is the least return achieved by the investment in the last year?<sep >What was the lowest return for the investment in the previous year?",
+        "input": "",
+        "output": "\\[\nR_{\\text{min}} = \\min(R_1, R_2, \\dots, R_n)\n\\]"
+    },
+    {
+        "instruction": "1. What was Devon's average translation adjustment included in accumulated other comprehensive income (in millions) between 2004 and 2007?",
+        "input": "",
+        "output": "\\[\n\\text{Average Translation Adjustments} = \\frac{\\sum_{t=2004}^{2007} \\text{TA}_t}{n}\n\\]"
+    },
+    {
+        "instruction": "2. From 2004 through 2007, what was the mean of Devon's translation adjustments recorded in accumulated other comprehensive income (in millions)?",
+        "input": "",
+        "output": "\\[\n\\text{Average Translation Adjustments} = \\frac{\\sum_{t=2004}^{2007} \\text{TA}_t}{n}\n\\]"
+    },
+    {
+        "instruction": "3. Between 2004 and 2007, what average amount (in millions) did Devon include for translation adjustments in accumulated other comprehensive income?",
+        "input": "",
+        "output": "\\[\n\\text{Average Translation Adjustments} = \\frac{\\sum_{t=2004}^{2007} \\text{TA}_t}{n}\n\\]"
+    },
+    {
+        "instruction": "4. During the years 2004 to 2007, what was the average value of Devon\u2019s translation adjustments within accumulated other comprehensive income (in millions)?",
+        "input": "",
+        "output": "\\[\n\\text{Average Translation Adjustments} = \\frac{\\sum_{t=2004}^{2007} \\text{TA}_t}{n}\n\\]"
+    },
+    {
+        "instruction": "5. What average translation adjustments did Devon report in accumulated other comprehensive income (in millions) from 2004 through 2007?",
+        "input": "",
+        "output": "\\[\n\\text{Average Translation Adjustments} = \\frac{\\sum_{t=2004}^{2007} \\text{TA}_t}{n}\n\\]"
+    },
+    {
+        "instruction": "As of December 31, 2009, what percentage of the $8 billion share repurchase program for Schlumberger's common stock, as approved by the board, remained outstanding?<sep >By December 31, 2009, what was the outstanding percentage left of the board-approved $8 billion share buyback program for Schlumberger common shares?<sep >What was the remaining outstanding percentage of Schlumberger's $8 billion share repurchase plan, approved by the board, as of December 31, 2009?<sep >As approved by the board, what percentage of the $8 billion share repurchase program for Schlumberger common stock was still outstanding on December 31, 2009?<sep >On December 31, 2009, what proportion of the $8 billion share buyback initiative for Schlumberger's common shares, sanctioned by the board, remained outstanding?",
+        "input": "",
+        "output": "\\[\n\\text{Remaining Percentage} = \\left( \\frac{S - R}{S} \\right) \\times 100\n\\]"
+    },
+    {
+        "instruction": "1. As of December 31, 2011, what was the total number (in thousands) of non-vested ISOs and restricted share units?",
+        "input": "",
+        "output": "\\[\n\\text{Total Non-vested ISO's and RSUs} = \\text{Non-vested ISO's} + \\text{Restricted Share Units}\n\\]"
+    },
+    {
+        "instruction": "2. By December 31, 2011, what was the combined total of non-vested ISOs and restricted stock units, measured in thousands?",
+        "input": "",
+        "output": "\\[\n\\text{Total Non-vested ISO's and RSUs} = \\text{Non-vested ISO's} + \\text{Restricted Share Units}\n\\]"
+    },
+    {
+        "instruction": "3. What was the total count, in thousands, of non-vested ISO's and restricted share units as of December 31, 2011?",
+        "input": "",
+        "output": "\\[\n\\text{Total Non-vested ISO's and RSUs} = \\text{Non-vested ISO's} + \\text{Restricted Share Units}\n\\]"
+    },
+    {
+        "instruction": "4. On December 31, 2011, what was the aggregate total (in thousands) of non-vested ISOs and restricted stock units?",
+        "input": "",
+        "output": "\\[\n\\text{Total Non-vested ISO's and RSUs} = \\text{Non-vested ISO's} + \\text{Restricted Share Units}\n\\]"
+    },
+    {
+        "instruction": "5. As of the end of 2011 on December 31, what were the total non-vested ISOs and restricted share units reported in thousands?",
+        "input": "",
+        "output": "\\[\n\\text{Total Non-vested ISO's and RSUs} = \\text{Non-vested ISO's} + \\text{Restricted Share Units}\n\\]"
+    },
+    {
+        "instruction": "1. As of March 28, 2015, what proportion of wholesale segment doors were situated in Europe?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Wholesale Segment Doors in Europe} = \\left( \\frac{\\text{Doors}_{\\text{Europe}}}{\\text{Doors}_{\\text{Total}}} \\right) \\times 100\n\\]"
+    },
+    {
+        "instruction": "2. By March 28, 2015, what percentage of wholesale segment doors had been located in Europe?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Wholesale Segment Doors in Europe} = \\left( \\frac{\\text{Doors}_{\\text{Europe}}}{\\text{Doors}_{\\text{Total}}} \\right) \\times 100\n\\]"
+    },
+    {
+        "instruction": "3. On March 28, 2015, what fraction of wholesale segment doors were based in Europe?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Wholesale Segment Doors in Europe} = \\left( \\frac{\\text{Doors}_{\\text{Europe}}}{\\text{Doors}_{\\text{Total}}} \\right) \\times 100\n\\]"
+    },
+    {
+        "instruction": "4. What was the percentage of wholesale segment doors located in Europe as of March 28, 2015?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Wholesale Segment Doors in Europe} = \\left( \\frac{\\text{Doors}_{\\text{Europe}}}{\\text{Doors}_{\\text{Total}}} \\right) \\times 100\n\\]"
+    },
+    {
+        "instruction": "5. As of March 28th, 2015, what percentage of the wholesale segment doors were located within Europe?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Wholesale Segment Doors in Europe} = \\left( \\frac{\\text{Doors}_{\\text{Europe}}}{\\text{Doors}_{\\text{Total}}} \\right) \\times 100\n\\]"
+    },
+    {
+        "instruction": "1. What was the ratio of the fair value from the preliminary debt analysis at the acquisition date for borrowings in 2014 compared to 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Fair Value of Borrowings}_{2014}}{\\text{Fair Value of Borrowings}_{2013}}\n\\]"
+    },
+    {
+        "instruction": "2. How does the fair value ratio of the preliminary debt analysis on the acquisition date for 2014 borrowings relate to that of 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Fair Value of Borrowings}_{2014}}{\\text{Fair Value of Borrowings}_{2013}}\n\\]"
+    },
+    {
+        "instruction": "3. What proportion represents the fair value of the preliminary debt analysis at acquisition for 2014 borrowings relative to 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Fair Value of Borrowings}_{2014}}{\\text{Fair Value of Borrowings}_{2013}}\n\\]"
+    },
+    {
+        "instruction": "4. What is the ratio between the fair value from the preliminary debt analysis at the acquisition date for 2014 borrowings and that of 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Fair Value of Borrowings}_{2014}}{\\text{Fair Value of Borrowings}_{2013}}\n\\]"
+    },
+    {
+        "instruction": "5. How does the fair value ratio of the preliminary debt analysis at the time of acquisition for 2014\u2019s borrowings compare to 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Fair Value of Borrowings}_{2014}}{\\text{Fair Value of Borrowings}_{2013}}\n\\]"
+    },
+    {
+        "instruction": "1. For the year ending in 2015, what was the percentage difference in the 5-year cumulative total return between Comcast Class A shares and the S&P 500 index?",
+        "input": "",
+        "output": "\\[\n\\text{Difference (\\%)} = \\left( \\frac{P_{\\text{Comcast, end}} - P_{\\text{Comcast, start}}}{P_{\\text{Comcast, start}}} \\right) \\times 100\\% - \\left( \\frac{P_{\\text{S\\&P500, end}} - P_{\\text{S\\&P500, start}}}{P_{\\text{S\\&P500, start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. In the year concluded 2015, by what percentage did the 5-year cumulative total return of Comcast Class A stock differ from that of the S&P 500 index?",
+        "input": "",
+        "output": "\\[\n\\text{Difference (\\%)} = \\left( \\frac{P_{\\text{Comcast, end}} - P_{\\text{Comcast, start}}}{P_{\\text{Comcast, start}}} \\right) \\times 100\\% - \\left( \\frac{P_{\\text{S\\&P500, end}} - P_{\\text{S\\&P500, start}}}{P_{\\text{S\\&P500, start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. What percentage represented the difference in the 5-year cumulative total returns of Comcast Class A stock versus the S&P 500 index for the year ending 2015?",
+        "input": "",
+        "output": "\\[\n\\text{Difference (\\%)} = \\left( \\frac{P_{\\text{Comcast, end}} - P_{\\text{Comcast, start}}}{P_{\\text{Comcast, start}}} \\right) \\times 100\\% - \\left( \\frac{P_{\\text{S\\&P500, end}} - P_{\\text{S\\&P500, start}}}{P_{\\text{S\\&P500, start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. During the year ending in 2015, what was the percentage variation in the 5-year cumulative total return between Comcast Class A shares and the S&P 500 stock index?",
+        "input": "",
+        "output": "\\[\n\\text{Difference (\\%)} = \\left( \\frac{P_{\\text{Comcast, end}} - P_{\\text{Comcast, start}}}{P_{\\text{Comcast, start}}} \\right) \\times 100\\% - \\left( \\frac{P_{\\text{S\\&P500, end}} - P_{\\text{S\\&P500, start}}}{P_{\\text{S\\&P500, start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. By what percentage did Comcast Class A stock's 5-year cumulative total return differ from the S&P 500 index for the fiscal year ending 2015?",
+        "input": "",
+        "output": "\\[\n\\text{Difference (\\%)} = \\left( \\frac{P_{\\text{Comcast, end}} - P_{\\text{Comcast, start}}}{P_{\\text{Comcast, start}}} \\right) \\times 100\\% - \\left( \\frac{P_{\\text{S\\&P500, end}} - P_{\\text{S\\&P500, start}}}{P_{\\text{S\\&P500, start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What is the mean occupied square footage for properties whose leases expired in 2020?",
+        "input": "",
+        "output": "\\[\n\\text{Average Occupied Square Footage} = \\frac{\\sum_{i=1}^{n} \\text{Occupied\\_SF}_i}{n}\n\\]\n\n---"
+    },
+    {
+        "instruction": "2. For properties with lease expiration dates in 2020, what is the average square footage occupied?",
+        "input": "",
+        "output": "\\[\n\\text{Average Occupied Square Footage} = \\frac{\\sum_{i=1}^{n} \\text{Occupied\\_SF}_i}{n}\n\\]\n\n---"
+    },
+    {
+        "instruction": "3. Considering leases that ended in 2020, what is the average occupied area in square feet?",
+        "input": "",
+        "output": "\\[\n\\text{Average Occupied Square Footage} = \\frac{\\sum_{i=1}^{n} \\text{Occupied\\_SF}_i}{n}\n\\]\n\n---"
+    },
+    {
+        "instruction": "4. What average occupied square footage is observed in properties with leases concluding in 2020?",
+        "input": "",
+        "output": "\\[\n\\text{Average Occupied Square Footage} = \\frac{\\sum_{i=1}^{n} \\text{Occupied\\_SF}_i}{n}\n\\]\n\n---"
+    },
+    {
+        "instruction": "5. What is the average square footage occupied by properties with leases that expired in 2020?",
+        "input": "",
+        "output": "\\[\n\\text{Average Occupied Square Footage} = \\frac{\\sum_{i=1}^{n} \\text{Occupied\\_SF}_i}{n}\n\\]\n\n---"
+    },
+    {
+        "instruction": "What variation exists in the percentage of product and related maintenance revenue provided by the custom IC design product group between 2010 and 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\left( \\frac{R_{2012}^{\\text{CI}}}{R_{2012}^{\\text{PM}}} - \\frac{R_{2010}^{\\text{CI}}}{R_{2010}^{\\text{PM}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "How did the custom IC design product group's contribution to product and maintenance revenue percentages change from 2010 to 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\left( \\frac{R_{2012}^{\\text{CI}}}{R_{2012}^{\\text{PM}}} - \\frac{R_{2010}^{\\text{CI}}}{R_{2010}^{\\text{PM}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What is the change in the proportion of product and maintenance revenue attributed to the custom IC design product group in 2010 compared to 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\left( \\frac{R_{2012}^{\\text{CI}}}{R_{2012}^{\\text{PM}}} - \\frac{R_{2010}^{\\text{CI}}}{R_{2010}^{\\text{PM}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "Between 2010 and 2012, how did the percentage share of product and related maintenance revenue from the custom IC design product group differ?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\left( \\frac{R_{2012}^{\\text{CI}}}{R_{2012}^{\\text{PM}}} - \\frac{R_{2010}^{\\text{CI}}}{R_{2010}^{\\text{PM}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "Compare the difference in the custom IC design product group's percentage contribution to product and maintenance revenue in the years 2010 and 2012.",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\left( \\frac{R_{2012}^{\\text{CI}}}{R_{2012}^{\\text{PM}}} - \\frac{R_{2010}^{\\text{CI}}}{R_{2010}^{\\text{PM}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What was the total five-year return on O'Reilly Automotive Inc. starting in 2019?",
+        "input": "",
+        "output": "\\[\n\\text{Total Return} = \\left( \\frac{P_{\\text{end}} - P_{\\text{begin}} + D}{P_{\\text{begin}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. How much overall return did O'Reilly Automotive Inc. achieve over five years beginning in 2019?",
+        "input": "",
+        "output": "\\[\n\\text{Total Return} = \\left( \\frac{P_{\\text{end}} - P_{\\text{begin}} + D}{P_{\\text{begin}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. What is the cumulative five-year return for O'Reilly Automotive Inc. since 2019?",
+        "input": "",
+        "output": "\\[\n\\text{Total Return} = \\left( \\frac{P_{\\text{end}} - P_{\\text{begin}} + D}{P_{\\text{begin}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. What was O'Reilly Automotive Inc.'s five-year total return starting from 2019?",
+        "input": "",
+        "output": "\\[\n\\text{Total Return} = \\left( \\frac{P_{\\text{end}} - P_{\\text{begin}} + D}{P_{\\text{begin}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. What is the five-year return on investment for O'Reilly Automotive Inc. commencing in 2019?",
+        "input": "",
+        "output": "\\[\n\\text{Total Return} = \\left( \\frac{P_{\\text{end}} - P_{\\text{begin}} + D}{P_{\\text{begin}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What was the span of shares purchased from October to December 2018?<sep >\n2. Between October and December 2018, what was the range of shares acquired?<sep >\n3. During the period from October to December 2018, what was the range of shares bought?<sep >\n4. What range of shares was bought in the timeframe of October to December 2018?<sep >\n5. From Oct to Dec 2018, what was the range of shares that were purchased?",
+        "input": "",
+        "output": "\\[\n\\text{Range} = \\max(S) - \\min(S)\n\\]"
+    },
+    {
+        "instruction": "1. What proportion of stock option awards is anticipated to vest by December 26, 2015?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Vested} = \\left( \\frac{D_{\\text{target}} - D_{\\text{start}}}{D_{\\text{end}} - D_{\\text{start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. By December 26, 2015, what percentage of stock option awards are projected to have vested?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Vested} = \\left( \\frac{D_{\\text{target}} - D_{\\text{start}}}{D_{\\text{end}} - D_{\\text{start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. As of December 26, 2015, what fraction of stock option awards is expected to vest?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Vested} = \\left( \\frac{D_{\\text{target}} - D_{\\text{start}}}{D_{\\text{end}} - D_{\\text{start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. By the date of December 26, 2015, what percentage of stock option awards are forecasted to vest?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Vested} = \\left( \\frac{D_{\\text{target}} - D_{\\text{start}}}{D_{\\text{end}} - D_{\\text{start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. On December 26, 2015, what percentage of the awarded stock options are expected to have vested?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Vested} = \\left( \\frac{D_{\\text{target}} - D_{\\text{start}}}{D_{\\text{end}} - D_{\\text{start}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What was the debt-to-asset ratio during Eastern Echo Holding PLC's acquisition?",
+        "input": "",
+        "output": "\\[\n\\text{Debt to Asset Ratio} = \\frac{\\text{Total Debt}}{\\text{Total Assets}}\n\\]"
+    },
+    {
+        "instruction": "2. During the acquisition of Eastern Echo Holding PLC, what was the ratio of debt to assets?",
+        "input": "",
+        "output": "\\[\n\\text{Debt to Asset Ratio} = \\frac{\\text{Total Debt}}{\\text{Total Assets}}\n\\]"
+    },
+    {
+        "instruction": "3. In the acquisition of Eastern Echo Holding PLC, what was the debt-asset ratio?",
+        "input": "",
+        "output": "\\[\n\\text{Debt to Asset Ratio} = \\frac{\\text{Total Debt}}{\\text{Total Assets}}\n\\]"
+    },
+    {
+        "instruction": "4. What was Eastern Echo Holding PLC's debt to asset ratio at the time of acquisition?",
+        "input": "",
+        "output": "\\[\n\\text{Debt to Asset Ratio} = \\frac{\\text{Total Debt}}{\\text{Total Assets}}\n\\]"
+    },
+    {
+        "instruction": "5. What debt-to-asset ratio did Eastern Echo Holding PLC have when it was acquired?",
+        "input": "",
+        "output": "\\[\n\\text{Debt to Asset Ratio} = \\frac{\\text{Total Debt}}{\\text{Total Assets}}\n\\]"
+    },
+    {
+        "instruction": "1. In 2010, the company finalized a favorable audit agreement. Consequently, what might the balance be on December 1st?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Balance} = \\text{Original Balance} + \\text{Favorable Settlement}\n\\]"
+    },
+    {
+        "instruction": "2. During the year 2010, the company reached a beneficial settlement regarding an audit agreement. As a result of this agreement, what could the December 1st balance be?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Balance} = \\text{Original Balance} + \\text{Favorable Settlement}\n\\]"
+    },
+    {
+        "instruction": "3. In the year 2010, the company concluded a positive audit agreement. Therefore, what is the potential balance on December 1st?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Balance} = \\text{Original Balance} + \\text{Favorable Settlement}\n\\]"
+    },
+    {
+        "instruction": "4. The company settled a favorable audit agreement in 2010. Due to this advantageous agreement, what may the balance on December 1st show?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Balance} = \\text{Original Balance} + \\text{Favorable Settlement}\n\\]"
+    },
+    {
+        "instruction": "5. In 2010, after resolving a favorable audit agreement, what might the company\u2019s balance be on December 1st as a result of this agreement?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Balance} = \\text{Original Balance} + \\text{Favorable Settlement}\n\\]"
+    },
+    {
+        "instruction": "1. By what percentage did pipeline barrels decrease between 2007 and 2009?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Decline} = \\left( \\frac{V_{2007} - V_{2009}}{V_{2007}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "2. What rate of decline was observed in pipeline barrels from 2007 to 2009?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Decline} = \\left( \\frac{V_{2007} - V_{2009}}{V_{2007}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "3. What percentage reduction occurred in pipeline barrels from 2007 to 2009?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Decline} = \\left( \\frac{V_{2007} - V_{2009}}{V_{2007}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "4. How much did pipeline barrels fall in percentage terms between 2007 and 2009?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Decline} = \\left( \\frac{V_{2007} - V_{2009}}{V_{2007}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "5. What was the percentage decrease in pipeline barrels from 2007 through 2009?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Decline} = \\left( \\frac{V_{2007} - V_{2009}}{V_{2007}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "1. What was the overall change in system energy\u2019s receivables from the money pool between 2014 and 2015?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Receivables} = \\text{Receivables}_{2015} - \\text{Receivables}_{2014}\n\\]"
+    },
+    {
+        "instruction": "2. Determine the net difference in system energy receivables from the money pool from 2014 to 2015.",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Receivables} = \\text{Receivables}_{2015} - \\text{Receivables}_{2014}\n\\]"
+    },
+    {
+        "instruction": "3. Calculate the net variation in the system\u2019s energy receivables from the money pool for the years 2014 to 2015.",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Receivables} = \\text{Receivables}_{2015} - \\text{Receivables}_{2014}\n\\]"
+    },
+    {
+        "instruction": "4. Identify the net alteration in system energy\u2019s receivables from the money pool between 2014 and 2015.",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Receivables} = \\text{Receivables}_{2015} - \\text{Receivables}_{2014}\n\\]"
+    },
+    {
+        "instruction": "5. What is the net change in the system's energy receivables from the money pool from 2014 to 2015?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Receivables} = \\text{Receivables}_{2015} - \\text{Receivables}_{2014}\n\\]"
+    },
+    {
+        "instruction": "1. What was the percentage difference in the reclassification of non-controlling interests between 2007 and 2008?",
+        "input": "",
+        "output": null
+    },
+    {
+        "instruction": "2. What percentage change occurred in the reclassification of non-controlling interests from 2007 to 2008?",
+        "input": "",
+        "output": null
+    },
+    {
+        "instruction": "3. From 2007 to 2008, what was the percent change in the reclassification of non-controlling interests?",
+        "input": "",
+        "output": null
+    },
+    {
+        "instruction": "4. How much did the reclassification of non-controlling interests change in percentage terms from 2007 to 2008?",
+        "input": "",
+        "output": null
+    },
+    {
+        "instruction": "5. What was the rate of percentage change in the reclassification of non-controlling interests between the years 2007 and 2008?",
+        "input": "",
+        "output": null
+    },
+    {
+        "instruction": "1. What proportion of the total net revenue in the investing and lending segment in 2016 was made up by equity securities?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Equity Securities} = \\left( \\frac{\\text{Net Revenue from Equity Securities}}{\\text{Total Net Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. During 2016, equity securities accounted for what percentage of the total net revenue in the investing & lending segment?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Equity Securities} = \\left( \\frac{\\text{Net Revenue from Equity Securities}}{\\text{Total Net Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. In the 2016 investing and lending segment, what percentage of the total net revenue was constituted by equity securities?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Equity Securities} = \\left( \\frac{\\text{Net Revenue from Equity Securities}}{\\text{Total Net Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. What share of the total net revenue in the investing & lending segment for 2016 was derived from equity securities?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Equity Securities} = \\left( \\frac{\\text{Net Revenue from Equity Securities}}{\\text{Total Net Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. Equity securities comprised what percentage of the total net revenue in the investing and lending segment during 2016?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Equity Securities} = \\left( \\frac{\\text{Net Revenue from Equity Securities}}{\\text{Total Net Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. If foreign currency transaction losses were excluded, what would the net income for 2001 amount to in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Net Income} = \\text{Reported Net Income} + \\text{Foreign Currency Transaction Losses}\n\\]\n\n---"
+    },
+    {
+        "instruction": "2. Excluding losses from foreign currency transactions, what would the 2001 net income be in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Net Income} = \\text{Reported Net Income} + \\text{Foreign Currency Transaction Losses}\n\\]\n\n---"
+    },
+    {
+        "instruction": "3. What would the net income for 2001 have been in millions without experiencing foreign currency transaction losses?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Net Income} = \\text{Reported Net Income} + \\text{Foreign Currency Transaction Losses}\n\\]\n\n---"
+    },
+    {
+        "instruction": "4. Without accounting for foreign currency transaction losses, what is the 2001 net income figure in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Net Income} = \\text{Reported Net Income} + \\text{Foreign Currency Transaction Losses}\n\\]\n\n---"
+    },
+    {
+        "instruction": "5. In the absence of foreign currency transaction losses, what was the net income for 2001 in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Adjusted Net Income} = \\text{Reported Net Income} + \\text{Foreign Currency Transaction Losses}\n\\]\n\n---"
+    },
+    {
+        "instruction": "What was the change in ground leases from 2012 to 2013 in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta GL = GL_{2013} - GL_{2012}\n\\]"
+    },
+    {
+        "instruction": "How much did ground leases fluctuate between 2012 and 2013, measured in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta GL = GL_{2013} - GL_{2012}\n\\]"
+    },
+    {
+        "instruction": "Between 2012 and 2013, what was the adjustment in ground leases in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta GL = GL_{2013} - GL_{2012}\n\\]"
+    },
+    {
+        "instruction": "What difference occurred in ground leases between the years 2012 and 2013, expressed in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta GL = GL_{2013} - GL_{2012}\n\\]"
+    },
+    {
+        "instruction": "In millions, what was the alteration in ground leases from 2012 to 2013?",
+        "input": "",
+        "output": "\\[\n\\Delta GL = GL_{2013} - GL_{2012}\n\\]"
+    },
+    {
+        "instruction": "1. By how much did disco losses decrease in 2001?",
+        "input": "",
+        "output": "\\[\n\\text{Improvement (\\%)} = \\left( \\frac{L_{\\text{previous}} - L_{2001}}{L_{\\text{previous}}} \\right) \\times 100\n\\]\n\n---"
+    },
+    {
+        "instruction": "2. What was the reduction in disco losses during the year 2001?",
+        "input": "",
+        "output": "\\[\n\\text{Improvement (\\%)} = \\left( \\frac{L_{\\text{previous}} - L_{2001}}{L_{\\text{previous}}} \\right) \\times 100\n\\]\n\n---"
+    },
+    {
+        "instruction": "3. To what extent did disco losses improve in 2001?",
+        "input": "",
+        "output": "\\[\n\\text{Improvement (\\%)} = \\left( \\frac{L_{\\text{previous}} - L_{2001}}{L_{\\text{previous}}} \\right) \\times 100\n\\]\n\n---"
+    },
+    {
+        "instruction": "4. How significantly were disco losses improved in 2001?",
+        "input": "",
+        "output": "\\[\n\\text{Improvement (\\%)} = \\left( \\frac{L_{\\text{previous}} - L_{2001}}{L_{\\text{previous}}} \\right) \\times 100\n\\]\n\n---"
+    },
+    {
+        "instruction": "5. In 2001, by how much did disco losses get better?",
+        "input": "",
+        "output": "\\[\n\\text{Improvement (\\%)} = \\left( \\frac{L_{\\text{previous}} - L_{2001}}{L_{\\text{previous}}} \\right) \\times 100\n\\]\n\n---"
+    },
+    {
+        "instruction": "1. What was the overall impact of a one percentage point change on the combined other post-retirement benefit obligations?",
+        "input": "",
+        "output": "\\[\n\\Delta O = O \\times \\Delta r\n\\]"
+    },
+    {
+        "instruction": "2. How did a one percentage point alteration affect the total of the other post-retirement benefit obligations?",
+        "input": "",
+        "output": "\\[\n\\Delta O = O \\times \\Delta r\n\\]"
+    },
+    {
+        "instruction": "3. What is the net effect of modifying by one percentage point on the other post-retirement benefit obligations combined?",
+        "input": "",
+        "output": "\\[\n\\Delta O = O \\times \\Delta r\n\\]"
+    },
+    {
+        "instruction": "4. In aggregate, what was the consequence of a one percentage point shift on the other post-retirement benefit obligations?",
+        "input": "",
+        "output": "\\[\n\\Delta O = O \\times \\Delta r\n\\]"
+    },
+    {
+        "instruction": "5. What was the total influence of a one percentage point adjustment on the combined other post-retirement benefit obligations?",
+        "input": "",
+        "output": "\\[\n\\Delta O = O \\times \\Delta r\n\\]"
+    },
+    {
+        "instruction": "1. What was the change in cash disbursements for exit costs at PMI between 2013 and 2014, measured in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Difference in Cash Payments} = \\text{Cash}_{2014} - \\text{Cash}_{2013}\n\\]"
+    },
+    {
+        "instruction": "2. Between 2013 and 2014, how much did cash payments for exit costs at PMI differ, in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Difference in Cash Payments} = \\text{Cash}_{2014} - \\text{Cash}_{2013}\n\\]"
+    },
+    {
+        "instruction": "3. In millions, what variation was observed in PMI's cash payments associated with exit costs from 2013 to 2014?",
+        "input": "",
+        "output": "\\[\n\\text{Difference in Cash Payments} = \\text{Cash}_{2014} - \\text{Cash}_{2013}\n\\]"
+    },
+    {
+        "instruction": "4. How much did PMI's cash outlays for exit costs change from 2013 to 2014, in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Difference in Cash Payments} = \\text{Cash}_{2014} - \\text{Cash}_{2013}\n\\]"
+    },
+    {
+        "instruction": "5. What was the amount of difference in PMI's cash payments for exit-related expenses between 2013 and 2014, expressed in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Difference in Cash Payments} = \\text{Cash}_{2014} - \\text{Cash}_{2013}\n\\]"
+    },
+    {
+        "instruction": "1. What proportion of the total contractual obligations due in 2009 consists of long-term debt obligations?<sep >\n2. In 2009, what percentage of all contractual obligations is made up of long-term debt obligations?<sep >\n3. What fraction of the overall contractual obligations due in 2009 is constituted by long-term debt obligations?<sep >\n4. For the year 2009, what percentage of the total contractual obligations involves long-term debt obligations?<sep >\n5. During 2009, what percentage of the total contractual obligations owed are long-term debt obligations?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Long-Term Debt Obligations} = \\left( \\frac{\\text{Long-Term Debt Obligations Due in 2009}}{\\text{Total Contractual Obligations Due in 2009}} \\right) \\times 100\n\\]"
+    },
+    {
+        "instruction": "1. What proportion of operating leases are currently due?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Current Operating Leases} = \\left( \\frac{\\text{Current Operating Lease Payments}}{\\text{Total Operating Lease Payments}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. What is the present percentage of due operating leases?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Current Operating Leases} = \\left( \\frac{\\text{Current Operating Lease Payments}}{\\text{Total Operating Lease Payments}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. What fraction of operating leases must be paid at this time?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Current Operating Leases} = \\left( \\frac{\\text{Current Operating Lease Payments}}{\\text{Total Operating Lease Payments}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. What share of operating leases is due right now?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Current Operating Leases} = \\left( \\frac{\\text{Current Operating Lease Payments}}{\\text{Total Operating Lease Payments}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. What percentage of operating leases requires payment currently?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Current Operating Leases} = \\left( \\frac{\\text{Current Operating Lease Payments}}{\\text{Total Operating Lease Payments}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "By how much did the interest payable decrease from August 2012 to December 2014?<sep >Calculate the reduction in interest payable between August 2012 and December 2014.<sep >What was the amount by which the interest payable declined between August 2012 and December 2014?<sep >Determine the decrease in the interest payable from August 2012 to December 2014.<sep >Identify the reduction in interest payable between August 2012 and December 2014.",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{Interest Payable} = \\text{Interest Payable}_{\\text{Aug 2012}} - \\text{Interest Payable}_{\\text{Dec 2014}}\n\\]"
+    },
+    {
+        "instruction": "How much did the interest paid change from 2012 to 2013 in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta I = I_{2013} - I_{2012}\n\\]"
+    },
+    {
+        "instruction": "What was the difference in interest payments between the years 2012 and 2013, measured in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta I = I_{2013} - I_{2012}\n\\]"
+    },
+    {
+        "instruction": "Between 2012 and 2013, what was the million-dollar change in interest paid?",
+        "input": "",
+        "output": "\\[\n\\Delta I = I_{2013} - I_{2012}\n\\]"
+    },
+    {
+        "instruction": "Identify the change in interest expenditures, in millions, from 2012 to 2013.",
+        "input": "",
+        "output": "\\[\n\\Delta I = I_{2013} - I_{2012}\n\\]"
+    },
+    {
+        "instruction": "What variation occurred in the interest paid between 2012 and 2013, expressed in millions?",
+        "input": "",
+        "output": "\\[\n\\Delta I = I_{2013} - I_{2012}\n\\]"
+    },
+    {
+        "instruction": "What growth rate was anticipated for rental expenses related to operating leases in 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Expected Growth Rate} = \\left( \\frac{\\text{RE}_{2008} - \\text{RE}_{2007}}{\\text{RE}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "In 2008, what was the projected increase in rental costs under operating leases?",
+        "input": "",
+        "output": "\\[\n\\text{Expected Growth Rate} = \\left( \\frac{\\text{RE}_{2008} - \\text{RE}_{2007}}{\\text{RE}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What was the forecasted rate of growth for rental expenses under operating leases during 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Expected Growth Rate} = \\left( \\frac{\\text{RE}_{2008} - \\text{RE}_{2007}}{\\text{RE}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "For operating leases in 2008, what growth rate was expected in rental expenses?",
+        "input": "",
+        "output": "\\[\n\\text{Expected Growth Rate} = \\left( \\frac{\\text{RE}_{2008} - \\text{RE}_{2007}}{\\text{RE}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What expected growth rate applied to rental expenses under operating leases in the year 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Expected Growth Rate} = \\left( \\frac{\\text{RE}_{2008} - \\text{RE}_{2007}}{\\text{RE}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What was the mean balance of letters of credit outstanding, in millions, on December 31, 2007 and 2006? <sep >\n2. As of December 31, 2007 and 2006, what was the average outstanding balance of letters of credit in millions? <sep >\n3. Determine the average amount, measured in millions, of letters of credit outstanding on December 31 for the years 2007 and 2006. <sep >\n4. What is the average remaining balance of letters of credit, expressed in millions, as of December 31, 2007 and 2006? <sep >\n5. Calculate the mean outstanding balance of letters of credit in millions as of December 31 for both 2007 and 2006.",
+        "input": "",
+        "output": "\\[\n\\text{Average Balance} = \\frac{B_{2006} + B_{2007}}{2}\n\\]"
+    },
+    {
+        "instruction": "1. What is the percentage variation in the total stockholder equity balance from January 2006 to 2007?",
+        "input": "",
+        "output": "\\[\n\\text{Percent Change} = \\left( \\frac{E_{\\text{2007}} - E_{\\text{2006}}}{E_{\\text{2006}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "2. Calculate the percent difference in the overall balance of stockholders' equity between January 2006 and 2007.",
+        "input": "",
+        "output": "\\[\n\\text{Percent Change} = \\left( \\frac{E_{\\text{2007}} - E_{\\text{2006}}}{E_{\\text{2006}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "3. Determine the percentage change in total stockholder equity from January 2006 through 2007.",
+        "input": "",
+        "output": "\\[\n\\text{Percent Change} = \\left( \\frac{E_{\\text{2007}} - E_{\\text{2006}}}{E_{\\text{2006}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "4. What amount represents the percent shift in the aggregate stockholder equity balance between January 2006 and 2007?",
+        "input": "",
+        "output": "\\[\n\\text{Percent Change} = \\left( \\frac{E_{\\text{2007}} - E_{\\text{2006}}}{E_{\\text{2006}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "5. Find the percentage alteration in the total balance of stockholders\u2019 equity between January 2006 and 2007.",
+        "input": "",
+        "output": "\\[\n\\text{Percent Change} = \\left( \\frac{E_{\\text{2007}} - E_{\\text{2006}}}{E_{\\text{2006}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "1. What is the overall cash expenditure for restructuring initiatives over the past three years?",
+        "input": "",
+        "output": "\\[\n\\text{Total Cash Paid for Restructuring (TCR)} = CR_1 + CR_2 + CR_3\n\\]"
+    },
+    {
+        "instruction": "2. How much total cash has been spent on restructuring initiatives in the last three years?",
+        "input": "",
+        "output": "\\[\n\\text{Total Cash Paid for Restructuring (TCR)} = CR_1 + CR_2 + CR_3\n\\]"
+    },
+    {
+        "instruction": "3. What has been the total cash payment associated with restructuring initiatives during the previous three years?",
+        "input": "",
+        "output": "\\[\n\\text{Total Cash Paid for Restructuring (TCR)} = CR_1 + CR_2 + CR_3\n\\]"
+    },
+    {
+        "instruction": "4. During the last three years, what total amount has been paid in cash for restructuring initiatives?",
+        "input": "",
+        "output": "\\[\n\\text{Total Cash Paid for Restructuring (TCR)} = CR_1 + CR_2 + CR_3\n\\]"
+    },
+    {
+        "instruction": "5. Over the past three years, how much cash in total has been paid concerning restructuring initiatives?",
+        "input": "",
+        "output": "\\[\n\\text{Total Cash Paid for Restructuring (TCR)} = CR_1 + CR_2 + CR_3\n\\]"
+    },
+    {
+        "instruction": "What was the difference in total accumulated other comprehensive losses, measured in millions, from 2012 to 2013?<sep >How much did the total accumulated other comprehensive losses change between 2012 and 2013, expressed in millions?<sep >Calculate the variation in total accumulated other comprehensive losses in millions from the year 2012 to 2013.<sep >Determine the shift in total accumulated other comprehensive losses, in millions, from 2012 to 2013.<sep >What was the increase or decrease in total accumulated other comprehensive losses measured in millions from 2012 to 2013?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{AOCI} = \\text{AOCI}_{2013} - \\text{AOCI}_{2012}\n\\]"
+    },
+    {
+        "instruction": "1. What was the average risk-free rate in the year 2018?\n<sep >\n2. In 2018, what was the mean risk-free rate?\n<sep >\n3. For the year 2018, what constitutes the average risk-free rate?\n<sep >\n4. During 2018, what was the average rate considered risk-free?\n<sep >\n5. What average risk-free rate was observed in 2018?",
+        "input": "",
+        "output": "\\[\n\\text{Average Risk-Free Rate} = \\frac{1}{n} \\sum_{i=1}^{n} r_i\n\\]"
+    },
+    {
+        "instruction": "1. What was the cumulative percentage total return of Citigroup's common stock over the five-year period concluding in 2009?<sep >\n2. During the five-year period ending in 2009, what percent total cumulative return did Citigroup's common stock achieve?<sep >\n3. For the five-year span that ended in 2009, what was the percentage total return accumulated by Citigroup's common stock?<sep >\n4. What percentage of total cumulative return did Citigroup's common stock generate over the five years ending in 2009?<sep >\n5. Over the five-year period ending in 2009, what was the percent cumulative total return on Citigroup\u2019s common shares?",
+        "input": "",
+        "output": "\\[\n\\text{Cumulative Total Return} = \\left( \\frac{P_{\\text{end}} - P_{\\text{begin}} + D}{P_{\\text{begin}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "Considering the 2015 capital expenditures reported under GAAP, what percentage of the total value is allocated to investments in and advances to unconsolidated affiliates?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Investments in and Advances to Unconsolidated Affiliates}}{\\text{Total Capital Expenditures}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "Based on GAAP principles, what proportion of the 2015 capital expenditures represents investments in and advances to unconsolidated affiliates out of the total value?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Investments in and Advances to Unconsolidated Affiliates}}{\\text{Total Capital Expenditures}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "When examining the 2015 capital expenditures on a GAAP basis, what is the percentage of the total value invested in and advanced to unconsolidated affiliates?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Investments in and Advances to Unconsolidated Affiliates}}{\\text{Total Capital Expenditures}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "In the context of GAAP-based capital expenditures for 2015, what fraction of the total value is dedicated to investments in and advances to unconsolidated affiliates?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Investments in and Advances to Unconsolidated Affiliates}}{\\text{Total Capital Expenditures}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "Given the 2015 GAAP capital expenditures, what is the percentage of the overall value that is invested in and advanced to unconsolidated affiliates?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Investments in and Advances to Unconsolidated Affiliates}}{\\text{Total Capital Expenditures}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. As of March 31, 2012, what proportion of global distribution channels were located in Europe?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Distribution Channels in Europe} = \\left( \\frac{N_{\\text{Europe}}}{N_{\\text{Worldwide}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. By March 31, 2012, what percentage of the world's distribution channels were based in Europe?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Distribution Channels in Europe} = \\left( \\frac{N_{\\text{Europe}}}{N_{\\text{Worldwide}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. What fraction of worldwide distribution channels were situated in Europe as of March 31, 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Distribution Channels in Europe} = \\left( \\frac{N_{\\text{Europe}}}{N_{\\text{Worldwide}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. As of March 31, 2012, what share of global distribution channels existed in Europe?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Distribution Channels in Europe} = \\left( \\frac{N_{\\text{Europe}}}{N_{\\text{Worldwide}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. By the end of March 31, 2012, what percentage of distribution channels worldwide were in Europe?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Distribution Channels in Europe} = \\left( \\frac{N_{\\text{Europe}}}{N_{\\text{Worldwide}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "As of December 31, 2004, what ratio did the carrying amount have compared to the fair value of long-term obligations?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Carrying Amount}}{\\text{Fair Value of Long-term Obligations}}\n\\]"
+    },
+    {
+        "instruction": "What was the ratio between the carrying amount and the fair value of long-term obligations as of December 31, 2004?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Carrying Amount}}{\\text{Fair Value of Long-term Obligations}}\n\\]"
+    },
+    {
+        "instruction": "On December 31, 2004, what proportion did the carrying amount represent in relation to the fair value of long-term obligations?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Carrying Amount}}{\\text{Fair Value of Long-term Obligations}}\n\\]"
+    },
+    {
+        "instruction": "As of 12/31/2004, what was the carrying amount to fair value ratio for long-term obligations?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Carrying Amount}}{\\text{Fair Value of Long-term Obligations}}\n\\]"
+    },
+    {
+        "instruction": "On December 31st, 2004, what was the ratio of carrying amount relative to the fair value of long-term obligations?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{\\text{Carrying Amount}}{\\text{Fair Value of Long-term Obligations}}\n\\]"
+    },
+    {
+        "instruction": "1. What was the difference in total credit extension commitments between 2016 and 2017?",
+        "input": "",
+        "output": "\\[\n\\Delta C = C_{2017} - C_{2016}\n\\]"
+    },
+    {
+        "instruction": "2. How did the overall commitments to extend credit change from 2016 to 2017?",
+        "input": "",
+        "output": "\\[\n\\Delta C = C_{2017} - C_{2016}\n\\]"
+    },
+    {
+        "instruction": "3. What variation occurred in the total credit extending commitments from 2016 to 2017?",
+        "input": "",
+        "output": "\\[\n\\Delta C = C_{2017} - C_{2016}\n\\]"
+    },
+    {
+        "instruction": "4. How much did the total commitments for extending credit alter between 2016 and 2017?",
+        "input": "",
+        "output": "\\[\n\\Delta C = C_{2017} - C_{2016}\n\\]"
+    },
+    {
+        "instruction": "5. What was the shift in total commitments to provide credit from 2016 to 2017?",
+        "input": "",
+        "output": "\\[\n\\Delta C = C_{2017} - C_{2016}\n\\]"
+    },
+    {
+        "instruction": "What is the percentage reduction in the expenses for deferred compensation and deferred benefit liability from 2017 to 2018?<sep >Between 2017 and 2018, by what percentage did the expenditures for deferred compensation and deferred benefit liabilities decrease?<sep >Calculate the percentage decrease in the amounts spent on deferred compensation and deferred benefit liabilities during 2017 and 2018.<sep >What was the percentage drop in the costs associated with deferred compensation and deferred benefit liabilities between the years 2017 and 2018?<sep >Determine the percent decline in the expenses for deferred compensation and deferred benefit liabilities from 2017 to 2018.",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Decrease} = \\left( \\frac{\\text{Amount}_{2017} - \\text{Amount}_{2018}}{\\text{Amount}_{2017}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What was the return on investment for the S&P 500 between 2006 and 2007?",
+        "input": "",
+        "output": "\\[\n\\text{ROI} = \\left( \\frac{V_{\\text{final}} - V_{\\text{initial}}}{V_{\\text{initial}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What ROI did an investment in the S&P 500 achieve from 2006 to 2007?",
+        "input": "",
+        "output": "\\[\n\\text{ROI} = \\left( \\frac{V_{\\text{final}} - V_{\\text{initial}}}{V_{\\text{initial}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "Between 2006 and 2007, what was the return on an investment in the S&P 500?",
+        "input": "",
+        "output": "\\[\n\\text{ROI} = \\left( \\frac{V_{\\text{final}} - V_{\\text{initial}}}{V_{\\text{initial}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "From 2006 to 2007, what return did an investment in the S&P 500 generate?",
+        "input": "",
+        "output": "\\[\n\\text{ROI} = \\left( \\frac{V_{\\text{final}} - V_{\\text{initial}}}{V_{\\text{initial}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "During the period of 2006 to 2007, what was the ROI of investing in the S&P 500?",
+        "input": "",
+        "output": "\\[\n\\text{ROI} = \\left( \\frac{V_{\\text{final}} - V_{\\text{initial}}}{V_{\\text{initial}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What was the ratio of commercial credit line borrowing, net of discounts, from 2015 compared to 2014?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{B_{2015}}{B_{2014}}\n\\]"
+    },
+    {
+        "instruction": "How did the ratio of commercial (net of discount) credit line borrowing in 2015 compare to that of 2014?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{B_{2015}}{B_{2014}}\n\\]"
+    },
+    {
+        "instruction": "What is the ratio of commercial credit line borrowing, after discounts, for 2015 versus 2014?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{B_{2015}}{B_{2014}}\n\\]"
+    },
+    {
+        "instruction": "Compare the ratio of commercial (net of discount) credit line borrowing between 2015 and 2014.",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{B_{2015}}{B_{2014}}\n\\]"
+    },
+    {
+        "instruction": "In 2015, what was the ratio of commercial credit line borrowing, net of discounts, relative to 2014?",
+        "input": "",
+        "output": "\\[\n\\text{Ratio} = \\frac{B_{2015}}{B_{2014}}\n\\]"
+    },
+    {
+        "instruction": "1. By how much did the company's 2019 valuation allowance decrease between 2010 and 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Decrease in Valuation Allowance} = \\text{VA}_{2010} - \\text{VA}_{2012}\n\\]"
+    },
+    {
+        "instruction": "2. What was the extent of the reduction in the company\u2019s 2019 valuation allowance from 2010 to 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Decrease in Valuation Allowance} = \\text{VA}_{2010} - \\text{VA}_{2012}\n\\]"
+    },
+    {
+        "instruction": "3. To what degree did the company\u2019s 2019 valuation allowance decline from 2010 to 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Decrease in Valuation Allowance} = \\text{VA}_{2010} - \\text{VA}_{2012}\n\\]"
+    },
+    {
+        "instruction": "4. How significantly did the company\u2019s 2019 valuation allowance drop from 2010 to 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Decrease in Valuation Allowance} = \\text{VA}_{2010} - \\text{VA}_{2012}\n\\]"
+    },
+    {
+        "instruction": "5. What amount did the company\u2019s 2019 valuation allowance decrease during the period from 2010 to 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Decrease in Valuation Allowance} = \\text{VA}_{2010} - \\text{VA}_{2012}\n\\]"
+    },
+    {
+        "instruction": "1. How many shares were held by shareholders in the year 2007?",
+        "input": "",
+        "output": "\\[\n\\text{Outstanding Shares} = \\text{Issued Shares} - \\text{Treasury Shares}\n\\]"
+    },
+    {
+        "instruction": "2. In 2007, what was the total number of shares owned by shareholders?",
+        "input": "",
+        "output": "\\[\n\\text{Outstanding Shares} = \\text{Issued Shares} - \\text{Treasury Shares}\n\\]"
+    },
+    {
+        "instruction": "3. What was the quantity of shares that belonged to shareholders for the year 2007?",
+        "input": "",
+        "output": "\\[\n\\text{Outstanding Shares} = \\text{Issued Shares} - \\text{Treasury Shares}\n\\]"
+    },
+    {
+        "instruction": "4. During the year 2007, how many shares were in the possession of the shareholders?",
+        "input": "",
+        "output": "\\[\n\\text{Outstanding Shares} = \\text{Issued Shares} - \\text{Treasury Shares}\n\\]"
+    },
+    {
+        "instruction": "5. As of 2007, what number of shares was owned by the shareholders?",
+        "input": "",
+        "output": "\\[\n\\text{Outstanding Shares} = \\text{Issued Shares} - \\text{Treasury Shares}\n\\]"
+    },
+    {
+        "instruction": "What proportion of the total shares bought were acquired in November?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Shares Purchased in November} = \\left( \\frac{\\text{Shares}_{\\text{Nov}}}{\\text{Shares}_{\\text{Total}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What fraction of all purchased shares were bought during November?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Shares Purchased in November} = \\left( \\frac{\\text{Shares}_{\\text{Nov}}}{\\text{Shares}_{\\text{Total}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "In November, what percentage of the overall shares purchased was made?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Shares Purchased in November} = \\left( \\frac{\\text{Shares}_{\\text{Nov}}}{\\text{Shares}_{\\text{Total}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "During November, what share of the total purchased stocks was bought?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Shares Purchased in November} = \\left( \\frac{\\text{Shares}_{\\text{Nov}}}{\\text{Shares}_{\\text{Total}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What part of the total shares purchased occurred in November?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Shares Purchased in November} = \\left( \\frac{\\text{Shares}_{\\text{Nov}}}{\\text{Shares}_{\\text{Total}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "1. What was the net cash change in millions for the year 2018?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Cash} = C_{\\text{end}} - C_{\\text{begin}}\n\\]"
+    },
+    {
+        "instruction": "2. In 2018, what was the net variation in cash measured in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Cash} = C_{\\text{end}} - C_{\\text{begin}}\n\\]"
+    },
+    {
+        "instruction": "3. During 2018, how much did the cash change net, reported in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Cash} = C_{\\text{end}} - C_{\\text{begin}}\n\\]"
+    },
+    {
+        "instruction": "4. For the year 2018, what was the net fluctuation in cash expressed in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Cash} = C_{\\text{end}} - C_{\\text{begin}}\n\\]"
+    },
+    {
+        "instruction": "5. What net change in cash, in millions, occurred in 2018?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change in Cash} = C_{\\text{end}} - C_{\\text{begin}}\n\\]"
+    },
+    {
+        "instruction": "1. What was the percentage change in the net unrecognized tax benefit in 2012 compared to 2011?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\text{Net Unrecognized Tax Benefit}_{2012} - \\text{Net Unrecognized Tax Benefit}_{2011}}{\\text{Net Unrecognized Tax Benefit}_{2011}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "2. How much did the net unrecognized tax benefit percentage change from 2011 to 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\text{Net Unrecognized Tax Benefit}_{2012} - \\text{Net Unrecognized Tax Benefit}_{2011}}{\\text{Net Unrecognized Tax Benefit}_{2011}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "3. Determine the percentage difference in net unrecognized tax benefits between 2011 and 2012.",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\text{Net Unrecognized Tax Benefit}_{2012} - \\text{Net Unrecognized Tax Benefit}_{2011}}{\\text{Net Unrecognized Tax Benefit}_{2011}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "4. Calculate the percent variation of the net unrecognized tax benefit in 2012 relative to 2011.",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\text{Net Unrecognized Tax Benefit}_{2012} - \\text{Net Unrecognized Tax Benefit}_{2011}}{\\text{Net Unrecognized Tax Benefit}_{2011}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "5. What is the percent change of the net unrecognized tax benefit when comparing the year 2012 to 2011?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\text{Net Unrecognized Tax Benefit}_{2012} - \\text{Net Unrecognized Tax Benefit}_{2011}}{\\text{Net Unrecognized Tax Benefit}_{2011}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What was the rate of return on an investment in the S&P 500 index between 2015 and 2016?",
+        "input": "",
+        "output": "\\[\n\\text{Rate of Return} = \\left( \\frac{V_{2016} - V_{2015}}{V_{2015}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "From 2015 to 2016, what rate of return did an investment in the S&P 500 index achieve?",
+        "input": "",
+        "output": "\\[\n\\text{Rate of Return} = \\left( \\frac{V_{2016} - V_{2015}}{V_{2015}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "How much return did an investment in the S&P 500 index generate from 2015 to 2016?",
+        "input": "",
+        "output": "\\[\n\\text{Rate of Return} = \\left( \\frac{V_{2016} - V_{2015}}{V_{2015}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "During the period from 2015 to 2016, what was the investment return rate for the S&P 500 index?",
+        "input": "",
+        "output": "\\[\n\\text{Rate of Return} = \\left( \\frac{V_{2016} - V_{2015}}{V_{2015}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What return rate did an investment in the S&P 500 index earn between 2015 and 2016?",
+        "input": "",
+        "output": "\\[\n\\text{Rate of Return} = \\left( \\frac{V_{2016} - V_{2015}}{V_{2015}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What was the percentage variation in capital expenditures between 2007 and 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Capital Expenditures} = \\left( \\frac{\\text{CapEx}_{2008} - \\text{CapEx}_{2007}}{\\text{CapEx}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. How did capital expenditures change percentage-wise from 2007 to 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Capital Expenditures} = \\left( \\frac{\\text{CapEx}_{2008} - \\text{CapEx}_{2007}}{\\text{CapEx}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. Calculate the percentage difference in capital expenditures from 2007 to 2008.",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Capital Expenditures} = \\left( \\frac{\\text{CapEx}_{2008} - \\text{CapEx}_{2007}}{\\text{CapEx}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. Determine the percentage increase or decrease in capital expenditures between 2007 and 2008.",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Capital Expenditures} = \\left( \\frac{\\text{CapEx}_{2008} - \\text{CapEx}_{2007}}{\\text{CapEx}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. What is the rate of change in capital expenditures from 2007 to 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Capital Expenditures} = \\left( \\frac{\\text{CapEx}_{2008} - \\text{CapEx}_{2007}}{\\text{CapEx}_{2007}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What is the difference, in millions, between the principal amounts of senior notes maturing in 2022 and those maturing in 2023?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = P_{2022} - P_{2023}\n\\]"
+    },
+    {
+        "instruction": "2. In millions, how much did the principal amount of senior notes due in 2022 differ from those due in 2023?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = P_{2022} - P_{2023}\n\\]"
+    },
+    {
+        "instruction": "3. What was the variance in the principal amounts of senior notes due in 2022 versus those due in 2023, expressed in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = P_{2022} - P_{2023}\n\\]"
+    },
+    {
+        "instruction": "4. By millions, what was the disparity in principal amounts between senior notes maturing in 2022 and senior notes maturing in 2023?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = P_{2022} - P_{2023}\n\\]"
+    },
+    {
+        "instruction": "5. How different were the principal amounts of senior notes due for 2022 compared to those due for 2023, measured in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = P_{2022} - P_{2023}\n\\]"
+    },
+    {
+        "instruction": "1. What was the overall revenue for the 2015 fiscal year?",
+        "input": "",
+        "output": "\\[\n\\text{Total Revenue} = \\sum_{i=1}^{n} P_i \\times Q_i\n\\]"
+    },
+    {
+        "instruction": "2. How much total revenue did the organization generate in its fiscal year 2015?",
+        "input": "",
+        "output": "\\[\n\\text{Total Revenue} = \\sum_{i=1}^{n} P_i \\times Q_i\n\\]"
+    },
+    {
+        "instruction": "3. Determine the total revenue for the fiscal year ending in 2015.",
+        "input": "",
+        "output": "\\[\n\\text{Total Revenue} = \\sum_{i=1}^{n} P_i \\times Q_i\n\\]"
+    },
+    {
+        "instruction": "4. What amount represents the total revenue for the organization's fiscal year of 2015?",
+        "input": "",
+        "output": "\\[\n\\text{Total Revenue} = \\sum_{i=1}^{n} P_i \\times Q_i\n\\]"
+    },
+    {
+        "instruction": "5. Calculate the total revenue achieved during the 2015 fiscal year.",
+        "input": "",
+        "output": "\\[\n\\text{Total Revenue} = \\sum_{i=1}^{n} P_i \\times Q_i\n\\]"
+    },
+    {
+        "instruction": "1. In 2012, what percentage of the overall notional value was derived from foreign currency exchange contracts?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Notional}_{\\text{Forex},\\,2012}}{\\text{Total Notional}_{\\,2012}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. What proportion of the total notional amount in 2012 was attributed to foreign currency exchange contracts?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Notional}_{\\text{Forex},\\,2012}}{\\text{Total Notional}_{\\,2012}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. During the year 2012, what percentage of the total notional value came from foreign currency exchange contracts?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Notional}_{\\text{Forex},\\,2012}}{\\text{Total Notional}_{\\,2012}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. What fraction of the aggregate notional amount in 2012 was from foreign currency exchange contracts?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Notional}_{\\text{Forex},\\,2012}}{\\text{Total Notional}_{\\,2012}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. In the year 2012, foreign currency exchange contracts accounted for what percentage of the total notional sum?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Notional}_{\\text{Forex},\\,2012}}{\\text{Total Notional}_{\\,2012}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What was the rate of increase in net outflows between 2016 and 2017?<sep >\n2. By what percentage did the net outflows grow from 2016 to 2017?<sep >\n3. From 2016 to 2017, what percentage did net outflows rise?<sep >\n4. Calculate the percentage growth in net outflows from 2016 to 2017.<sep >\n5. What percentage change occurred in net outflows between the years 2016 and 2017?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Increase} = \\left( \\frac{\\text{Net Outflows}_{2017} - \\text{Net Outflows}_{2016}}{\\text{Net Outflows}_{2016}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "1. If the Fitzpatrick reimbursement agreement had not resulted in a gain, what would the net revenue for 2016 have been?",
+        "input": "",
+        "output": "\\[\n\\text{Net Revenue}_{\\text{without Gain}} = \\text{Net Revenue}_{\\text{Reported}} - \\text{Gain}_{\\text{Fitzpatrick}}\n\\]"
+    },
+    {
+        "instruction": "2. Assuming there was no gain from the Fitzpatrick reimbursement agreement, what would have been the net revenue in 2016?",
+        "input": "",
+        "output": "\\[\n\\text{Net Revenue}_{\\text{without Gain}} = \\text{Net Revenue}_{\\text{Reported}} - \\text{Gain}_{\\text{Fitzpatrick}}\n\\]"
+    },
+    {
+        "instruction": "3. What would 2016's net revenue have been in the absence of a gain from the Fitzpatrick reimbursement agreement?",
+        "input": "",
+        "output": "\\[\n\\text{Net Revenue}_{\\text{without Gain}} = \\text{Net Revenue}_{\\text{Reported}} - \\text{Gain}_{\\text{Fitzpatrick}}\n\\]"
+    },
+    {
+        "instruction": "4. In 2016, what net revenue would have been realized without the gain from the Fitzpatrick reimbursement agreement?",
+        "input": "",
+        "output": "\\[\n\\text{Net Revenue}_{\\text{without Gain}} = \\text{Net Revenue}_{\\text{Reported}} - \\text{Gain}_{\\text{Fitzpatrick}}\n\\]"
+    },
+    {
+        "instruction": "5. Without any gain from the Fitzpatrick reimbursement agreement, what would the net revenue for 2016 have been?",
+        "input": "",
+        "output": "\\[\n\\text{Net Revenue}_{\\text{without Gain}} = \\text{Net Revenue}_{\\text{Reported}} - \\text{Gain}_{\\text{Fitzpatrick}}\n\\]"
+    },
+    {
+        "instruction": "1. For how many years can a company in Virginia be subjected to tax audits?",
+        "input": "",
+        "output": "\\[\nT =\n\\begin{cases}\n3 & \\text{years if no omission or fraud} \\\\\n6 & \\text{years if substantial omission (>25\\%)} \\\\\n\\text{Unlimited} & \\text{if fraudulent}\n\\end{cases}\n\\]"
+    },
+    {
+        "instruction": "2. In Virginia, what is the duration that a company may undergo tax examination?",
+        "input": "",
+        "output": "\\[\nT =\n\\begin{cases}\n3 & \\text{years if no omission or fraud} \\\\\n6 & \\text{years if substantial omission (>25\\%)} \\\\\n\\text{Unlimited} & \\text{if fraudulent}\n\\end{cases}\n\\]"
+    },
+    {
+        "instruction": "3. How long does Virginia allow for tax inspections of a company\u2019s finances?",
+        "input": "",
+        "output": "\\[\nT =\n\\begin{cases}\n3 & \\text{years if no omission or fraud} \\\\\n6 & \\text{years if substantial omission (>25\\%)} \\\\\n\\text{Unlimited} & \\text{if fraudulent}\n\\end{cases}\n\\]"
+    },
+    {
+        "instruction": "4. What is the statute of limitations for tax reviews of companies in Virginia?",
+        "input": "",
+        "output": "\\[\nT =\n\\begin{cases}\n3 & \\text{years if no omission or fraud} \\\\\n6 & \\text{years if substantial omission (>25\\%)} \\\\\n\\text{Unlimited} & \\text{if fraudulent}\n\\end{cases}\n\\]"
+    },
+    {
+        "instruction": "5. During how many years can a company in Virginia be examined for tax purposes?",
+        "input": "",
+        "output": "\\[\nT =\n\\begin{cases}\n3 & \\text{years if no omission or fraud} \\\\\n6 & \\text{years if substantial omission (>25\\%)} \\\\\n\\text{Unlimited} & \\text{if fraudulent}\n\\end{cases}\n\\]"
+    },
+    {
+        "instruction": "What percentage of the total amount is maintained as cash?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Percentage} = \\left( \\frac{C}{T} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What proportion of the total sum is held in cash?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Percentage} = \\left( \\frac{C}{T} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What fraction of the overall amount is kept as cash?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Percentage} = \\left( \\frac{C}{T} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "How much of the total funds is stored as cash?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Percentage} = \\left( \\frac{C}{T} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What share of the total money is retained as cash?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Percentage} = \\left( \\frac{C}{T} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. How do sales of common stock in the fourth quarter of 2013 impact the financing activities section of the cash flow statement?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Flow from Financing Activities} = \\text{Proceeds from Sale of Common Stock} - \\text{Repurchase of Common Stock} - \\text{Dividends Paid} + \\text{Proceeds from Debt Issuance} - \\text{Repayment of Debt}\n\\]"
+    },
+    {
+        "instruction": "2. In what way do common stock sales during Q4 2013 influence the financing activities portion of the cash flow statement?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Flow from Financing Activities} = \\text{Proceeds from Sale of Common Stock} - \\text{Repurchase of Common Stock} - \\text{Dividends Paid} + \\text{Proceeds from Debt Issuance} - \\text{Repayment of Debt}\n\\]"
+    },
+    {
+        "instruction": "3. What effect do the sale of common stock in the fourth quarter of 2013 have on the cash flow statement's financing activities?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Flow from Financing Activities} = \\text{Proceeds from Sale of Common Stock} - \\text{Repurchase of Common Stock} - \\text{Dividends Paid} + \\text{Proceeds from Debt Issuance} - \\text{Repayment of Debt}\n\\]"
+    },
+    {
+        "instruction": "4. How are the cash flow financing activities modified by the common stock sales in the fourth quarter of 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Flow from Financing Activities} = \\text{Proceeds from Sale of Common Stock} - \\text{Repurchase of Common Stock} - \\text{Dividends Paid} + \\text{Proceeds from Debt Issuance} - \\text{Repayment of Debt}\n\\]"
+    },
+    {
+        "instruction": "5. During the fourth quarter of 2013, how do the proceeds from the sale of common stock affect the financing activities section of the cash flow statement?",
+        "input": "",
+        "output": "\\[\n\\text{Cash Flow from Financing Activities} = \\text{Proceeds from Sale of Common Stock} - \\text{Repurchase of Common Stock} - \\text{Dividends Paid} + \\text{Proceeds from Debt Issuance} - \\text{Repayment of Debt}\n\\]"
+    },
+    {
+        "instruction": "What was the alteration in future base rental revenue, measured in thousands, from non-cancelable operating leases between 2016 and 2017, excluding leases originally under one year and rents from renewal option exercises?",
+        "input": "",
+        "output": "\\[\n\\Delta FRR = FRR_{2017} - FRR_{2016}\n\\]"
+    },
+    {
+        "instruction": "Between 2016 and 2017, how did the future base rental revenue from non-cancelable operating leases change, excluding those with an initial term shorter than one year and rents from renewal choices, reported in thousands?",
+        "input": "",
+        "output": "\\[\n\\Delta FRR = FRR_{2017} - FRR_{2016}\n\\]"
+    },
+    {
+        "instruction": "In thousands, what was the difference in future base rental revenue under non-cancelable operating leases from 2016 to 2017, not including rents for leases initially less than one year and those from renewal option exercises?",
+        "input": "",
+        "output": "\\[\n\\Delta FRR = FRR_{2017} - FRR_{2016}\n\\]"
+    },
+    {
+        "instruction": "From 2016 to 2017, what was the change in future base rental revenue in thousands for non-cancelable operating leases, excluding leases with original terms under a year and rents arising from renewal option exercises?",
+        "input": "",
+        "output": "\\[\n\\Delta FRR = FRR_{2017} - FRR_{2016}\n\\]"
+    },
+    {
+        "instruction": "What change occurred in future base rental revenue, stated in thousands, from non-cancelable operating leases between 2016 and 2017, excluding rents from leases with an initial term of less than one year and from exercising renewal options?",
+        "input": "",
+        "output": "\\[\n\\Delta FRR = FRR_{2017} - FRR_{2016}\n\\]"
+    },
+    {
+        "instruction": "What is the aggregate megawatt capacity of boiling water reactors?",
+        "input": "",
+        "output": "\\[\nC_{\\text{total}} = N \\times C_{\\text{BWR}}\n\\]"
+    },
+    {
+        "instruction": "What is the total megawatt output of boiling water reactors?",
+        "input": "",
+        "output": "\\[\nC_{\\text{total}} = N \\times C_{\\text{BWR}}\n\\]"
+    },
+    {
+        "instruction": "What is the combined MW capacity of BWRs?",
+        "input": "",
+        "output": "\\[\nC_{\\text{total}} = N \\times C_{\\text{BWR}}\n\\]"
+    },
+    {
+        "instruction": "What is the overall megawatt capacity of the boiling water reactor type?",
+        "input": "",
+        "output": "\\[\nC_{\\text{total}} = N \\times C_{\\text{BWR}}\n\\]"
+    },
+    {
+        "instruction": "What is the total electrical capacity in megawatts of boiling water reactors?",
+        "input": "",
+        "output": "\\[\nC_{\\text{total}} = N \\times C_{\\text{BWR}}\n\\]"
+    },
+    {
+        "instruction": "1. What percentage of total revenue was accounted for by intermodal services based on a three-year average?",
+        "input": "",
+        "output": "\\[\n\\text{Intermodal \\% of Total Revenue} = \\left( \\frac{\\overline{R_{\\text{intermodal}}}}{\\overline{R_{\\text{total}}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. Based on a three-year average, intermodal constituted what fraction of the overall revenue?",
+        "input": "",
+        "output": "\\[\n\\text{Intermodal \\% of Total Revenue} = \\left( \\frac{\\overline{R_{\\text{intermodal}}}}{\\overline{R_{\\text{total}}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. Using an average over three years, what percentage did intermodal represent of the total revenue?",
+        "input": "",
+        "output": "\\[\n\\text{Intermodal \\% of Total Revenue} = \\left( \\frac{\\overline{R_{\\text{intermodal}}}}{\\overline{R_{\\text{total}}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. What was the proportion of total revenue derived from intermodal, calculated as a three-year average?",
+        "input": "",
+        "output": "\\[\n\\text{Intermodal \\% of Total Revenue} = \\left( \\frac{\\overline{R_{\\text{intermodal}}}}{\\overline{R_{\\text{total}}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. According to a three-year average, intermodal made up what percentage of the entire revenue?",
+        "input": "",
+        "output": "\\[\n\\text{Intermodal \\% of Total Revenue} = \\left( \\frac{\\overline{R_{\\text{intermodal}}}}{\\overline{R_{\\text{total}}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What is the mean pension expenditure over the three-year period?<sep >  \nCalculate the average pension costs for the specified three-year span.<sep >  \nDetermine the typical pension expenses across those three years.<sep >  \nWhat constitutes the average pension outlay during the three-year timeframe?<sep >  \nIdentify the mean pension expenditures for the three-year duration in question.",
+        "input": "",
+        "output": "\\[\n\\text{Average Pension Expenses} = \\frac{PE_1 + PE_2 + PE_3}{3}\n\\]"
+    },
+    {
+        "instruction": "1. What proportion of total consumer packaging sales in 2012 did North American consumer packaging net sales represent?",
+        "input": "",
+        "output": "\\[\nP = \\left( \\frac{NS_{\\text{NA}}}{TS_{\\text{CP}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "2. In 2012, what percentage did North American consumer packaging net sales account for out of all consumer packaging sales?",
+        "input": "",
+        "output": "\\[\nP = \\left( \\frac{NS_{\\text{NA}}}{TS_{\\text{CP}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "3. During 2012, North American consumer packaging net sales made up what percentage of the total consumer packaging market?",
+        "input": "",
+        "output": "\\[\nP = \\left( \\frac{NS_{\\text{NA}}}{TS_{\\text{CP}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "4. What was the share of North American consumer packaging net sales in the overall consumer packaging sales for the year 2012?",
+        "input": "",
+        "output": "\\[\nP = \\left( \\frac{NS_{\\text{NA}}}{TS_{\\text{CP}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "5. In the year 2012, what percentage of total consumer packaging sales was constituted by North American consumer packaging net sales?",
+        "input": "",
+        "output": "\\[\nP = \\left( \\frac{NS_{\\text{NA}}}{TS_{\\text{CP}}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "1. What proportion of asset impairment expenses for the fiscal year ending December 31, 2011, was associated with wind turbines and deposits? <sep >\n2. For the year concluding on December 31, 2011, what percentage of asset impairment charges was attributable to wind turbines and deposits? <sep >\n3. During the year ending December 31, 2011, what fraction of the asset impairment expense was linked to wind turbines and deposits? <sep >\n4. What amount of the asset impairment expense for the year ended December 31, 2011, pertains to wind turbines and deposits, expressed as a percentage? <sep >\n5. As of December 31, 2011, what percentage of asset impairment expense was connected to wind turbines and deposits?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage} = \\left( \\frac{\\text{Asset Impairment Expense}_{\\text{Wind Turbines \\& Deposits}}}{\\text{Total Asset Impairment Expense}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What portion of total capital expenditures was allocated to North America E&P in 2014?<sep >In 2014, what percentage of the overall capital expenditures was dedicated to North America E&P?<sep >During the year 2014, what share of total capital expenditures did North America E&P account for?<sep >What fraction of the total capital investments was attributed to North America E&P in 2014?<sep >In the year 2014, what percentage of total capital expenditures pertained to North America E&P?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of CapEx for North America E\\&P} = \\left( \\frac{\\text{CapEx}_{\\text{NA E\\&P}}}{\\text{CapEx}_{\\text{Total}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. During the 2014 period, what percentage of the restricted stock was forfeited due to restrictions lapsing?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Lost} = \\left( \\frac{R_{\\text{lost}}}{R_{\\text{total}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. What proportion of restricted stock was lost as a result of the restrictions expiring in 2014?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Lost} = \\left( \\frac{R_{\\text{lost}}}{R_{\\text{total}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. In 2014, what fraction of the restricted stock was forfeited because the restrictions lapsed?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Lost} = \\left( \\frac{R_{\\text{lost}}}{R_{\\text{total}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. What percentage of restricted stock was lost in the year 2014 due to lapsing restrictions?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Lost} = \\left( \\frac{R_{\\text{lost}}}{R_{\\text{total}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. How much of the restricted stock was forfeited in 2014 as a result of restrictions lapsing?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Lost} = \\left( \\frac{R_{\\text{lost}}}{R_{\\text{total}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What was the percentage change in operating income for entities in which the company has the ability to exercise significant influence but does not control and that are accounted for using the equity method between 2001 and 2002?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Operating Income} = \\left( \\frac{\\text{Operating Income}_{2002} - \\text{Operating Income}_{2001}}{\\text{Operating Income}_{2001}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "Between 2001 and 2002, what was the percentage variation in operating income for entities over which the company has significant influence without control and that are accounted for by the equity method?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Operating Income} = \\left( \\frac{\\text{Operating Income}_{2002} - \\text{Operating Income}_{2001}}{\\text{Operating Income}_{2001}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "For entities accounted for using the equity method, where the company can significantly influence but does not control, what was the percentage change in operating income from 2001 to 2002?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Operating Income} = \\left( \\frac{\\text{Operating Income}_{2002} - \\text{Operating Income}_{2001}}{\\text{Operating Income}_{2001}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "During the period from 2001 to 2002, by what percentage did the operating income change for entities that the company significantly influences without controlling and accounts for using the equity method?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Operating Income} = \\left( \\frac{\\text{Operating Income}_{2002} - \\text{Operating Income}_{2001}}{\\text{Operating Income}_{2001}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What percentage did the operating income for entities\u2014over which the company has significant influence but lacks control and are managed with the equity method\u2014change between 2001 and 2002?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change in Operating Income} = \\left( \\frac{\\text{Operating Income}_{2002} - \\text{Operating Income}_{2001}}{\\text{Operating Income}_{2001}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What percentage of the leases were paid off in 2016?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Leases Paid Off in 2016} = \\left( \\frac{\\text{Number of Leases Paid Off in 2016}}{\\text{Total Number of Leases}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "In 2016, what percent of leases were settled?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Leases Paid Off in 2016} = \\left( \\frac{\\text{Number of Leases Paid Off in 2016}}{\\text{Total Number of Leases}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "During 2016, what proportion of the leases received full payment?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Leases Paid Off in 2016} = \\left( \\frac{\\text{Number of Leases Paid Off in 2016}}{\\text{Total Number of Leases}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What share of the leases was cleared in the year 2016?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Leases Paid Off in 2016} = \\left( \\frac{\\text{Number of Leases Paid Off in 2016}}{\\text{Total Number of Leases}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What fraction of the leases got paid off during 2016?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Leases Paid Off in 2016} = \\left( \\frac{\\text{Number of Leases Paid Off in 2016}}{\\text{Total Number of Leases}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "1. What was the total percentage return over the five-year period that concluded in 2013?<sep >\n2. What cumulative percentage gain was achieved during the five-year span ending in 2013?<sep >\n3. What was the overall percentage return for the five-year timeframe ending in 2013?<sep >\n4. What percentage return accumulated over the five-year period that ended in 2013?<sep >\n5. What was the total percentage return for the five years ending in 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Cumulative Percentage Return} = \\left( \\frac{P_{\\text{end}}}{P_{\\text{start}}} - 1 \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. In 2010, what portion of revenue remaining after interest expenses is attributed to net interest revenue?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Net Interest Revenue} = \\left( \\frac{\\text{Net Interest Revenue}}{\\text{Revenue} - \\text{Interest Expense}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. What fraction of the 2010 revenue, after deducting interest expenses, comes from net interest revenue?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Net Interest Revenue} = \\left( \\frac{\\text{Net Interest Revenue}}{\\text{Revenue} - \\text{Interest Expense}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. During 2010, what percentage of revenue, after interest expenses, was comprised of net interest revenue?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Net Interest Revenue} = \\left( \\frac{\\text{Net Interest Revenue}}{\\text{Revenue} - \\text{Interest Expense}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. In the year 2010, what percentage of the revenue, net of interest expenses, was due to net interest revenue?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Net Interest Revenue} = \\left( \\frac{\\text{Net Interest Revenue}}{\\text{Revenue} - \\text{Interest Expense}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. For 2010, what proportion of revenue excluding interest expenses is represented by net interest revenue?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Net Interest Revenue} = \\left( \\frac{\\text{Net Interest Revenue}}{\\text{Revenue} - \\text{Interest Expense}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What was the total amount of capital leases for buildings, machinery, and equipment in millions for the years 2009 and 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Total Capital Leases}_{\\text{Year}} = \\text{Capital Leases for Buildings}_{\\text{Year}} + \\text{Capital Leases for Machinery}_{\\text{Year}} + \\text{Capital Leases for Equipment}_{\\text{Year}}\n\\]"
+    },
+    {
+        "instruction": "For 2009 and 2008, capital leases related to buildings and machinery and equipment amounted to how many millions?",
+        "input": "",
+        "output": "\\[\n\\text{Total Capital Leases}_{\\text{Year}} = \\text{Capital Leases for Buildings}_{\\text{Year}} + \\text{Capital Leases for Machinery}_{\\text{Year}} + \\text{Capital Leases for Equipment}_{\\text{Year}}\n\\]"
+    },
+    {
+        "instruction": "How many millions did capital leases for buildings, machinery, and equipment total in 2009 and 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Total Capital Leases}_{\\text{Year}} = \\text{Capital Leases for Buildings}_{\\text{Year}} + \\text{Capital Leases for Machinery}_{\\text{Year}} + \\text{Capital Leases for Equipment}_{\\text{Year}}\n\\]"
+    },
+    {
+        "instruction": "The total capital leases in millions for buildings, machinery, and equipment for the years 2009 and 2008 were what?",
+        "input": "",
+        "output": "\\[\n\\text{Total Capital Leases}_{\\text{Year}} = \\text{Capital Leases for Buildings}_{\\text{Year}} + \\text{Capital Leases for Machinery}_{\\text{Year}} + \\text{Capital Leases for Equipment}_{\\text{Year}}\n\\]"
+    },
+    {
+        "instruction": "In millions, what were the total capital lease amounts for buildings and for machinery and equipment in 2009 and 2008?",
+        "input": "",
+        "output": "\\[\n\\text{Total Capital Leases}_{\\text{Year}} = \\text{Capital Leases for Buildings}_{\\text{Year}} + \\text{Capital Leases for Machinery}_{\\text{Year}} + \\text{Capital Leases for Equipment}_{\\text{Year}}\n\\]"
+    },
+    {
+        "instruction": "1. What was the variation in the fair value of equity instruments between 2018 and 2019?",
+        "input": "",
+        "output": "\\[\n\\Delta FV = FV_{2019} - FV_{2018}\n\\]"
+    },
+    {
+        "instruction": "2. How did the fair value of equity instruments change from 2018 to 2019?",
+        "input": "",
+        "output": "\\[\n\\Delta FV = FV_{2019} - FV_{2018}\n\\]"
+    },
+    {
+        "instruction": "3. Determine the change in equity instruments' fair value from the year 2018 to 2019.",
+        "input": "",
+        "output": "\\[\n\\Delta FV = FV_{2019} - FV_{2018}\n\\]"
+    },
+    {
+        "instruction": "4. What was the difference in fair value for equity instruments from 2018 to 2019?",
+        "input": "",
+        "output": "\\[\n\\Delta FV = FV_{2019} - FV_{2018}\n\\]"
+    },
+    {
+        "instruction": "5. Can you identify the change in the fair value of equity instruments between 2018 and 2019?",
+        "input": "",
+        "output": "\\[\n\\Delta FV = FV_{2019} - FV_{2018}\n\\]"
+    },
+    {
+        "instruction": "1. What was the percentage variation in net debt relative to net capital, excluding securitization bonds, between 2012 and 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\left( \\frac{\\text{Net Debt}_{2013}}{\\text{Net Capital Excl. Secur. Bonds}_{2013}} \\right) - \\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)}{\\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. From 2012 to 2013, by what percentage did the ratio of net debt to net capital (excluding securitization bonds) change?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\left( \\frac{\\text{Net Debt}_{2013}}{\\text{Net Capital Excl. Secur. Bonds}_{2013}} \\right) - \\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)}{\\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. Calculate the percentage difference in net debt compared to net capital, excluding securitization bonds, from 2012 to 2013.",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\left( \\frac{\\text{Net Debt}_{2013}}{\\text{Net Capital Excl. Secur. Bonds}_{2013}} \\right) - \\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)}{\\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. Determine the percent change in the net debt-to-net capital ratio, excluding securitization bonds, between 2012 and 2013.",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\left( \\frac{\\text{Net Debt}_{2013}}{\\text{Net Capital Excl. Secur. Bonds}_{2013}} \\right) - \\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)}{\\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. What is the percentage shift in net debt over net capital, excluding securitization bonds, from the year 2012 to 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Change} = \\left( \\frac{\\left( \\frac{\\text{Net Debt}_{2013}}{\\text{Net Capital Excl. Secur. Bonds}_{2013}} \\right) - \\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)}{\\left( \\frac{\\text{Net Debt}_{2012}}{\\text{Net Capital Excl. Secur. Bonds}_{2012}} \\right)} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What was the total value of non-vested shares as of May 31, 2008, expressed in millions?",
+        "input": "",
+        "output": "\\[\nV_{\\text{NV}} = N \\times P\n\\]"
+    },
+    {
+        "instruction": "As of May 31, 2008, what is the overall value of non-vested shares in millions?",
+        "input": "",
+        "output": "\\[\nV_{\\text{NV}} = N \\times P\n\\]"
+    },
+    {
+        "instruction": "Calculate the total value of non-vested shares on May 31, 2008, measured in millions.",
+        "input": "",
+        "output": "\\[\nV_{\\text{NV}} = N \\times P\n\\]"
+    },
+    {
+        "instruction": "Determine the total amount of non-vested shares valued in millions as of May 31, 2008.",
+        "input": "",
+        "output": "\\[\nV_{\\text{NV}} = N \\times P\n\\]"
+    },
+    {
+        "instruction": "On May 31, 2008, what was the total value of non-vested shares, reported in millions?",
+        "input": "",
+        "output": "\\[\nV_{\\text{NV}} = N \\times P\n\\]"
+    },
+    {
+        "instruction": "1. What was the average cash conversion cycle over three years in days?",
+        "input": "",
+        "output": "\\[\n\\text{Average Cash Conversion Cycle (CCC)} = \\frac{\\text{CCC}_{\\text{Year 1}} + \\text{CCC}_{\\text{Year 2}} + \\text{CCC}_{\\text{Year 3}}}{3}\n\\]\n\nWhere each Cash Conversion Cycle (CCC) is calculated as:\n\n\\[\n\\text{CCC} = \\text{Days Inventory Outstanding (DIO)} + \\text{Days Sales Outstanding (DSO)} - \\text{Days Payables Outstanding (DPO)}\n\\]"
+    },
+    {
+        "instruction": "2. Over the three-year period, what was the mean duration of the cash conversion cycle in days?",
+        "input": "",
+        "output": "\\[\n\\text{Average Cash Conversion Cycle (CCC)} = \\frac{\\text{CCC}_{\\text{Year 1}} + \\text{CCC}_{\\text{Year 2}} + \\text{CCC}_{\\text{Year 3}}}{3}\n\\]\n\nWhere each Cash Conversion Cycle (CCC) is calculated as:\n\n\\[\n\\text{CCC} = \\text{Days Inventory Outstanding (DIO)} + \\text{Days Sales Outstanding (DSO)} - \\text{Days Payables Outstanding (DPO)}\n\\]"
+    },
+    {
+        "instruction": "3. How many days constituted the three-year average for the cash conversion cycle?",
+        "input": "",
+        "output": "\\[\n\\text{Average Cash Conversion Cycle (CCC)} = \\frac{\\text{CCC}_{\\text{Year 1}} + \\text{CCC}_{\\text{Year 2}} + \\text{CCC}_{\\text{Year 3}}}{3}\n\\]\n\nWhere each Cash Conversion Cycle (CCC) is calculated as:\n\n\\[\n\\text{CCC} = \\text{Days Inventory Outstanding (DIO)} + \\text{Days Sales Outstanding (DSO)} - \\text{Days Payables Outstanding (DPO)}\n\\]"
+    },
+    {
+        "instruction": "4. What is the day count for the average cash conversion cycle across three years?",
+        "input": "",
+        "output": "\\[\n\\text{Average Cash Conversion Cycle (CCC)} = \\frac{\\text{CCC}_{\\text{Year 1}} + \\text{CCC}_{\\text{Year 2}} + \\text{CCC}_{\\text{Year 3}}}{3}\n\\]\n\nWhere each Cash Conversion Cycle (CCC) is calculated as:\n\n\\[\n\\text{CCC} = \\text{Days Inventory Outstanding (DIO)} + \\text{Days Sales Outstanding (DSO)} - \\text{Days Payables Outstanding (DPO)}\n\\]"
+    },
+    {
+        "instruction": "5. During the three-year span, what was the cash conversion cycle's average length in days?",
+        "input": "",
+        "output": "\\[\n\\text{Average Cash Conversion Cycle (CCC)} = \\frac{\\text{CCC}_{\\text{Year 1}} + \\text{CCC}_{\\text{Year 2}} + \\text{CCC}_{\\text{Year 3}}}{3}\n\\]\n\nWhere each Cash Conversion Cycle (CCC) is calculated as:\n\n\\[\n\\text{CCC} = \\text{Days Inventory Outstanding (DIO)} + \\text{Days Sales Outstanding (DSO)} - \\text{Days Payables Outstanding (DPO)}\n\\]"
+    },
+    {
+        "instruction": "1. What percentage did the goodwill impairment represent in relation to the total goodwill balance as of December 31, 2013?<sep >\n2. As of December 31, 2013, what was the percentage of goodwill impairment compared to the overall goodwill balance?<sep >\n3. On December 31, 2013, what was the goodwill impairment percentage relative to the total goodwill balance?<sep >\n4. What proportion of the total goodwill balance was impaired as of December 31, 2013?<sep >\n5. At December 31, 2013, what percentage of the entire goodwill balance was subject to impairment?",
+        "input": "",
+        "output": "\\[\n\\text{Percent of Impairment of Goodwill} = \\left( \\frac{\\text{Impairment of Goodwill}}{\\text{Total Goodwill Balance at December 31, 2013}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "1. What fraction of the acquired net assets is allocated to goodwill?",
+        "input": "",
+        "output": "\\[\n\\text{Goodwill Portion} = \\frac{\\text{Goodwill}}{\\text{Net Assets Acquired}}\n\\]"
+    },
+    {
+        "instruction": "2. How much of the net assets obtained is designated for goodwill?",
+        "input": "",
+        "output": "\\[\n\\text{Goodwill Portion} = \\frac{\\text{Goodwill}}{\\text{Net Assets Acquired}}\n\\]"
+    },
+    {
+        "instruction": "3. What percentage of the net assets purchased is set aside for goodwill?",
+        "input": "",
+        "output": "\\[\n\\text{Goodwill Portion} = \\frac{\\text{Goodwill}}{\\text{Net Assets Acquired}}\n\\]"
+    },
+    {
+        "instruction": "4. What segment of the acquired net assets is devoted to goodwill?",
+        "input": "",
+        "output": "\\[\n\\text{Goodwill Portion} = \\frac{\\text{Goodwill}}{\\text{Net Assets Acquired}}\n\\]"
+    },
+    {
+        "instruction": "5. What part of the net assets acquired is dedicated for goodwill?",
+        "input": "",
+        "output": "\\[\n\\text{Goodwill Portion} = \\frac{\\text{Goodwill}}{\\text{Net Assets Acquired}}\n\\]"
+    },
+    {
+        "instruction": "1. By 2012, how many additional long future notional contracts will mature compared to short futures?",
+        "input": "",
+        "output": "$$\n\\text{Difference} = N_L - N_S\n$$"
+    },
+    {
+        "instruction": "2. What is the difference in the number of long future notional contracts maturing by 2012 versus short futures?",
+        "input": "",
+        "output": "$$\n\\text{Difference} = N_L - N_S\n$$"
+    },
+    {
+        "instruction": "3. How much greater is the quantity of long future notional contracts maturing by 2012 than short futures?",
+        "input": "",
+        "output": "$$\n\\text{Difference} = N_L - N_S\n$$"
+    },
+    {
+        "instruction": "4. By the year 2012, how many more long future notional contracts are set to mature than short futures?",
+        "input": "",
+        "output": "$$\n\\text{Difference} = N_L - N_S\n$$"
+    },
+    {
+        "instruction": "5. How many more long futures contracts are scheduled to mature by 2012 compared to short futures?",
+        "input": "",
+        "output": "$$\n\\text{Difference} = N_L - N_S\n$$"
+    },
+    {
+        "instruction": "What was the overall variation in unrealized tax benefits in the year 2010?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{UTB} = \\Delta \\text{DTA} - \\Delta \\text{DTL}\n\\]"
+    },
+    {
+        "instruction": "How did unrealized tax benefits change on net during 2010?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{UTB} = \\Delta \\text{DTA} - \\Delta \\text{DTL}\n\\]"
+    },
+    {
+        "instruction": "Determine the net difference in unrealized tax benefits for 2010.",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{UTB} = \\Delta \\text{DTA} - \\Delta \\text{DTL}\n\\]"
+    },
+    {
+        "instruction": "What is the total net alteration of unrealized tax benefits in 2010?",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{UTB} = \\Delta \\text{DTA} - \\Delta \\text{DTL}\n\\]"
+    },
+    {
+        "instruction": "Identify the net shift in unrealized tax benefits throughout 2010.",
+        "input": "",
+        "output": "\\[\n\\Delta \\text{UTB} = \\Delta \\text{DTA} - \\Delta \\text{DTL}\n\\]"
+    },
+    {
+        "instruction": "1. What percentage of the future minimum payments on leases, as well as marketing and sponsorship expenses for operating leases, was due in 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Due in 2013} = \\left( \\frac{\\text{Future Minimum Payments Due in 2013} + \\text{Marketing and Sponsorship Due in 2013}}{\\text{Total Future Minimum Payments on Leases} + \\text{Total Marketing and Sponsorship for Operating Leases}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. In 2013, what proportion of the future minimum lease payments and the marketing and sponsorship costs for operating leases was scheduled to be due?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Due in 2013} = \\left( \\frac{\\text{Future Minimum Payments Due in 2013} + \\text{Marketing and Sponsorship Due in 2013}}{\\text{Total Future Minimum Payments on Leases} + \\text{Total Marketing and Sponsorship for Operating Leases}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. During the year 2013, what was the percentage of future minimum payments for leases along with marketing and sponsorship expenditures for operating leases that were due?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Due in 2013} = \\left( \\frac{\\text{Future Minimum Payments Due in 2013} + \\text{Marketing and Sponsorship Due in 2013}}{\\text{Total Future Minimum Payments on Leases} + \\text{Total Marketing and Sponsorship for Operating Leases}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. What was the percentage of future minimum lease payments and the marketing and sponsorship expenses for operating leases due in 2013?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Due in 2013} = \\left( \\frac{\\text{Future Minimum Payments Due in 2013} + \\text{Marketing and Sponsorship Due in 2013}}{\\text{Total Future Minimum Payments on Leases} + \\text{Total Marketing and Sponsorship for Operating Leases}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. In the year 2013, what percentage of the upcoming minimum lease payments and the marketing and sponsorship costs associated with operating leases was payable?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage Due in 2013} = \\left( \\frac{\\text{Future Minimum Payments Due in 2013} + \\text{Marketing and Sponsorship Due in 2013}}{\\text{Total Future Minimum Payments on Leases} + \\text{Total Marketing and Sponsorship for Operating Leases}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What was the net margin in the year 2006?",
+        "input": "",
+        "output": "\\[\n\\text{Net Margin} = \\left( \\frac{\\text{Net Income}}{\\text{Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. In 2006, what was the recorded net margin?",
+        "input": "",
+        "output": "\\[\n\\text{Net Margin} = \\left( \\frac{\\text{Net Income}}{\\text{Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. Please identify the net margin for the year 2006.",
+        "input": "",
+        "output": "\\[\n\\text{Net Margin} = \\left( \\frac{\\text{Net Income}}{\\text{Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. For the fiscal year 2006, what was the net profit margin?",
+        "input": "",
+        "output": "\\[\n\\text{Net Margin} = \\left( \\frac{\\text{Net Income}}{\\text{Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. Determine the net margin achieved in 2006.",
+        "input": "",
+        "output": "\\[\n\\text{Net Margin} = \\left( \\frac{\\text{Net Income}}{\\text{Revenue}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What was the average year-end balance for allowance for doubtful accounts, expressed in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Average Ending Balance} = \\frac{\\text{Beginning Balance} + \\text{Ending Balance}}{2}\n\\]"
+    },
+    {
+        "instruction": "2. How much, in millions, did the allowance for doubtful accounts average at the end of the period?",
+        "input": "",
+        "output": "\\[\n\\text{Average Ending Balance} = \\frac{\\text{Beginning Balance} + \\text{Ending Balance}}{2}\n\\]"
+    },
+    {
+        "instruction": "3. In millions, what was the mean ending balance of the allowance for doubtful accounts?",
+        "input": "",
+        "output": "\\[\n\\text{Average Ending Balance} = \\frac{\\text{Beginning Balance} + \\text{Ending Balance}}{2}\n\\]"
+    },
+    {
+        "instruction": "4. What was the average closing balance of the allowance for doubtful accounts, measured in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Average Ending Balance} = \\frac{\\text{Beginning Balance} + \\text{Ending Balance}}{2}\n\\]"
+    },
+    {
+        "instruction": "5. Expressed in millions, what was the average final balance in the allowance for doubtful accounts?",
+        "input": "",
+        "output": "\\[\n\\text{Average Ending Balance} = \\frac{\\text{Beginning Balance} + \\text{Ending Balance}}{2}\n\\]"
+    },
+    {
+        "instruction": "What proportion of total maturities is comprised of senior notes payable and other debt?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Senior Notes Payable and Other Debt} = \\left( \\frac{\\text{Senior Notes Payable} + \\text{Other Debt}}{\\text{Total Maturities}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What fraction of the total maturities is represented by senior notes payable and other debt?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Senior Notes Payable and Other Debt} = \\left( \\frac{\\text{Senior Notes Payable} + \\text{Other Debt}}{\\text{Total Maturities}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "Senior notes payable and other debt constitute what percentage of the total maturities?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Senior Notes Payable and Other Debt} = \\left( \\frac{\\text{Senior Notes Payable} + \\text{Other Debt}}{\\text{Total Maturities}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What share of the total maturities do senior notes payable and other debt represent?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Senior Notes Payable and Other Debt} = \\left( \\frac{\\text{Senior Notes Payable} + \\text{Other Debt}}{\\text{Total Maturities}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What is the percentage of senior notes payable and other debt relative to total maturities?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Senior Notes Payable and Other Debt} = \\left( \\frac{\\text{Senior Notes Payable} + \\text{Other Debt}}{\\text{Total Maturities}} \\right) \\times 100\\%\n\\]\n\n---"
+    },
+    {
+        "instruction": "What is included in the total assets report?",
+        "input": "",
+        "output": "\\[\n\\text{Total Assets} = \\text{Total Liabilities} + \\text{Shareholders' Equity}\n\\]"
+    },
+    {
+        "instruction": "What does the total assets report consist of?",
+        "input": "",
+        "output": "\\[\n\\text{Total Assets} = \\text{Total Liabilities} + \\text{Shareholders' Equity}\n\\]"
+    },
+    {
+        "instruction": "What information is provided in the total assets report?",
+        "input": "",
+        "output": "\\[\n\\text{Total Assets} = \\text{Total Liabilities} + \\text{Shareholders' Equity}\n\\]"
+    },
+    {
+        "instruction": "What comprises the total assets report?",
+        "input": "",
+        "output": "\\[\n\\text{Total Assets} = \\text{Total Liabilities} + \\text{Shareholders' Equity}\n\\]"
+    },
+    {
+        "instruction": "What details are covered in the total assets report?",
+        "input": "",
+        "output": "\\[\n\\text{Total Assets} = \\text{Total Liabilities} + \\text{Shareholders' Equity}\n\\]"
+    },
+    {
+        "instruction": "1. What percentage of the carrying value for specific mortgage loans HFS was reported on the consolidated balance sheet between 2017 and 2018?<sep >\n2. Between 2017 and 2018, what was the percentage of the carrying amount of certain mortgage loans HFS as reported on the consolidated balance sheet?<sep >\n3. During the period from 2017 to 2018, what proportion of the carrying amount for specific mortgage loans HFS was reflected in the consolidated balance sheet?<sep >\n4. From 2017 to 2018, what percentage of the carrying amounts of particular mortgage loans HFS were reported on the consolidated balance sheet?<sep >\n5. What was the percentage of the carrying value of certain mortgage loans HFS reported in the consolidated balance sheet during 2017 to 2018?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Carrying Amount} = \\left( \\frac{\\text{Carrying Amount of HFS Mortgage Loans}}{\\text{Total Carrying Amount of Mortgage Loans}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "1. What fraction of Entergy Corporation's total capacity is produced by Entergy Gulf States?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Total Capability} = \\left( \\frac{\\text{Generation Capacity}_{\\text{EGS}}}{\\text{Total Generation Capacity}_{\\text{Entergy}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. How much of Entergy Corporation\u2019s overall generation capability is generated by Entergy Gulf States?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Total Capability} = \\left( \\frac{\\text{Generation Capacity}_{\\text{EGS}}}{\\text{Total Generation Capacity}_{\\text{Entergy}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. What percentage of the total generation capacity of Entergy Corporation comes from Entergy Gulf States?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Total Capability} = \\left( \\frac{\\text{Generation Capacity}_{\\text{EGS}}}{\\text{Total Generation Capacity}_{\\text{Entergy}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. To what extent does Entergy Gulf States contribute to Entergy Corporation\u2019s total capacity?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Total Capability} = \\left( \\frac{\\text{Generation Capacity}_{\\text{EGS}}}{\\text{Total Generation Capacity}_{\\text{Entergy}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. What share of Entergy Corporation\u2019s complete generation capability is provided by Entergy Gulf States?",
+        "input": "",
+        "output": "\\[\n\\text{Portion of Total Capability} = \\left( \\frac{\\text{Generation Capacity}_{\\text{EGS}}}{\\text{Total Generation Capacity}_{\\text{Entergy}}} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What fraction of all issued securities receive approval from security holders?<sep >What percentage of the total issued securities is sanctioned by security holders?<sep >What share of the overall issued securities is authorized by security holders?<sep >What part of the complete number of issued securities has the approval of security holders?<sep >What segment of the total issued securities is endorsed by security holders?",
+        "input": "",
+        "output": "\\[\n\\text{Portion Approved} = \\frac{N_{\\text{approved}}}{N_{\\text{total}}}\n\\]\n\n---"
+    },
+    {
+        "instruction": "What is the payment difference between Entergy Louisiana and Entergy Mississippi in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\text{Payments}_{\\text{LA}} - \\text{Payments}_{\\text{MS}}\n\\]"
+    },
+    {
+        "instruction": "How much do Entergy Louisiana and Entergy Mississippi payments differ, measured in millions?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\text{Payments}_{\\text{LA}} - \\text{Payments}_{\\text{MS}}\n\\]"
+    },
+    {
+        "instruction": "In millions, what distinguishes the payments of Entergy Louisiana from those of Entergy Mississippi?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\text{Payments}_{\\text{LA}} - \\text{Payments}_{\\text{MS}}\n\\]"
+    },
+    {
+        "instruction": "Determine the difference in payments between Entergy Louisiana and Entergy Mississippi, expressed in millions.",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\text{Payments}_{\\text{LA}} - \\text{Payments}_{\\text{MS}}\n\\]"
+    },
+    {
+        "instruction": "By millions, what is the variance in payments between Entergy Louisiana and Entergy Mississippi?",
+        "input": "",
+        "output": "\\[\n\\text{Difference} = \\text{Payments}_{\\text{LA}} - \\text{Payments}_{\\text{MS}}\n\\]"
+    },
+    {
+        "instruction": "What was the overall change in thousands of goodwill and intangible assets from October 31, 2011, to October 31, 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change} = \\left( \\text{Goodwill}_{2012} + \\text{IntangibleAssets}_{2012} \\right) - \\left( \\text{Goodwill}_{2011} + \\text{IntangibleAssets}_{2011} \\right)\n\\]"
+    },
+    {
+        "instruction": "Determine the net variation in the balance of goodwill and intangible assets, measured in thousands, between October 31, 2011, and October 31, 2012.",
+        "input": "",
+        "output": "\\[\n\\text{Net Change} = \\left( \\text{Goodwill}_{2012} + \\text{IntangibleAssets}_{2012} \\right) - \\left( \\text{Goodwill}_{2011} + \\text{IntangibleAssets}_{2011} \\right)\n\\]"
+    },
+    {
+        "instruction": "Calculate the net difference in thousands for the goodwill and intangible assets balance from October 31, 2011, to October 31, 2012.",
+        "input": "",
+        "output": "\\[\n\\text{Net Change} = \\left( \\text{Goodwill}_{2012} + \\text{IntangibleAssets}_{2012} \\right) - \\left( \\text{Goodwill}_{2011} + \\text{IntangibleAssets}_{2011} \\right)\n\\]"
+    },
+    {
+        "instruction": "What is the net increase or decrease in the goodwill and intangible assets balance, in thousands, from October 31, 2011, to October 31, 2012?",
+        "input": "",
+        "output": "\\[\n\\text{Net Change} = \\left( \\text{Goodwill}_{2012} + \\text{IntangibleAssets}_{2012} \\right) - \\left( \\text{Goodwill}_{2011} + \\text{IntangibleAssets}_{2011} \\right)\n\\]"
+    },
+    {
+        "instruction": "Identify the net change, expressed in thousands, in the balance of goodwill and intangible assets from October 31, 2011, through October 31, 2012.",
+        "input": "",
+        "output": "\\[\n\\text{Net Change} = \\left( \\text{Goodwill}_{2012} + \\text{IntangibleAssets}_{2012} \\right) - \\left( \\text{Goodwill}_{2011} + \\text{IntangibleAssets}_{2011} \\right)\n\\]"
+    },
+    {
+        "instruction": "1. What is the overall square footage of the md facility?<sep >2. How many square feet does the md facility encompass in total?<sep >3. What is the md facility's total area in square feet?<sep >4. Can you provide the total square footage for the md facility?<sep >5. What is the complete square footage for the md facility?",
+        "input": "",
+        "output": "\\[\n\\text{Total Square Footage} = A_{\\text{Waiting Rooms}} + A_{\\text{Examination Rooms}} + A_{\\text{Offices}} + A_{\\text{Storage}} + A_{\\text{Common Areas}} + A_{\\text{Other Areas}}\n\\]"
+    },
+    {
+        "instruction": "1. What percentage of operating lease payments must be made within a year?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Payments Due in Less Than One Year} = \\left( \\frac{\\sum_{i=1}^{n} C_i}{\\sum_{i=1}^{N} C_i} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "2. What proportion of operating lease payments are due under one year?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Payments Due in Less Than One Year} = \\left( \\frac{\\sum_{i=1}^{n} C_i}{\\sum_{i=1}^{N} C_i} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "3. What is the percentage of operating lease payments that are payable in less than one year?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Payments Due in Less Than One Year} = \\left( \\frac{\\sum_{i=1}^{n} C_i}{\\sum_{i=1}^{N} C_i} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "4. What fraction of operating lease payments needs to be settled within a year?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Payments Due in Less Than One Year} = \\left( \\frac{\\sum_{i=1}^{n} C_i}{\\sum_{i=1}^{N} C_i} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "5. What rate of operating lease payments becomes payable in under one year?",
+        "input": "",
+        "output": "\\[\n\\text{Percentage of Payments Due in Less Than One Year} = \\left( \\frac{\\sum_{i=1}^{n} C_i}{\\sum_{i=1}^{N} C_i} \\right) \\times 100\\%\n\\]"
+    },
+    {
+        "instruction": "What fraction of the upcoming minimum rental payments is scheduled to be paid after a period of five years?",
+        "input": "",
+        "output": "\\[\nPV_{\\text{after } 5 \\text{ years}} = \\frac{PMT}{r} \\left(1 - \\frac{1}{(1 + r)^n}\\right) \\times \\frac{1}{(1 + r)^5}\n\\]"
+    },
+    {
+        "instruction": "After five years, what segment of the future required rental payments becomes due?",
+        "input": "",
+        "output": "\\[\nPV_{\\text{after } 5 \\text{ years}} = \\frac{PMT}{r} \\left(1 - \\frac{1}{(1 + r)^n}\\right) \\times \\frac{1}{(1 + r)^5}\n\\]"
+    },
+    {
+        "instruction": "What percentage of the subsequent minimum rental dues is payable following five years?",
+        "input": "",
+        "output": "\\[\nPV_{\\text{after } 5 \\text{ years}} = \\frac{PMT}{r} \\left(1 - \\frac{1}{(1 + r)^n}\\right) \\times \\frac{1}{(1 + r)^5}\n\\]"
+    },
+    {
+        "instruction": "Following five years, what portion of the future obligatory rental payments must be paid?",
+        "input": "",
+        "output": "\\[\nPV_{\\text{after } 5 \\text{ years}} = \\frac{PMT}{r} \\left(1 - \\frac{1}{(1 + r)^n}\\right) \\times \\frac{1}{(1 + r)^5}\n\\]"
+    },
+    {
+        "instruction": "How much of the future minimum rent payments is expected to be due beyond five years?",
+        "input": "",
+        "output": "\\[\nPV_{\\text{after } 5 \\text{ years}} = \\frac{PMT}{r} \\left(1 - \\frac{1}{(1 + r)^n}\\right) \\times \\frac{1}{(1 + r)^5}\n\\]"
+    }
+]
