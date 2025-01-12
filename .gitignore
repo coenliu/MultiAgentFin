@@ -1,6 +1,6 @@
 ### macOS template
-./agents/tmp
-./autogen
+agents/tmp
+autogen
 
 # General
 .DS_Store
