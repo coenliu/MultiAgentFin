@@ -205,3 +205,48 @@ Your task is to:
     "approved": false
 }
 """
+from dataclass import TaskInput
+
+def construct_reason_prompt(input_data: TaskInput) -> str:
+    """
+    Constructs a prompt based on the task type and input data.
+
+    """
+    prompt = ""
+
+
+    # if fewshot_examples:
+    #     prompt += "Here are a few examples to guide your answer:\n\n"
+    #     for i, example in enumerate(fewshot_examples, 1):
+    #         example_question = example.get('question', 'N/A')
+    #         example_context = example.get('context', 'N/A')
+    #         example_answer = example.get('answer', 'N/A')
+    #
+    #         # Add each example to the prompt
+    #         prompt += f"Example {i}:\n"
+    #         prompt += f"Context: {example_context}\n"
+    #         prompt += f"Question: {example_question}\n"
+    #         prompt += f"Answer: {example_answer}\n\n"
+
+    if input_data.task == "CodeTAT-QA":
+        prompt += (
+            f"Context: {input_data.context}\n"
+            f"Question: {input_data.question}\n"
+            f"Answer:"
+        )
+    #TODO add more tasks
+    elif input_data.task == "CodeFinQA":
+        prompt += (
+            f"Context: {input_data.context}\n"
+            f"Question: {input_data.question}\n"
+        )
+    elif input_data.task == "TAT-QA":
+        prompt += (
+            f"Context: {input_data.context}\n"
+            f"Question: {input_data.question}\n"
+            f"Answer:"
+        )
+    else:
+        raise ValueError(f"Unknown task type: {input_data.task}")
+
+    return prompt

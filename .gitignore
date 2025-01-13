@@ -1,6 +1,8 @@
 ### macOS template
 agents/tmp
 autogen
+.idea
+command.md
 
 # General
 .DS_Store
