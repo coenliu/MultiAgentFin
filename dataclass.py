@@ -3,7 +3,7 @@ extractor_topic_type = "ExtractorAgent"
 verifier_topic_type = "VerifierAgent"
 executor_topic_type = "ExecutorAgent"
 user_topic_type = "User"
-
+output_topic_type = "FormateOutput"
 
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Set, Union
@@ -97,6 +97,34 @@ class ExecuteTask:
 class VerifyTask:
     task: str
     results: List[VerifierResults] = field(default_factory=list)
+
+    def get_verify_comment(self) -> str:
+        if not self.results:
+            return ""
+        if not self.results:
+            return ""
+
+        latest_result = self.results[-1]
+        comments = []
+
+        if latest_result.reasoner_comment:
+            comments.append(f"Reasoner Comment: {latest_result.reasoner_comment}")
+
+        if latest_result.extractor_comment:
+            comments.append(f"Extractor Comment: {latest_result.extractor_comment}")
+
+        if latest_result.executor_comment:
+            comments.append(f"Executor Comment: {latest_result.executor_comment}")
+
+        approval_status = "Approved" if latest_result.approved else "Not Approved"
+        comments.append(f"Approval Status: {approval_status}")
+
+        return "\n".join(comments)
+
+@dataclass
+class OutputTask:
+    task: str
+    # results:str
 
 @dataclass
 class TaskInput:

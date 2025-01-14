@@ -8,11 +8,12 @@ from agents.executor import ExecutorAgent
 from agents.extractor import ExtractorAgent
 from agents.verifier import VerifierAgent
 from autogen_ext.models.openai import OpenAIChatCompletionClient
-from dataclass import reasoner_topic_type, executor_topic_type, extractor_topic_type,verifier_topic_type, ReasonTask, TaskContext
+from dataclass import reasoner_topic_type, executor_topic_type, extractor_topic_type,verifier_topic_type, ReasonTask, TaskContext, output_topic_type
 import argparse
 import logging
 from dataloader.parquet_dataset import ParquetDataset, load_parquet
 from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts
+from agents.formate_output import FormateOutput
 from typing import Any
 model_client = OpenAIChatCompletionClient(
     model="meta-llama/Llama-3.2-1B-Instruct",
@@ -20,6 +21,7 @@ model_client = OpenAIChatCompletionClient(
     api_key="placeholder",
     temperature=0.1,
     top_p=0.9,
+    max_tokens=500,
     model_capabilities={
         "vision": False,
         "function_calling": True,
@@ -33,7 +35,7 @@ AGENT_SEQUENCES = {
         ("extract_agent", "ExtractionAgent"),
         ("executor_agent", "ExecutorAgent"),
         ("verifier_agent", "VerifyAgent"),
-        # ("final_output", "FinalOutput"),
+        ("formate_output", "FormateOutput"),
     ],
     # "no_reason": [
     #     ("extract_agent", "ExtractionAgent"),
@@ -79,12 +81,11 @@ def parse_args():
     parser.add_argument('--temperature', type=float, default=0.3, help="Temperature for text generation")
     return parser.parse_args()
 
-async def process_task_context(runtime: SingleThreadedAgentRuntime, ctx: TaskContext, agent_sequence: Any):
+async def process_task_context(runtime: SingleThreadedAgentRuntime, ctx: TaskContext, agent_sequence: Any, output_path: str, output_file: str):
     try:
         agents_to_register = [agent[0] for agent in AGENT_SEQUENCES[agent_sequence]]
 
         if "reason_agent" in agents_to_register:
-            logging.info("Registering ReasonerAgent.")
             await ReasonerAgent.register(
                 runtime,
                 type=reasoner_topic_type,
@@ -92,7 +93,6 @@ async def process_task_context(runtime: SingleThreadedAgentRuntime, ctx: TaskCon
             )
 
         if "extract_agent" in agents_to_register:
-            logging.info("Registering ExtractorAgent.")
             await ExtractorAgent.register(
                 runtime,
                 type=extractor_topic_type,
@@ -100,7 +100,6 @@ async def process_task_context(runtime: SingleThreadedAgentRuntime, ctx: TaskCon
             )
 
         if "executor_agent" in agents_to_register:
-            logging.info("Registering ExecutorAgent.")
             await ExecutorAgent.register(
                 runtime,
                 type=executor_topic_type,
@@ -108,11 +107,16 @@ async def process_task_context(runtime: SingleThreadedAgentRuntime, ctx: TaskCon
             )
 
         if "verifier_agent" in agents_to_register:
-            logging.info("Registering VerifierAgent.")
             await VerifierAgent.register(
                 runtime,
                 type=verifier_topic_type,
                 factory=lambda: VerifierAgent(model_client=model_client, task_context=ctx)
+            )
+        if "formate_output" in agents_to_register:
+            await FormateOutput.register(
+                runtime,
+                type=output_topic_type,
+                factory=lambda: FormateOutput(output_file=output_file, output_path=output_path, task_context=ctx)
             )
 
         runtime.start()
@@ -139,7 +143,8 @@ async def main(args):
         task_name=args.dataset_name,
         top_n=args.top_n
     )
-
+    output_file = args.output_file
+    output_path = args.output_path
     task_inputs = dataset_to_task_inputs(dataset=dataset)
 
     task_contexts = inputs_to_contexts(task_inputs)
@@ -148,7 +153,7 @@ async def main(args):
 
     for idx, ctx in enumerate(task_contexts, start=1):
         logging.info(f"Processing context {idx}/{len(task_contexts)}")
-        await process_task_context(runtime=runtime, ctx=ctx, agent_sequence=agent_sequence)
+        await process_task_context(runtime=runtime, ctx=ctx, agent_sequence=agent_sequence, output_path=output_path, output_file=output_file)
 
 
 if __name__ == "__main__":

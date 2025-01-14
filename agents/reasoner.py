@@ -10,7 +10,7 @@ from autogen_core import (
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
 from dataclass import ReasonTask, VerifierResults,Message, ReasonerResults, ExtractTask, reasoner_topic_type, extractor_topic_type,TaskContext
-from prompts import SYS_PROMPT_REASONER
+from prompts import SYS_PROMPT_REASONER, construct_reason_prompt
 from typing import Dict, List
 import uuid
 
@@ -28,7 +28,8 @@ class ReasonerAgent(RoutedAgent):
 
     @message_handler
     async def handle_reason_task(self, message: ReasonTask, ctx: MessageContext) -> None:
-        prompt = f"Here is the input content and question {message.task}"
+        prompt = construct_reason_prompt(self._task_context.input_data)
+        print(f"this is prompt: {prompt}")
         session_id = str(uuid.uuid4())
         self._session_memory.setdefault(session_id, []).append(message)
 

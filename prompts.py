@@ -152,32 +152,7 @@ Your task is to:
 - **Do Not Introduce** new variables or data points that were not identified by the Reasoning Agent.
 - **Maintain Objectivity**: Focus solely on verification without making assumptions beyond the provided information.
 
-**Format your response as follows:**
-```json
-{
-    "reasoner_comment": {
-        "formulas_valid": true,  
-        "formula_issues": [      
-            "Description of formula issue 1...",
-        ]
-    },
-    "extractor_comment": {
-        "data_valid": true,      
-        "data_issues": [         
-            "Description of data issue 1...",
-        ]
-    },
-    "executor_comment": {
-        "code_issues_found": {
-            "syntax": [          
-                "Description of syntax issue 1...",
-            ],
-            "results": [          
-                "Description of result issue 1...",
-            ]
-        }
-    },
-    "approved": false            
+
 **Example:**
 {
     "reasoner_comment": {

@@ -8,7 +8,7 @@ from autogen_core import (
     type_subscription,
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
-from dataclass import verifier_topic_type, Message, TaskContext, VerifyTask
+from dataclass import verifier_topic_type, Message, TaskContext, VerifyTask, OutputTask, output_topic_type, VerifierResults
 from prompts import SYS_PROMPT_VERIFICATION
 
 @type_subscription(topic_type=verifier_topic_type)
@@ -26,9 +26,11 @@ class VerifierAgent(RoutedAgent):
     async def handle_user_description(self, message: VerifyTask, ctx: MessageContext) -> None:
         #TODO
         prompt = f"""You need to evaluate following and give your review comments: \n
-        reasoner agent:  {self._task_context.reasoner_task.get_formula_from_reason()} \n
-        extractor agent: {self._task_context.extractor_task.get_extracted_var()} \n
-        executor agent:  {self._task_context.executor_task.get_code()} and {self._task_context.executor_task.get_answer()}
+        reasoner agent result:  {self._task_context.reasoner_task.get_formula_from_reason()} \n
+        extractor agent result: {self._task_context.extractor_task.get_extracted_var()} \n
+        executor agent result:  {self._task_context.executor_task.get_code()}\n Answer: {self._task_context.executor_task.get_answer()}
+        **Format your response as JSON**
+
         """
         llm_result = await self._model_client.create(
             messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
@@ -38,4 +40,17 @@ class VerifierAgent(RoutedAgent):
         assert isinstance(response, str)
         print(f"{'-'*80}\n{self.id.type}:\n{response}")
 
-       # await self.publish_message(Message(response), topic_id=TopicId(extractor_topic_type, source=self.id.key))
+        #TODO need to extract responding results
+        verifier_result = VerifierResults(
+            session_id="",
+            reasoner_comment=response,
+            extractor_comment="",
+            executor_comment="",
+            approved=False,
+        )
+
+        output_task = OutputTask(task="")
+        self._task_context.verify_task = VerifyTask(task=message.task)
+        self._task_context.verify_task.results.append(verifier_result)
+
+        await self.publish_message(message=output_task, topic_id=TopicId(output_topic_type, source=self.id.key))

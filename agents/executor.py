@@ -27,11 +27,12 @@ class ExecutorAgent(RoutedAgent):
 
 
     @message_handler
-    async def handle_user_description(self, message: ExecuteTask, ctx: MessageContext) -> None:
+    async def handle_execute_task(self, message: ExecuteTask, ctx: MessageContext) -> None:
         #TODO
         # pass
         prompt = (f"Here is the formula {self._task_context.reasoner_task.get_formula_from_reason()} \n"
-                  f"Here is the extracted value {self._task_context.extractor_task.get_extracted_var()}")
+                  f"Here is the extracted value {self._task_context.extractor_task.get_extracted_var()}"
+                  f"You need to end with code by print(answer)")
 
         # print(f"{'-' * 80}\n{self.id.type}:\n {prompt}")
         llm_result = await self._model_client.create(
