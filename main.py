@@ -1,4 +1,5 @@
 import asyncio
+import uuid
 from autogen_core import (
     SingleThreadedAgentRuntime,
     TopicId,
@@ -8,13 +9,13 @@ from agents.executor import ExecutorAgent
 from agents.extractor import ExtractorAgent
 from agents.verifier import VerifierAgent
 from autogen_ext.models.openai import OpenAIChatCompletionClient
-from dataclass import reasoner_topic_type, executor_topic_type, extractor_topic_type,verifier_topic_type, ReasonTask, TaskContext, output_topic_type
+from dataclass import TASK_CONTEXT_MAPPING, reasoner_topic_type, executor_topic_type, extractor_topic_type,verifier_topic_type, ReasonTask, TaskContext, output_topic_type
 import argparse
 import logging
 from dataloader.parquet_dataset import ParquetDataset, load_parquet
 from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts
 from agents.formate_output import FormateOutput
-from typing import Any
+from typing import Any, List,Dict
 model_client = OpenAIChatCompletionClient(
     model="meta-llama/Llama-3.2-1B-Instruct",
     base_url="http://0.0.0.0:8000/v1",
@@ -28,6 +29,7 @@ model_client = OpenAIChatCompletionClient(
         "json_output": True,
     },
 )
+
 
 AGENT_SEQUENCES = {
     "default": [
@@ -81,57 +83,115 @@ def parse_args():
     parser.add_argument('--temperature', type=float, default=0.3, help="Temperature for text generation")
     return parser.parse_args()
 
-async def process_task_context(runtime: SingleThreadedAgentRuntime, ctx: TaskContext, agent_sequence: Any, output_path: str, output_file: str):
-    try:
-        agents_to_register = [agent[0] for agent in AGENT_SEQUENCES[agent_sequence]]
+# async def process_task_context(runtime: SingleThreadedAgentRuntime, ctx: TaskContext, agent_sequence: Any, output_path: str, output_file: str):
+#     try:
+#         agents_to_register = [agent[0] for agent in AGENT_SEQUENCES[agent_sequence]]
+#
+#         if "reason_agent" in agents_to_register:
+#             await ReasonerAgent.register(
+#                 runtime,
+#                 type=reasoner_topic_type,
+#                 factory=lambda: ReasonerAgent(model_client=model_client, task_context=ctx)
+#             )
+#
+#         if "extract_agent" in agents_to_register:
+#             await ExtractorAgent.register(
+#                 runtime,
+#                 type=extractor_topic_type,
+#                 factory=lambda: ExtractorAgent(model_client=model_client, task_context=ctx)
+#             )
+#
+#         if "executor_agent" in agents_to_register:
+#             await ExecutorAgent.register(
+#                 runtime,
+#                 type=executor_topic_type,
+#                 factory=lambda: ExecutorAgent(model_client=model_client, task_context=ctx)
+#             )
+#
+#         if "verifier_agent" in agents_to_register:
+#             await VerifierAgent.register(
+#                 runtime,
+#                 type=verifier_topic_type,
+#                 factory=lambda: VerifierAgent(model_client=model_client, task_context=ctx)
+#             )
+#         if "formate_output" in agents_to_register:
+#             await FormateOutput.register(
+#                 runtime,
+#                 type=output_topic_type,
+#                 factory=lambda: FormateOutput(output_file=output_file, output_path=output_path, task_context=ctx)
+#             )
+#
+#         runtime.start()
+#         logging.info("Runtime started.")
+#
+#         logging.info("Publishing initial ReasonTask message.")
+#         await runtime.publish_message(
+#             ReasonTask(task=""),
+#             topic_id=TopicId(reasoner_topic_type, source="default"),
+#         )
+#
+#         await runtime.stop_when_idle()
+#
+#     except Exception as e:
+#         raise RuntimeError(f"Error processing task context: {e}")
+async def register_agents(runtime: SingleThreadedAgentRuntime, agent_sequence: List[str], output_path: str, output_file: str):
+    """
+    Registers agents with the runtime based on the agent sequence.
 
-        if "reason_agent" in agents_to_register:
-            await ReasonerAgent.register(
-                runtime,
-                type=reasoner_topic_type,
-                factory=lambda: ReasonerAgent(model_client=model_client, task_context=ctx)
-            )
+    Args:
+        runtime (SingleThreadedAgentRuntime): The agent runtime.
+        agent_sequence (List[str]): List of agent names to register.
+        output_path (str): Directory path for FormateOutput agent.
+        output_file (str): Filename for FormateOutput agent.
+    """
+    agents_to_register = [agent[0] for agent in AGENT_SEQUENCES[agent_sequence]]
 
-        if "extract_agent" in agents_to_register:
-            await ExtractorAgent.register(
-                runtime,
-                type=extractor_topic_type,
-                factory=lambda: ExtractorAgent(model_client=model_client, task_context=ctx)
-            )
-
-        if "executor_agent" in agents_to_register:
-            await ExecutorAgent.register(
-                runtime,
-                type=executor_topic_type,
-                factory=lambda: ExecutorAgent(model_client=model_client, task_context=ctx)
-            )
-
-        if "verifier_agent" in agents_to_register:
-            await VerifierAgent.register(
-                runtime,
-                type=verifier_topic_type,
-                factory=lambda: VerifierAgent(model_client=model_client, task_context=ctx)
-            )
-        if "formate_output" in agents_to_register:
-            await FormateOutput.register(
-                runtime,
-                type=output_topic_type,
-                factory=lambda: FormateOutput(output_file=output_file, output_path=output_path, task_context=ctx)
-            )
-
-        runtime.start()
-        logging.info("Runtime started.")
-
-        logging.info("Publishing initial ReasonTask message.")
-        await runtime.publish_message(
-            ReasonTask(task=""),
-            topic_id=TopicId(reasoner_topic_type, source="default"),
+    if "reason_agent" in agents_to_register:
+        await ReasonerAgent.register(
+            runtime,
+            type=reasoner_topic_type,
+            factory=lambda: ReasonerAgent(model_client=model_client)  # task_context handled via messages
         )
 
-        await runtime.stop_when_idle()
+    if "extract_agent" in agents_to_register:
+        await ExtractorAgent.register(
+            runtime,
+            type=extractor_topic_type,
+            factory=lambda: ExtractorAgent(model_client=model_client)
+        )
 
-    except Exception as e:
-        raise RuntimeError(f"Error processing task context: {e}")
+    if "executor_agent" in agents_to_register:
+        await ExecutorAgent.register(
+            runtime,
+            type=executor_topic_type,
+            factory=lambda: ExecutorAgent(model_client=model_client)
+        )
+
+    if "verifier_agent" in agents_to_register:
+        await VerifierAgent.register(
+            runtime,
+            type=verifier_topic_type,
+            factory=lambda: VerifierAgent(model_client=model_client)
+        )
+
+    if "formate_output" in agents_to_register:
+        await FormateOutput.register(
+            runtime,
+            type=output_topic_type,
+            factory=lambda: FormateOutput(output_path=output_path, output_file=output_file)
+        )
+
+async def publish_tasks(runtime: SingleThreadedAgentRuntime, task_contexts: List[TaskContext]):
+    """
+    Publishes tasks to the runtime for processing.
+    """
+    for idx, ctx in enumerate(task_contexts, start=1):
+        task_id = str(uuid.uuid4())
+        TASK_CONTEXT_MAPPING[task_id] = ctx
+        await runtime.publish_message(
+            ReasonTask(task="", task_id=task_id),
+            topic_id=TopicId(reasoner_topic_type, source="default"),
+        )
 
 async def main(args):
     """
@@ -150,10 +210,13 @@ async def main(args):
     task_contexts = inputs_to_contexts(task_inputs)
 
     runtime = SingleThreadedAgentRuntime()
-
-    for idx, ctx in enumerate(task_contexts, start=1):
-        logging.info(f"Processing context {idx}/{len(task_contexts)}")
-        await process_task_context(runtime=runtime, ctx=ctx, agent_sequence=agent_sequence, output_path=output_path, output_file=output_file)
+    await register_agents(runtime, agent_sequence, output_path, output_file)
+    runtime.start()
+    await publish_tasks(runtime, task_contexts)
+    await runtime.stop_when_idle()
+    # for idx, ctx in enumerate(task_contexts, start=1):
+    #     logging.info(f"Processing context {idx}/{len(task_contexts)}")
+    #     await process_task_context(runtime=runtime, ctx=ctx, agent_sequence=agent_sequence, output_path=output_path, output_file=output_file)
 
 
 if __name__ == "__main__":

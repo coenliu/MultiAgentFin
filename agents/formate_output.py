@@ -9,23 +9,24 @@ from autogen_core import (
     MessageContext,
     message_handler
 )
-from dataclass import TaskContext,output_topic_type,OutputTask
+from dataclass import TASK_CONTEXT_MAPPING, TaskContext,output_topic_type,OutputTask
 import logging
 logger = logging.getLogger(__name__)
 
 @type_subscription(topic_type=output_topic_type)
 class FormateOutput(RoutedAgent):
-    def __init__(self, output_file: str, output_path: str, task_context: TaskContext):
+    def __init__(self, output_file: str, output_path: str):
         super().__init__("Formated output.")
         self.output_path = output_path
         self.output_file = output_file
-        self._task_context = task_context
 
     @message_handler
     async def handle_output(self, message: OutputTask, ctx: MessageContext) -> None:
         try:
             logging.info("FinalOutput started.")
-            final_output = self.generate(self._task_context)
+            task_id = message.task_id
+            task_context = TASK_CONTEXT_MAPPING[task_id]
+            final_output = self.generate(task_context)
             self.save(final_output)
 
         except Exception as e:

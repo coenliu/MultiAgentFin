@@ -51,6 +51,7 @@ class VerifierResults:
 @dataclass
 class ReasonTask:
     task: str
+    task_id: str
     results: List[ReasonerResults] = field(default_factory=list)
 
     def get_var_from_reason(self) -> str:
@@ -69,6 +70,7 @@ class ReasonTask:
 @dataclass
 class ExtractTask:
     task: str
+    task_id: str
     results: List[ExtractorResults] = field(default_factory=list)
 
     def get_extracted_var(self) -> str:
@@ -80,6 +82,7 @@ class ExtractTask:
 @dataclass
 class ExecuteTask:
     task: str
+    task_id: str
     results: List[ExecutorResults] = field(default_factory=list)
 
     def get_code(self) -> str:
@@ -96,6 +99,7 @@ class ExecuteTask:
 @dataclass
 class VerifyTask:
     task: str
+    task_id: str
     results: List[VerifierResults] = field(default_factory=list)
 
     def get_verify_comment(self) -> str:
@@ -124,6 +128,7 @@ class VerifyTask:
 @dataclass
 class OutputTask:
     task: str
+    task_id: str
     # results:str
 
 @dataclass
@@ -159,6 +164,7 @@ class TaskContext:
         else:
             raise ValueError(f"Unsupported task type: {type(task).__name__}")
 
+TASK_CONTEXT_MAPPING: Dict[str, TaskContext] = {}
 # from dataclasses import dataclass, field
 # from typing import Any, Dict, List, Optional, Set
 # import json

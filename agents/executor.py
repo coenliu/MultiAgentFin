@@ -9,7 +9,7 @@ from autogen_core import (
     type_subscription,
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
-from dataclass import executor_topic_type, verifier_topic_type, Message, TaskContext, ExecuteTask, ExecutorResults, VerifyTask
+from dataclass import TASK_CONTEXT_MAPPING, executor_topic_type, verifier_topic_type, Message, TaskContext, ExecuteTask, ExecutorResults, VerifyTask
 from prompts import SYS_PROMPT_EXECUTOR
 from autogen import ConversableAgent
 from autogen.coding import LocalCommandLineCodeExecutor
@@ -17,21 +17,22 @@ import tempfile
 
 @type_subscription(topic_type=executor_topic_type)
 class ExecutorAgent(RoutedAgent):
-    def __init__(self, model_client: ChatCompletionClient, task_context: TaskContext) -> None:
+    def __init__(self, model_client: ChatCompletionClient) -> None:
         super().__init__("A code executor agent.")
         self._system_message = SystemMessage(
             content=SYS_PROMPT_EXECUTOR
         )
         self._model_client = model_client
-        self._task_context = task_context
 
 
     @message_handler
     async def handle_execute_task(self, message: ExecuteTask, ctx: MessageContext) -> None:
         #TODO
-        # pass
-        prompt = (f"Here is the formula {self._task_context.reasoner_task.get_formula_from_reason()} \n"
-                  f"Here is the extracted value {self._task_context.extractor_task.get_extracted_var()}"
+        task_id = message.task_id
+        task_context = TASK_CONTEXT_MAPPING[task_id]
+
+        prompt = (f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
+                  f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}"
                   f"You need to end with code by print(answer)")
 
         # print(f"{'-' * 80}\n{self.id.type}:\n {prompt}")
@@ -52,10 +53,10 @@ class ExecutorAgent(RoutedAgent):
         )
 
         # print(f"{'-' * 80}\n{self.id.type}:\n {code_res}")
-        self._task_context.executor_task = ExecuteTask(task=message.task)
-        self._task_context.executor_task.results.append(executor_res)
+        verify_task = VerifyTask(task="", task_id=message.task_id)
 
-        verify_task = VerifyTask(task="")
+        task_context.executor_task = ExecuteTask(task=message.task, task_id=message.task_id)
+        task_context.executor_task.results.append(executor_res)
 
         await self.publish_message(verify_task, topic_id=TopicId(verifier_topic_type, source=self.id.key))
 

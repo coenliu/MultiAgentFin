@@ -9,26 +9,27 @@ from autogen_core import (
     type_subscription,
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
-from dataclass import ReasonTask, VerifierResults,Message, ReasonerResults, ExtractTask, reasoner_topic_type, extractor_topic_type,TaskContext
+from dataclass import TASK_CONTEXT_MAPPING, ReasonTask, VerifierResults,Message, ReasonerResults, ExtractTask, reasoner_topic_type, extractor_topic_type,TaskContext
 from prompts import SYS_PROMPT_REASONER, construct_reason_prompt
 from typing import Dict, List
 import uuid
 
 @type_subscription(topic_type=reasoner_topic_type)
 class ReasonerAgent(RoutedAgent):
-    def __init__(self, model_client: ChatCompletionClient, task_context: TaskContext) -> None:
+    def __init__(self, model_client: ChatCompletionClient) -> None:
         super().__init__("A formula and variable identify agent.")
         self._system_message = SystemMessage(
             content=SYS_PROMPT_REASONER
         )
         self._model_client = model_client
         self._session_memory: Dict[str, List[VerifierResults | ReasonTask]] = {}
-        self._task_context = task_context
 
 
     @message_handler
     async def handle_reason_task(self, message: ReasonTask, ctx: MessageContext) -> None:
-        prompt = construct_reason_prompt(self._task_context.input_data)
+        task_id = message.task_id
+        task_context = TASK_CONTEXT_MAPPING[task_id]
+        prompt = construct_reason_prompt(task_context.input_data)
         print(f"this is prompt: {prompt}")
         session_id = str(uuid.uuid4())
         self._session_memory.setdefault(session_id, []).append(message)
@@ -59,10 +60,11 @@ class ReasonerAgent(RoutedAgent):
 
         extract_task = ExtractTask(
             task="",
+            task_id=message.task_id
         )
 
         # Update task context
-        self._task_context.reasoner_task = ReasonTask(task=message.task)
-        self._task_context.reasoner_task.results.append(reasoner_results)
+        task_context.reasoner_task = ReasonTask(task=message.task, task_id=message.task_id)
+        task_context.reasoner_task.results.append(reasoner_results)
 
         await self.publish_message(message=extract_task, topic_id=TopicId(extractor_topic_type, source=self.id.key))
