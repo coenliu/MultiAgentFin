@@ -39,7 +39,7 @@ class VerifierAgent(RoutedAgent):
         )
         response = llm_result.content
         assert isinstance(response, str)
-        print(f"{'-'*80}\n{self.id.type}:\n{response}")
+        # print(f"{'-'*80}\n{self.id.type}:\n{response}")
 
         #TODO need to extract responding results
         verifier_result = VerifierResults(

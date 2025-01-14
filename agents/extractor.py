@@ -39,7 +39,7 @@ class ExtractorAgent(RoutedAgent):
         )
         response = llm_result.content
         assert isinstance(response, str)
-        print(f"{'-'*80}\n{self.id.type}:\n{response}")
+        # print(f"{'-'*80}\n{self.id.type}:\n{response}")
 
         extractor_results = ExtractorResults(
             extracted_var_value=response,

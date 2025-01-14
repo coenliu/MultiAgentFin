@@ -33,7 +33,7 @@ class ExecutorAgent(RoutedAgent):
 
         prompt = (f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
                   f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}"
-                  f"You need to end with code by print(answer)")
+                  f"You need to end with code by print(answer). And answer within 10 lines code")
 
         # print(f"{'-' * 80}\n{self.id.type}:\n {prompt}")
         llm_result = await self._model_client.create(
@@ -42,7 +42,7 @@ class ExecutorAgent(RoutedAgent):
         )
         response = llm_result.content
         assert isinstance(response, str)
-        print(f"{'-'*80}\n{self.id.type}:\n{response}")
+        # print(f"{'-'*80}\n{self.id.type}:\n{response}")
 
         code_res = self.run_code(response)
 
@@ -72,7 +72,7 @@ class ExecutorAgent(RoutedAgent):
             code_execution_config={"executor": executor},  # Use the local command line code executor.
             # human_input_mode="ALWAYS",  # Always take human input for this agent for safety.
         )
-        print(f"The code input:{'-' * 80}\n{self.id.type}:\n {message_with_code_block}")
+        # print(f"The code input:{'-' * 80}\n{self.id.type}:\n {message_with_code_block}")
         reply = code_executor_agent.generate_reply(messages=[{"role": "user", "content": message_with_code_block}])
-        print(f"The code output:{'-' * 80}\n{self.id.type}:\n {reply}")
+        # print(f"The code output:{'-' * 80}\n{self.id.type}:\n {reply}")
         return reply

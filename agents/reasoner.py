@@ -30,7 +30,6 @@ class ReasonerAgent(RoutedAgent):
         task_id = message.task_id
         task_context = TASK_CONTEXT_MAPPING[task_id]
         prompt = construct_reason_prompt(task_context.input_data)
-        print(f"this is prompt: {prompt}")
         session_id = str(uuid.uuid4())
         self._session_memory.setdefault(session_id, []).append(message)
 
@@ -41,7 +40,7 @@ class ReasonerAgent(RoutedAgent):
         )
         response = llm_result.content
         assert isinstance(response, str)
-        print(f"{'-'*80}\n{self.id.type}:\n{response}")
+        # print(f"{'-'*80}\n{self.id.type}:\n{response}")
 
         #TODO need to save the response to reasoner results
 
