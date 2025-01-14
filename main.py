@@ -18,8 +18,8 @@ from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts
 from agents.formate_output import FormateOutput
 from typing import Any, List,Dict
 model_client = OpenAIChatCompletionClient(
-    model="meta-llama/Llama-3.2-1B-Instruct",
-    base_url="http://0.0.0.0:8000/v1",
+    model="meta-llama/Meta-Llama-3-8B-Instruct", # meta-llama/Meta-Llama-3-8B-Instruct
+    base_url="http://localhost:8000/v1",
     api_key="placeholder",
     temperature=0.1,
     top_p=0.9,

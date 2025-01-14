@@ -123,7 +123,7 @@ def process_directory(directory_path, answer_column, generated_text_column, tole
 
 # Example Usage
 if __name__ == "__main__":
-    directory_path = '../results/codefinqa'  # Path to the directory with CSV files
+    directory_path = '../results/test'  # Path to the directory with CSV files
     answer_column = 'answer'
     generated_text_column = 'model_output'
     tolerance = 0.02  # Adjust tolerance as needed
