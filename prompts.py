@@ -226,19 +226,42 @@ def construct_reason_prompt(input_data: TaskInput) -> str:
 
     return prompt
 
+
+def construct_action_evaluation_prompt(current_question: str, current_context: str, action: str) -> str:
+    """
+    Constructs the evaluation prompt for the VerifierAgent.
+
+    Args:
+        current_question (str): The current question being addressed.
+        current_context (str): The context related to the question.
+        action (str): The action to be evaluated.
+
+    Returns:
+        str: The formatted evaluation prompt.
+    """
+    prompt = f"""You need to evaluate the following action and provide a score based on its effectiveness and correctness. \n
+            Question: {current_question}
+            Context: {current_context}
+            Action: {action}
+            **Provide your response as a JSON object with two keys:**
+            - **"comments"**: A string containing your review comments.
+            - **"score"**: A numerical value between 0 and 1, where 1 indicates full approval and 0 indicates disapproval.
+            """
+    return prompt
+
 REASON_ACTION_ClAIFY = ""
 REASON_ACTION_QUESTION_STRUCTURE = ""
 REASON_ACTION_IDENTIFY_VAR = ""
 REASON_ACTION_THINKING_ONE_MORE = ""
 REASON_ACTION_DERIVE_ABSTRACT = ""
 
-ACTIONS = [
-    "REASON_ACTION_CLARIFY",
-    "REASON_ACTION_QUESTION_STRUCTURE",
-    "REASON_ACTION_IDENTIFY_VAR",
-    "REASON_ACTION_THINKING_ONE_MORE",
-    "REASON_ACTION_DERIVE_ABSTRACT"
-]
+ACTIONS = {
+    "REASON_ACTION_CLARIFY": "Clarify the question to ensure understanding.",
+    "REASON_ACTION_QUESTION_STRUCTURE": "Break down the question into its structural components.",
+    "REASON_ACTION_IDENTIFY_VAR": "Identify and define the variables involved in the question.",
+    "REASON_ACTION_THINKING_ONE_MORE": "Think through the relationships between the variables.",
+    "REASON_ACTION_DERIVE_ABSTRACT": "Derive an abstract formula or method to solve the question."
+}
 
 """
 1. Clarify Domain & Context (New)

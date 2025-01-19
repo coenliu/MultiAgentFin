@@ -9,7 +9,7 @@ from autogen_core import (
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
 from dataclass import VerifyTask, verifier_topic_type, ActionResults,ReasonerActionTask, TASK_CONTEXT_MAPPING, ReasonTask, VerifierResults,Message, ReasonerResults, ExtractTask, reasoner_topic_type, extractor_topic_type,TaskContext
-from prompts import SYS_PROMPT_REASONER, construct_reason_prompt, ACTIONS
+from prompts import SYS_PROMPT_REASONER, construct_reason_prompt, ACTIONS, construct_action_evaluation_prompt
 from typing import Dict, List, Optional
 import uuid
 from mcts.mcts_custom import MCTS_Searcher_Custom
@@ -66,7 +66,7 @@ class ReasonerAgent(RoutedAgent):
             self._mcts_searcher = MCTS_Searcher_Custom(
                 exploration_weight=1.414,
                 weight_scheduler="exp",
-                num_rollouts=50,
+                num_rollouts=1,
                 discount=1.0,
                 get_reward_func=self.get_reward_async,
                 verbose=False
@@ -80,7 +80,7 @@ class ReasonerAgent(RoutedAgent):
                 'actions_taken': [],
                 'current_action_index': 0,
                 'action_rewards': [],
-                'possible_actions': ACTIONS.copy()
+                'possible_actions': list(ACTIONS.keys())
             }
             root_node = ReasoningNode(state=initial_state)
 
@@ -153,16 +153,7 @@ class ReasonerAgent(RoutedAgent):
         """
         Constructs a prompt based on the current action and previous response.
         """
-        #TODO need to modify properly
-        action_instructions = {
-            "REASON_ACTION_CLARIFY": "Clarify the question to ensure understanding.",
-            "REASON_ACTION_QUESTION_STRUCTURE": "Break down the question into its structural components.",
-            "REASON_ACTION_IDENTIFY_VAR": "Identify and define the variables involved in the question.",
-            "REASON_ACTION_THINKING_ONE_MORE": "Think through the relationships between the variables.",
-            "REASON_ACTION_DERIVE_ABSTRACT": "Derive an abstract formula or method to solve the question."
-        }
-
-        action_prompt = action_instructions.get(action, "")
+        action_prompt = ACTIONS.get(action, "")
 
         if previous_response:
             final_prompt = f"{previous_response}\n\n{action_prompt}"
@@ -182,14 +173,7 @@ class ReasonerAgent(RoutedAgent):
 
     async def action_to_verifier(self, action: str) -> None:
         try:
-            prompt = f"""You need to evaluate the following action and provide a score based on its effectiveness and correctness. \n
-            Question: {self.current_question}
-            Context: {self.current_context}
-            Action: {action}
-            **Provide your response as a JSON object with two keys:**
-            - **"comments"**: A string containing your review comments.
-            - **"score"**: A numerical value between 0 and 1, where 1 indicates full approval and 0 indicates disapproval.
-            """
+            prompt = construct_action_evaluation_prompt(current_question=self.current_question, current_context=self.current_context,action=action)
             action_task = ReasonerActionTask(task="", action=prompt)
             await self.publish_message(message=action_task, topic_id=TopicId(verifier_topic_type, source=self.id.key))
 
