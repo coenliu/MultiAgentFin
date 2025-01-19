@@ -11,11 +11,17 @@ from typing import Any, Dict, List, Optional, Set, Union
 @dataclass
 class Message:
     content: str
+
+@dataclass
+class ActionResults:
+      results:str
+
 @dataclass
 class ReasonerResults:
     review: Optional[str]
     formulas: Optional[str]
     variables: Optional[str] = None
+    actions: Optional[List[str]] = None
 
     def add_variables(self, variables:str) -> None:
         """add the identified var results from reasoner to extractor"""
@@ -66,6 +72,11 @@ class ReasonTask:
         if not self.results:
             return ""
         return self.results[-1].formulas
+
+    def get_actions_from_reason(self) -> List[str]:
+        if not self.results:
+            return []
+        return self.results[-1].actions
 
 @dataclass
 class ExtractTask:
@@ -124,6 +135,11 @@ class VerifyTask:
         comments.append(f"Approval Status: {approval_status}")
 
         return "\n".join(comments)
+
+@dataclass
+class ReasonerActionTask:
+    task: str
+    action: str
 
 @dataclass
 class OutputTask:

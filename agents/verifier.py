@@ -8,7 +8,7 @@ from autogen_core import (
     type_subscription,
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
-from dataclass import TASK_CONTEXT_MAPPING, verifier_topic_type, Message, TaskContext, VerifyTask, OutputTask, output_topic_type, VerifierResults
+from dataclass import reasoner_topic_type, ActionResults,ReasonerActionTask, TASK_CONTEXT_MAPPING, verifier_topic_type, Message, TaskContext, VerifyTask, OutputTask, output_topic_type, VerifierResults
 from prompts import SYS_PROMPT_VERIFICATION
 
 @type_subscription(topic_type=verifier_topic_type)
@@ -22,7 +22,7 @@ class VerifierAgent(RoutedAgent):
 
 
     @message_handler
-    async def handle_user_description(self, message: VerifyTask, ctx: MessageContext) -> None:
+    async def handle_final_answer(self, message: VerifyTask, ctx: MessageContext) -> None:
         task_id = message.task_id
         task_context = TASK_CONTEXT_MAPPING[task_id]
         #TODO
@@ -55,3 +55,19 @@ class VerifierAgent(RoutedAgent):
         task_context.verify_task.results.append(verifier_result)
 
         await self.publish_message(message=output_task, topic_id=TopicId(output_topic_type, source=self.id.key))
+
+    @message_handler
+    async def handle_reasoner_action(self, message: ReasonerActionTask, ctx: MessageContext) -> None:
+        prompt = message.action
+
+        llm_result = await self._model_client.create(
+            messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
+            cancellation_token=ctx.cancellation_token,
+        )
+        response = llm_result.content
+        assert isinstance(response, str)
+        result = ActionResults(
+           results=response
+        )
+
+        await self.publish_message(message=result, topic_id=TopicId(reasoner_topic_type, self.id.key))

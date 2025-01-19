@@ -206,14 +206,14 @@ def construct_reason_prompt(input_data: TaskInput) -> str:
     if input_data.task == "CodeTAT-QA":
         prompt += (
             f"Context: {input_data.context}\n"
-            f"Question: {input_data.question}\n"
+            f"What's the formula for following Question: {input_data.question}\n"
             f"Answer:"
         )
     #TODO add more tasks
     elif input_data.task == "CodeFinQA":
         prompt += (
             f"Context: {input_data.context}\n"
-            f"Question: {input_data.question}\n"
+            f"What's the formula for following Question: {input_data.question}\n"
         )
     elif input_data.task == "TAT-QA":
         prompt += (
@@ -225,3 +225,47 @@ def construct_reason_prompt(input_data: TaskInput) -> str:
         raise ValueError(f"Unknown task type: {input_data.task}")
 
     return prompt
+
+REASON_ACTION_ClAIFY = ""
+REASON_ACTION_QUESTION_STRUCTURE = ""
+REASON_ACTION_IDENTIFY_VAR = ""
+REASON_ACTION_THINKING_ONE_MORE = ""
+REASON_ACTION_DERIVE_ABSTRACT = ""
+
+ACTIONS = [
+    "REASON_ACTION_CLARIFY",
+    "REASON_ACTION_QUESTION_STRUCTURE",
+    "REASON_ACTION_IDENTIFY_VAR",
+    "REASON_ACTION_THINKING_ONE_MORE",
+    "REASON_ACTION_DERIVE_ABSTRACT"
+]
+
+"""
+1. Clarify Domain & Context (New)
+
+What it does:
+	•	Ensures the model knows whether the question is about finance, math, healthcare, etc.
+	•	Captures key context: e.g., “We’re looking at an acquisition scenario in finance.”
+2. Question Structure Analysis (Existing Favorite)
+
+What it does:
+	•	Breaks down a complex question into simpler sub-questions or logical steps.
+	•	Identifies which parts of the question relate to key operations (e.g., ratio, difference, etc.) and which are contextual details.
+3. Identify Key Variables & Constraints (New)
+
+What it does:
+	•	Extracts the relevant numbers, units, and conditions from the text (e.g., “$4,000,000 purchase price,” “$120,000 in stock awards,” or “deadline of March 1”).
+	•	Labels them so the model can reference them without confusion.
+4. Synthesize & Evaluate Approaches (New)
+
+What it does:
+	•	Proposes one or more ways to answer the question (e.g., “Should we calculate a ratio or a difference?” “Do we need a percentage formula or a present value calculation?”).
+	•	Evaluates feasibility, consistency, or domain appropriateness for each approach.
+	
+5. Derive the Abstract Output (Existing Favorite)
+
+What it does:
+	•	Guides the model to combine the chosen approach with the identified variables and produce a final or abstract result (e.g., “2.9%”).
+	•	Allows the model to present the reasoning outcome in a concise or structured form.		
+
+"""
