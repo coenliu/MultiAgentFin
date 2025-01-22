@@ -82,9 +82,15 @@ def parse_args():
     parser.add_argument("--output_path", type=str, default="", help="Output path for task results.")
     parser.add_argument('--output_file', type=str, default="llama_outputs.csv", help="Name to the output CSV file")
     parser.add_argument('--temperature', type=float, default=0.3, help="Temperature for text generation")
+    parser.add_argument('--top_n_chunk', type=int, default=4, help="Number of top chunks to use in the extractor")
     return parser.parse_args()
 
-async def register_agents(runtime: SingleThreadedAgentRuntime, agent_sequence: List[str], output_path: str, output_file: str):
+async def register_agents(runtime: SingleThreadedAgentRuntime,
+                          agent_sequence: List[str],
+                          output_path: str,
+                          output_file: str,
+                          top_n_chunk: int
+                          ):
     """
     Registers agents with the runtime based on the agent sequence.
 
@@ -100,14 +106,14 @@ async def register_agents(runtime: SingleThreadedAgentRuntime, agent_sequence: L
         await ReasonerAgent.register(
             runtime,
             type=reasoner_topic_type,
-            factory=lambda: ReasonerAgent(model_client=model_client)  # task_context handled via messages
+            factory=lambda: ReasonerAgent(model_client=model_client)
         )
 
     if "extract_agent" in agents_to_register:
         await ExtractorAgent.register(
             runtime,
             type=extractor_topic_type,
-            factory=lambda: ExtractorAgent(model_client=model_client)
+            factory=lambda: ExtractorAgent(model_client=model_client, top_n_chunk=top_n_chunk)
         )
 
     if "executor_agent" in agents_to_register:
@@ -156,11 +162,12 @@ async def main(args):
     output_file = args.output_file
     output_path = args.output_path
     task_inputs = dataset_to_task_inputs(dataset=dataset)
+    top_n_chunk = args.top_n_chunk
 
     task_contexts = inputs_to_contexts(task_inputs)
 
     runtime = SingleThreadedAgentRuntime()
-    await register_agents(runtime, agent_sequence, output_path, output_file)
+    await register_agents(runtime, agent_sequence, output_path, output_file, top_n_chunk)
     runtime.start()
     await publish_tasks(runtime, task_contexts)
     await runtime.stop_when_idle()

@@ -20,6 +20,7 @@ class ActionResults:
 class ReasonerResults:
     review: Optional[str]
     formulas: Optional[str]
+    raw_response: Optional[str]
     variables: Optional[str] = None
     actions: Optional[List[str]] = None
 

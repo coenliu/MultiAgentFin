@@ -35,14 +35,13 @@ class ExecutorAgent(RoutedAgent):
                   f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}"
                   f"You need to end with code by print(answer). And answer within 10 lines code")
 
-        # print(f"{'-' * 80}\n{self.id.type}:\n {prompt}")
+
         llm_result = await self._model_client.create(
             messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
             cancellation_token=ctx.cancellation_token,
         )
         response = llm_result.content
         assert isinstance(response, str)
-        # print(f"{'-'*80}\n{self.id.type}:\n{response}")
 
         code_res = self.run_code(response)
 

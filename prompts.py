@@ -1,4 +1,7 @@
 # prompts.py
+
+from typing import List, Dict, Union
+
 SYS_PROMPT_EXECUTOR = """
 You are tasked with writing Python code based on the provided context. Follow these guidelines to ensure the code is accurate, efficient, and free from common mistakes:
 
@@ -189,20 +192,6 @@ def construct_reason_prompt(input_data: TaskInput) -> str:
     """
     prompt = ""
 
-
-    # if fewshot_examples:
-    #     prompt += "Here are a few examples to guide your answer:\n\n"
-    #     for i, example in enumerate(fewshot_examples, 1):
-    #         example_question = example.get('question', 'N/A')
-    #         example_context = example.get('context', 'N/A')
-    #         example_answer = example.get('answer', 'N/A')
-    #
-    #         # Add each example to the prompt
-    #         prompt += f"Example {i}:\n"
-    #         prompt += f"Context: {example_context}\n"
-    #         prompt += f"Question: {example_question}\n"
-    #         prompt += f"Answer: {example_answer}\n\n"
-
     if input_data.task == "CodeTAT-QA":
         prompt += (
             f"Context: {input_data.context}\n"
@@ -230,14 +219,6 @@ def construct_reason_prompt(input_data: TaskInput) -> str:
 def construct_action_evaluation_prompt(current_question: str, current_context: str, action: str) -> str:
     """
     Constructs the evaluation prompt for the VerifierAgent.
-
-    Args:
-        current_question (str): The current question being addressed.
-        current_context (str): The context related to the question.
-        action (str): The action to be evaluated.
-
-    Returns:
-        str: The formatted evaluation prompt.
     """
     prompt = f"""You need to evaluate the following action and provide a score based on its effectiveness and correctness. \n
             Question: {current_question}
@@ -249,6 +230,16 @@ def construct_action_evaluation_prompt(current_question: str, current_context: s
             """
     return prompt
 
+def construct_extractor_prompt(variables: str, relevant_chunks: List[Dict[str, Union[str, float]]], input_question: str) -> str:
+    prompt = f"""The identified variables from another assistant are as follows:{variables}.
+     Question: {input_question}
+
+    Based on the variables and the question, extract the necessary information from the following relevant chunks:
+
+    {relevant_chunks}
+    """
+    return prompt
+
 REASON_ACTION_ClAIFY = ""
 REASON_ACTION_QUESTION_STRUCTURE = ""
 REASON_ACTION_IDENTIFY_VAR = ""
@@ -256,11 +247,45 @@ REASON_ACTION_THINKING_ONE_MORE = ""
 REASON_ACTION_DERIVE_ABSTRACT = ""
 
 ACTIONS = {
-    "REASON_ACTION_CLARIFY": "Clarify the question to ensure understanding.",
-    "REASON_ACTION_QUESTION_STRUCTURE": "Break down the question into its structural components.",
-    "REASON_ACTION_IDENTIFY_VAR": "Identify and define the variables involved in the question.",
-    "REASON_ACTION_THINKING_ONE_MORE": "Think through the relationships between the variables.",
-    "REASON_ACTION_DERIVE_ABSTRACT": "Derive an abstract formula or method to solve the question."
+    "REASON_ACTION_CLARIFY":
+    """Clarify the question to ensure understanding.
+    **Example Output in JSON:**
+    {
+     ...,
+     "clarification": "Detailed explanation of the clarification."
+    }
+    """,
+    "REASON_ACTION_QUESTION_STRUCTURE":
+    """Break down the question into its structural components.
+    **Example Output in JSON:**
+    {
+    ...,
+    "sub_questions": Sub-question 1, Sub-question 2
+    }
+    """,
+    "REASON_ACTION_IDENTIFY_VAR":
+    """Identify and define the variables involved in the question.
+    **Output in JSON:**
+    {
+    ...,
+    "variables": { "Variable 1", "Variable 2" ... }
+    }
+    """,
+    "REASON_ACTION_THINKING_ONE_MORE":
+    """Think through the relationships between the variables.
+    **Example Output in JSON:**
+    {
+    ...,
+    "thinking_one_more": ...
+    """,
+    "REASON_ACTION_DERIVE_ABSTRACT":
+    """Derive an abstract formula or method to solve the question.
+    **Example Output in JSON:**
+    {
+     ...,
+     "formula":
+    }
+    """
 }
 
 """
@@ -275,12 +300,10 @@ What it does:
 	•	Breaks down a complex question into simpler sub-questions or logical steps.
 	•	Identifies which parts of the question relate to key operations (e.g., ratio, difference, etc.) and which are contextual details.
 3. Identify Key Variables & Constraints (New)
-
 What it does:
 	•	Extracts the relevant numbers, units, and conditions from the text (e.g., “$4,000,000 purchase price,” “$120,000 in stock awards,” or “deadline of March 1”).
 	•	Labels them so the model can reference them without confusion.
 4. Synthesize & Evaluate Approaches (New)
-
 What it does:
 	•	Proposes one or more ways to answer the question (e.g., “Should we calculate a ratio or a difference?” “Do we need a percentage formula or a present value calculation?”).
 	•	Evaluates feasibility, consistency, or domain appropriateness for each approach.

@@ -18,6 +18,7 @@ import logging
 import asyncio
 import concurrent.futures
 import re
+from .utils import extract_formula, extract_variables, split_variables_from_formula
 
 
 logging.basicConfig(level=logging.INFO)
@@ -38,7 +39,6 @@ class ReasonerAgent(RoutedAgent):
 
         
     async def get_reward_async(self, action: str) -> float:
-        # future = asyncio.run_coroutine_threadsafe(self.action_to_verifier(action), asyncio.get_event_loop())
         future = asyncio.get_event_loop().create_future()
         await self.action_queue.put(future)
 
@@ -54,7 +54,6 @@ class ReasonerAgent(RoutedAgent):
             logger.error(f"Error while fetching reward: {e}")
             score = 0.0
 
-
         return score
 
     @property
@@ -66,7 +65,7 @@ class ReasonerAgent(RoutedAgent):
             self._mcts_searcher = MCTS_Searcher_Custom(
                 exploration_weight=1.414,
                 weight_scheduler="exp",
-                num_rollouts=1,
+                num_rollouts=20,
                 discount=1.0,
                 get_reward_func=self.get_reward_async,
                 verbose=False
@@ -110,8 +109,10 @@ class ReasonerAgent(RoutedAgent):
             return
 
         response = await self.execute_action_sequence(best_action_sequence, prompt, ctx.cancellation_token)
+
         reasoner_results = ReasonerResults(
             review="Review content",
+            raw_response=response,
             formulas=response,
             variables=response,
             actions=best_action_sequence,
@@ -143,7 +144,6 @@ class ReasonerAgent(RoutedAgent):
             response = llm_result.content
             assert isinstance(response, str)
             aggregated_response += response + " "
-
             current_prompt = response
 
         final_answer = self.process_aggregated_response(aggregated_response)
@@ -159,16 +159,12 @@ class ReasonerAgent(RoutedAgent):
             final_prompt = f"{previous_response}\n\n{action_prompt}"
         else:
             final_prompt = action_prompt
-
         return final_prompt
 
     def process_aggregated_response(self, aggregated_response: str) -> str:
         """
         Processes the aggregated responses from all actions to form the final answer.
         """
-        # Implement logic to parse the aggregated response and extract the final answer.
-        # This could involve regex, keyword matching, or other NLP techniques.
-        # For simplicity, we'll assume the final answer is present at the end.
         return aggregated_response.strip()
 
     async def action_to_verifier(self, action: str) -> None:
