@@ -65,7 +65,7 @@ class ReasonerAgent(RoutedAgent):
             self._mcts_searcher = MCTS_Searcher_Custom(
                 exploration_weight=1.414,
                 weight_scheduler="exp",
-                num_rollouts=20,
+                num_rollouts=1, # default should 20
                 discount=1.0,
                 get_reward_func=self.get_reward_async,
                 verbose=False

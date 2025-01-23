@@ -240,6 +240,37 @@ def construct_extractor_prompt(variables: str, relevant_chunks: List[Dict[str, U
     """
     return prompt
 
+
+def construct_review_extractor_prompt(question: str, context: str, extraxt_results: str) -> str:
+    prompt = f"""
+    You are a Financial Data Verification Specialist with expertise in validating financial formulas and extracted data.
+    Here is question: {question}
+    Context: {context}
+    And Extracted Results: {extraxt_results} 
+    Your task is to:
+    1. **Verify the Extracted Data:**
+        - Ensure that all necessary numerical values corresponding to the identified variables have been accurately extracted.
+        - Check for the presence of all required variables.
+        - Confirm that there are no extraneous data points that could affect subsequent calculations.
+
+    2. **Identify Issues:**
+        - Highlight any missing values, incorrect extractions, or irrelevant data.
+
+    3. **Provide Feedback:**
+        - Summarize your findings in a clear and concise manner to assist in correcting any issues.  
+    **Example:**
+    {{
+      "verification_result": {{
+        "data_valid": false,
+        "data_issues": [
+          "Missing value for 'Commissions'."
+        ]
+      }},
+      "comments": "The 'Commissions' value is missing, which is essential for the Net Revenue calculation."
+    }}       
+    """
+    return prompt
+
 REASON_ACTION_ClAIFY = ""
 REASON_ACTION_QUESTION_STRUCTURE = ""
 REASON_ACTION_IDENTIFY_VAR = ""

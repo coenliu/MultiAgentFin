@@ -13,8 +13,18 @@ class Message:
     content: str
 
 @dataclass
+class ReviewExtract:
+    extraxt_results: str
+    question: str
+    context: str
+
+@dataclass
+class ReviewExtractResults:
+    results: str
+
+@dataclass
 class ActionResults:
-      results:str
+    results:str
 
 @dataclass
 class ReasonerResults:

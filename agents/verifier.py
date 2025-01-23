@@ -8,8 +8,8 @@ from autogen_core import (
     type_subscription,
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
-from dataclass import reasoner_topic_type, ActionResults,ReasonerActionTask, TASK_CONTEXT_MAPPING, verifier_topic_type, Message, TaskContext, VerifyTask, OutputTask, output_topic_type, VerifierResults
-from prompts import SYS_PROMPT_VERIFICATION
+from dataclass import extractor_topic_type, ReviewExtractResults, ReviewExtract, reasoner_topic_type, ActionResults,ReasonerActionTask, TASK_CONTEXT_MAPPING, verifier_topic_type, Message, TaskContext, VerifyTask, OutputTask, output_topic_type, VerifierResults
+from prompts import SYS_PROMPT_VERIFICATION, construct_review_extractor_prompt
 
 @type_subscription(topic_type=verifier_topic_type)
 class VerifierAgent(RoutedAgent):
@@ -39,7 +39,6 @@ class VerifierAgent(RoutedAgent):
         )
         response = llm_result.content
         assert isinstance(response, str)
-        # print(f"{'-'*80}\n{self.id.type}:\n{response}")
 
         #TODO need to extract responding results
         verifier_result = VerifierResults(
@@ -71,3 +70,19 @@ class VerifierAgent(RoutedAgent):
         )
 
         await self.publish_message(message=result, topic_id=TopicId(reasoner_topic_type, self.id.key))
+
+    @message_handler
+    async def handle_extract_review(self, message: ReviewExtract, ctx: MessageContext) -> None:
+        prompt = construct_review_extractor_prompt(question=message.question, context=message.context, extraxt_results=message.extraxt_results)
+        llm_result = await self._model_client.create(
+            messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
+            cancellation_token=ctx.cancellation_token,
+        )
+        response = llm_result.content
+        assert isinstance(response, str)
+
+        result = ReviewExtractResults(
+            results=response
+        )
+
+        await self.publish_message(message=result, topic_id=TopicId(extractor_topic_type, self.id.key))

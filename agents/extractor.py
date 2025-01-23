@@ -9,12 +9,12 @@ from autogen_core import (
     type_subscription,
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
-from dataclass import TASK_CONTEXT_MAPPING, extractor_topic_type, executor_topic_type, ExtractTask, ReasonTask, ReasonerResults, ExecuteTask, \
-    TaskContext, ExtractorResults
+from dataclass import ReviewExtractResults, ReviewExtract, TASK_CONTEXT_MAPPING, extractor_topic_type, executor_topic_type, ExtractTask, ReasonTask, ReasonerResults, ExecuteTask, \
+    TaskContext, ExtractorResults,verifier_topic_type
 from prompts import SYS_PROMPT_EXTRACTOR,construct_extractor_prompt
 from typing import Dict, List
 from modules.bm25 import BM25Model
-from .utils import extract_formula, extract_variables, split_variables_from_formula
+from .utils import extract_formula, extract_variables
 
 @type_subscription(topic_type=extractor_topic_type)
 class ExtractorAgent(RoutedAgent):
@@ -28,11 +28,13 @@ class ExtractorAgent(RoutedAgent):
         self._bm25_model = BM25Model(model_name="BM25_Extractor", top_k=top_n_chunk)
         self.current_question = ""
         self.current_context = ""
+        self.task_id = ""
 
     @message_handler
     async def handle_extract_task(self, message: ExtractTask, ctx: MessageContext) -> None:
-        task_id = message.task_id
-        task_context = TASK_CONTEXT_MAPPING[task_id]
+        self.task_id = message.task_id  # Set the current task_id
+        task_context = TASK_CONTEXT_MAPPING[self.task_id]
+
         #TODO need to load comments from Verifier
         raw_response =  task_context.reasoner_task.get_var_from_reason()
         self.current_question = task_context.input_data.question
@@ -45,22 +47,67 @@ class ExtractorAgent(RoutedAgent):
 
         prompt = construct_extractor_prompt(variables=variables, relevant_chunks=relevant_chunks, input_question=self.current_question)
         # TODO need to abstract
+        response = await self.send_request(prompt=prompt, ctx=ctx)
+
+        await self.send_review_task(response=response)
+
+        # extractor_results = ExtractorResults(
+        #     extracted_var_value=f"Variables: {variables} \n Extracted:{response}",
+        #     review="pending"
+        # )
+        # executor_task = ExecuteTask(
+        #     task="",
+        #     task_id=message.task_id
+        # )
+
+        # task_context.extractor_task = ExtractTask(task=message.task, task_id=message.task_id)
+        # task_context.extractor_task.results.append(extractor_results)
+        # await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))
+
+    async def send_request(self, prompt: str, ctx: MessageContext) -> str:
+        """
+        Sends a request to the ChatCompletionClient and returns the response content.
+        """
         llm_result = await self._model_client.create(
             messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
             cancellation_token=ctx.cancellation_token,
         )
         response = llm_result.content
         assert isinstance(response, str)
+        return response
 
-        extractor_results = ExtractorResults(
-            extracted_var_value=f"Variables: {variables} \n Extracted:{response}",
-            review="pending"
+    async def send_review_task(self, response:str) -> None:
+        review_task = ReviewExtract(
+            question=self.current_question,
+            context=self.current_context,
+            extraxt_results=response
         )
+        await self.publish_message(review_task, topic_id=TopicId(verifier_topic_type, source=self.id.key))
+
+    @message_handler
+    async def handle_extract_review_res(self, message: ReviewExtractResults, ctx: MessageContext) -> None:
+        response = await self.send_request(prompt=message.results, ctx=ctx)
+
+        task_context = TASK_CONTEXT_MAPPING.get(self.task_id)
+        if not task_context:
+            # Handle the case where task_id is not found
+            print(f"TaskContext not found for task_id: {self.task_id}")
+            return
+
+        prompt = f"Based on the reviewed results, answer the question again {response} \n"
+
+        re_answer = await self.send_request(prompt=prompt, ctx=ctx)
+
         executor_task = ExecuteTask(
             task="",
-            task_id=message.task_id
+            task_id=self.task_id
+        )
+        variables = extract_variables(re_answer)
+        extractor_results = ExtractorResults(
+            extracted_var_value=f"Variables: {variables} \n Extracted:{re_answer}",
+            review=response,
         )
 
-        task_context.extractor_task = ExtractTask(task=message.task, task_id=message.task_id)
+        task_context.extractor_task = ExtractTask(task="", task_id=self.task_id)
         task_context.extractor_task.results.append(extractor_results)
         await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))
