@@ -1,0 +1,201 @@
+[
+  {
+    "formula_name": "Basic Accounting Equation",
+    "formula": "Assets = Liabilities + Equity"
+  },
+  {
+    "formula_name": "Net Income",
+    "formula": "Net Income = Revenue - Expenses"
+  },
+  {
+    "formula_name": "Gross Profit (Income)",
+    "formula": "Gross Profit (Income) = Revenue - Cost of Goods Sold"
+  },
+  {
+    "formula_name": "Operating Profit (Income)",
+    "formula": "Operating Profit (Income) = Profit Before Interest and Tax (PBIT) = Gross Profit - Operating Expenses"
+  },
+  {
+    "formula_name": "Profit Before Tax (PBT)",
+    "formula": "Profit Before Tax (PBT) = PBIT - Interest Expense"
+  },
+  {
+    "formula_name": "Net Profit (Income)",
+    "formula": "Net Profit (Income) = PBT - Tax Expense = Operating Profit - Interest Expense - Tax Expense"
+  },
+    {
+    "formula_name": "Basic Earnings per Share (EPS)",
+    "formula": "\\text{Basic EPS} = \\frac{\\text{Net Income} - \\text{Preferred Dividends}}{\\text{Weighted average number of common shares outstanding}}"
+  },
+  {
+    "formula_name": "Diluted Earnings per Share (DEPS)",
+    "formula": "\\text{Diluted EPS} = \\frac{\\text{Adjusted income available for common shares}}{\\text{Weighted average common and potential common shares outstanding}}"
+  },
+  {
+    "formula_name": "Diluted Earnings per Share (Detailed)",
+    "formula": "\\text{Diluted EPS} = \\frac{[\\text{Net Income} - \\text{Preferred Dividends}] + [\\text{Convertible Preferred Dividends}] + [\\text{Convertible Debt Interest}] (1 - t)}{\\text{Weighted average shares} + \\text{Shares from conv. pfd. shares} + \\text{Shares from conversion of conv. debt} + \\text{Shares issuable from stock options}}"
+  },
+  {
+    "formula_name": "Gross Profit Margin",
+    "formula": "\\text{Gross Profit Margin} = \\frac{\\text{Gross Profit}}{\\text{Revenue}}"
+  },
+  {
+    "formula_name": "Net Profit Margin",
+    "formula": "\\text{Net Profit Margin} = \\frac{\\text{Net Profit}}{\\text{Revenue}}"
+  },
+    {
+    "formula_name": "Current Ratio",
+    "formula": "Current Ratio = \\frac{Current\\ Assets}{Current\\ Liabilities}"
+  },
+  {
+    "formula_name": "Quick Ratio",
+    "formula": "Quick Ratio = \\frac{Cash + Short\\text{-}term\\ Marketable\\ Securities + Receivables}{Current\\ Liabilities}"
+  },
+  {
+    "formula_name": "Cash Ratio",
+    "formula": "Cash Ratio = \\frac{Cash + Short\\text{-}term\\ Marketable\\ Securities}{Current\\ Liabilities}"
+  },
+    {
+    "formula_name": "Long-term Debt-to-Equity",
+    "formula": "Long\\text{-}term\\ Debt\\text{-}to\\text{-}Equity = \\frac{Long\\text{-}term\\ Debt}{Total\\ Equity}"
+  },
+  {
+    "formula_name": "Total Debt-to-Equity",
+    "formula": "Total\\ Debt\\text{-}to\\text{-}Equity = \\frac{Total\\ Debt}{Total\\ Equity}"
+  },
+  {
+    "formula_name": "Debt Ratio",
+    "formula": "Debt\\ Ratio = \\frac{Total\\ Debt}{Total\\ Assets}"
+  },
+  {
+    "formula_name": "Financial Leverage",
+    "formula": "Financial\\ Leverage = \\frac{Total\\ Assets}{Total\\ Equity}"
+  },
+    {
+    "formula_name": "Cash Flow-to-Revenue",
+    "formula": "Cash\\ Flow\\text{-}to\\text{-}Revenue = \\frac{Cash\\ Flow\\ from\\ Operations}{Revenue}"
+  },
+  {
+    "formula_name": "Cash-to-Income",
+    "formula": "Cash\\text{-}to\\text{-}Income = \\frac{Cash\\ Flow\\ from\\ Operations}{Operating\\ Income}"
+  },
+  {
+    "formula_name": "Cash Return-on-Assets",
+    "formula": "Cash\\ Return\\text{-}on\\text{-}Assets = \\frac{Cash\\ Flow\\ from\\ Operations}{Average\\ Total\\ Assets}"
+  },
+  {
+    "formula_name": "Cash Return-on-Equity",
+    "formula": "Cash\\ Return\\text{-}on\\text{-}Equity = \\frac{Cash\\ Flow\\ from\\ Operations}{Average\\ Total\\ Equity}"
+  },
+  {
+    "formula_name": "Cash Flow per Share",
+    "formula": "Cash\\ Flow\\ per\\ Share = \\frac{CFO - Preferred\\ Dividends}{Weighted\\ Average\\ Number\\ of\\ Common\\ Shares}"
+  },
+    {
+    "formula_name": "Debt Coverage",
+    "formula": "Debt\\ Coverage = \\frac{Cash\\ Flow\\ from\\ Operations}{Total\\ Debt}"
+  },
+  {
+    "formula_name": "Interest Coverage",
+    "formula": "Interest\\ Coverage = \\frac{CFO + Interest\\ Paid + Taxes\\ Paid}{Interest\\ Paid}"
+  },
+  {
+    "formula_name": "Reinvestment Ratio",
+    "formula": "Reinvestment\\ Ratio = \\frac{Cash\\ Flow\\ from\\ Operations}{Cash\\ Paid\\ to\\ Acquire\\ Long\\text{-}term\\ Assets}"
+  },
+  {
+    "formula_name": "Debt Payment",
+    "formula": "Debt\\ Payment = \\frac{Cash\\ Flow\\ from\\ Operations}{Cash\\ Paid\\ to\\ Repay\\ Long\\text{-}term\\ Debt}"
+  },
+  {
+    "formula_name": "Dividend Payment",
+    "formula": "Dividend\\ Payment = \\frac{Cash\\ Flow\\ from\\ Operations}{Dividends\\ Paid}"
+  },
+  {
+    "formula_name": "Investing and Financing Ratio",
+    "formula": "Investing\\ and\\ Financing\\ Ratio = \\frac{Cash\\ Flow\\ from\\ Operations}{Cash\\ Outflows\\ from\\ Investing\\ and\\ Financing\\ Activities}"
+  },
+    {
+    "formula_name": "Gross Profit Margin",
+    "formula": "Gross\\ Profit\\ Margin = \\frac{Gross\\ Profit}{Revenue}",
+    "meaning": "Gross profitability as a percentage of total revenue"
+  },
+  {
+    "formula_name": "Operating Profit Margin",
+    "formula": "Operating\\ Profit\\ Margin = \\frac{Operating\\ Income\\ (EBIT)}{Revenue}",
+    "meaning": "Operating profitability (before interest and tax) as a percentage of total revenue"
+  },
+  {
+    "formula_name": "Pre-tax Margin",
+    "formula": "Pre\\text{-}Tax\\ Margin = \\frac{EBT}{Revenue}",
+    "meaning": "Operating profitability (before tax) as a percentage of total revenue"
+  },
+  {
+    "formula_name": "Net Profit Margin",
+    "formula": "Net\\ Profit\\ Margin = \\frac{Net\\ Income}{Revenue}",
+    "meaning": "Net profitability as a percentage of total revenue"
+  },
+  {
+    "formula_name": "Return on Assets (ROA)",
+    "formula": "Return\\ on\\ Assets\\ (ROA) = \\frac{Net\\ Income}{Average\\ Total\\ Assets}",
+    "meaning": "Net profitability (excluding interest and taxes) as a percentage of total invested funds"
+  },
+  {
+    "formula_name": "Operating Return on Assets (ROA)",
+    "formula": "Operating\\ Return\\ on\\ Assets\\ (ROA) = \\frac{Operating\\ Profit\\ (EBIT)}{Average\\ Total\\ Assets}",
+    "meaning": "Net profitability (including interest and taxes) as a percentage of total invested funds"
+  },
+  {
+    "formula_name": "Return on Total Capital",
+    "formula": "Return\\ on\\ Total\\ Capital = \\frac{Operating\\ Profit\\ (EBIT)}{Average\\ Total\\ Capital}",
+    "meaning": "Operating profitability as a percentage of total capital"
+  },
+  {
+    "formula_name": "Return on Equity (RoE)",
+    "formula": "Return\\ on\\ Equity\\ (RoE) = \\frac{Net\\ Income}{Average\\ Equity}",
+    "meaning": "Net profitability as a percentage of total equity"
+  },
+    {
+    "formula_name": "Income Tax Expense",
+    "formula": "Income\\ Tax\\ Expense = Taxes\\ Payable + \\Delta\\ Deferred\\ Tax\\ Liabilities\\ (DTL) - \\Delta\\ Deferred\\ Tax\\ Assets\\ (DTA)"
+  },
+  {
+    "formula_name": "Effective Tax Rate",
+    "formula": "Effective\\ Tax\\ Rate = \\frac{Income\\ Tax\\ Expense}{Pre\\text{-}Tax\\ Income}"
+  },
+    {
+    "formula_name": "Earnings per Share (EPS)",
+    "formula": "Earnings\\ per\\ Share\\ (EPS) = \\frac{Net\\ Income - Preferred\\ Dividends}{Outstanding\\ Number\\ of\\ Common\\ Shares}",
+    "meaning": "Income earned per 1 common share outstanding"
+  },
+  {
+    "formula_name": "Price Earnings (P/E) Ratio",
+    "formula": "P/E\\ Ratio = \\frac{Share\\ Price}{Earnings\\ per\\ Share\\ (EPS)}",
+    "meaning": "The price that investors are willing to pay per $1 of earnings"
+  },
+  {
+    "formula_name": "P/E Ratio (Company Wide)",
+    "formula": "P/E\\ Ratio\\ (Company\\ Wide) = \\frac{Market\\ Capitalization}{Net\\ Income}",
+    "meaning": "Total price that investors are willing to pay for a company’s Net income"
+  },
+  {
+    "formula_name": "Dividend Yield",
+    "formula": "Dividend\\ Yield = \\frac{Dividend\\ per\\ Share}{Current\\ Share\\ Price}",
+    "meaning": "The portion of a share price that is distributed as dividends"
+  },
+  {
+    "formula_name": "Retention Rate (RR)",
+    "formula": "Retention\\ Rate\\ (RR) = \\frac{Net\\ Income - Dividends\\ Declared}{Net\\ Income}",
+    "meaning": "The portion of Net income that is reinvested in the company"
+  },
+  {
+    "formula_name": "Dividend Payout",
+    "formula": "Dividend\\ Payout = \\frac{Dividends\\ Declared}{Net\\ Income}",
+    "meaning": "The portion of Net income that is distributed as dividends"
+  },
+  {
+    "formula_name": "Sustainable Growth Rate (g)",
+    "formula": "Sustainable\\ Growth\\ Rate\\ (g) = RR \\times ROE",
+    "meaning": "Equity growth rate"
+  }
+]

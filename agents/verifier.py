@@ -10,6 +10,8 @@ from autogen_core import (
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
 from dataclass import extractor_topic_type, ReviewExtractResults, ReviewExtract, reasoner_topic_type, ActionResults,ReasonerActionTask, TASK_CONTEXT_MAPPING, verifier_topic_type, Message, TaskContext, VerifyTask, OutputTask, output_topic_type, VerifierResults
 from prompts import SYS_PROMPT_VERIFICATION, construct_review_extractor_prompt
+from agents.rag.retrieval import FormulaRetriever
+import json
 
 @type_subscription(topic_type=verifier_topic_type)
 class VerifierAgent(RoutedAgent):
@@ -19,6 +21,7 @@ class VerifierAgent(RoutedAgent):
             content=SYS_PROMPT_VERIFICATION
         )
         self._model_client = model_client
+        self.formula_retriever = FormulaRetriever(collection_name="my_collection")
 
 
     @message_handler
@@ -58,6 +61,19 @@ class VerifierAgent(RoutedAgent):
     @message_handler
     async def handle_reasoner_action(self, message: ReasonerActionTask, ctx: MessageContext) -> None:
         prompt = message.action
+
+        #TODO should have logic to find the query
+        query_text = "Gross Profit"  # Replace with dynamic query if needed
+        query_results = self.formula_retriever.query_collection(query=query_text, n_results=2)
+
+        if query_results:
+            # Process query_results as needed
+            # For example, include query results in the prompt or use them in decision-making
+            formatted_results = json.dumps(query_results, indent=4)
+            #TODO need to filter the formatted results
+            prompt += f"\nRelated Formulas:\n{formatted_results}"
+        else:
+            prompt += "\nNo related formulas found."
 
         llm_result = await self._model_client.create(
             messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
