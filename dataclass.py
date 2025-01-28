@@ -151,6 +151,7 @@ class VerifyTask:
 class ReasonerActionTask:
     task: str
     action: str
+    question: str
 
 @dataclass
 class OutputTask:

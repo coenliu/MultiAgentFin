@@ -170,7 +170,7 @@ class ReasonerAgent(RoutedAgent):
     async def action_to_verifier(self, action: str) -> None:
         try:
             prompt = construct_action_evaluation_prompt(current_question=self.current_question, current_context=self.current_context,action=action)
-            action_task = ReasonerActionTask(task="", action=prompt)
+            action_task = ReasonerActionTask(task="", action=prompt, question=self.current_question)
             await self.publish_message(message=action_task, topic_id=TopicId(verifier_topic_type, source=self.id.key))
 
         except asyncio.TimeoutError:

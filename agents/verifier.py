@@ -12,7 +12,7 @@ from dataclass import extractor_topic_type, ReviewExtractResults, ReviewExtract,
 from prompts import SYS_PROMPT_VERIFICATION, construct_review_extractor_prompt
 from agents.rag.retrieval import FormulaRetriever
 import json
-
+from agents.utils import format_query_results
 @type_subscription(topic_type=verifier_topic_type)
 class VerifierAgent(RoutedAgent):
     def __init__(self, model_client: ChatCompletionClient) -> None:
@@ -63,17 +63,16 @@ class VerifierAgent(RoutedAgent):
         prompt = message.action
 
         #TODO should have logic to find the query
-        query_text = "Gross Profit"  # Replace with dynamic query if needed
+        query_text = message.question  # Replace with dynamic query if needed
         query_results = self.formula_retriever.query_collection(query=query_text, n_results=2)
 
         if query_results:
             # Process query_results as needed
             # For example, include query results in the prompt or use them in decision-making
-            formatted_results = json.dumps(query_results, indent=4)
+            # formatted_results = json.dumps(query_results, indent=4)
             #TODO need to filter the formatted results
-            prompt += f"\nRelated Formulas:\n{formatted_results}"
-        else:
-            prompt += "\nNo related formulas found."
+            formatted_results = format_query_results(query_result=query_results)
+            prompt += f"\nHERE IS RELATED FORMULA TO HELP YOU DECIDE SCORE:\n{formatted_results}"
 
         llm_result = await self._model_client.create(
             messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],

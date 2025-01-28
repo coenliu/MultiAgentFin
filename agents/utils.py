@@ -1,5 +1,7 @@
 import re
 import json
+from typing import Dict, Any
+
 
 def extract_variables(input_text: str) -> str:
     """
@@ -7,25 +9,20 @@ def extract_variables(input_text: str) -> str:
     """
     variables = []
 
-    # Regex pattern to capture "variables" within a JSON-like structure
     json_pattern = r'```json\n.*?"variables"\s*:\s*{(.*?)}'
     json_match = re.search(json_pattern, input_text, re.DOTALL)
 
     if json_match:
-        # Extract content within the "variables" key
         variables_content = json_match.group(1)
-        # Extract keys and values from the variables content
         key_value_pattern = r'"(.*?)"\s*:\s*"(.*?)"'
         variables = [value.strip() for _, value in re.findall(key_value_pattern, variables_content)]
         print(f"Extracted variables from JSON-like content: {variables}")
 
-    # Fallback to extracting variables from plain text
     if not variables:
         text_pattern = r"(?i)\bVariable\s*(\d+):?\s*(.+?)(?=\n|$)"
         matches = re.findall(text_pattern, input_text)
         variables = [desc.strip() for _, desc in matches]
 
-    # Return a comma-separated string of unique variables
     return ", ".join(sorted(set(variables)))
 
 
@@ -65,3 +62,24 @@ def split_variables_from_formula(input_text: str):
     unique_variables = ", ".join(sorted(set(variables)))
 
     return unique_variables
+
+
+def format_query_results(query_result: Dict[str, Any]) -> str:
+    extracted_data = []
+
+    if 'documents' not in query_result or 'metadatas' not in query_result:
+        raise ValueError("The query result must contain 'documents' and 'metadatas' keys.")
+
+    documents_outer = query_result.get('documents', [])
+    metadatas_outer = query_result.get('metadatas', [])
+
+    for doc_list, meta_list in zip(documents_outer, metadatas_outer):
+        for doc, meta in zip(doc_list, meta_list):
+            extracted_data.append({
+                'document': doc,
+                'metadata': meta
+            })
+
+    formatted_string = json.dumps(extracted_data, indent=4)
+
+    return formatted_string

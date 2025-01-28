@@ -1,6 +1,7 @@
 import asyncio
 import uuid
-import tqdm
+import os
+import yaml
 from autogen_core import (
     SingleThreadedAgentRuntime,
     TopicId,
@@ -17,7 +18,7 @@ from dataloader.parquet_dataset import ParquetDataset, load_parquet
 from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts
 from agents.formate_output import FormateOutput
 from typing import Any, List,Dict
-model_client = OpenAIChatCompletionClient(
+reason_client = OpenAIChatCompletionClient(
     model="meta-llama/Llama-3.2-1B-Instruct", # meta-llama/Meta-Llama-3-8B-Instruct,llama-finetuned test: meta-llama/Llama-3.2-1B-Instruct
     base_url="http://localhost:8000/v1",
     api_key="placeholder",
@@ -31,6 +32,33 @@ model_client = OpenAIChatCompletionClient(
     },
 )
 
+extract_verify_client = OpenAIChatCompletionClient(
+    model="meta-llama/Llama-3.2-1B-Instruct",
+    base_url="http://localhost:8000/v1",
+    api_key="placeholder",
+    temperature=0.1,
+    top_p=0.9,
+    max_tokens=500,
+    model_capabilities={
+        "vision": False,
+        "function_calling": True,
+        "json_output": True,
+    },
+)
+
+execute_client = OpenAIChatCompletionClient(
+    model="meta-llama/Llama-3.2-1B-Instruct",
+    base_url="http://localhost:8000/v1",
+    api_key="placeholder",
+    temperature=0.1,
+    top_p=0.9,
+    max_tokens=500,
+    model_capabilities={
+        "vision": False,
+        "function_calling": True,
+        "json_output": True,
+    },
+)
 
 AGENT_SEQUENCES = {
     "default": [
@@ -75,6 +103,7 @@ def load_and_prepare_dataset(
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Run multi-agent system with Manager Agent. No pipeline.")
+    parser.add_argument('--config', type=str, default="configs/config.yaml", help="Path to the YAML configuration file.")
     parser.add_argument('--top_n', type=int, default=None, help="Limit the number of top samples to process (e.g., top 10)")
     parser.add_argument("--sequence", type=str, choices=AGENT_SEQUENCES.keys(), default="default", help="Choose the agent sequence to execute.")
     parser.add_argument('--dataset_name', type=str, default=None, help="CodeFinQA")
@@ -87,18 +116,13 @@ def parse_args():
 
 async def register_agents(runtime: SingleThreadedAgentRuntime,
                           agent_sequence: List[str],
+                          config: Dict[str, Any],
                           output_path: str,
                           output_file: str,
                           top_n_chunk: int
                           ):
     """
     Registers agents with the runtime based on the agent sequence.
-
-    Args:
-        runtime (SingleThreadedAgentRuntime): The agent runtime.
-        agent_sequence (List[str]): List of agent names to register.
-        output_path (str): Directory path for FormateOutput .
-        output_file (str): Filename for FormateOutput .
     """
     agents_to_register = [agent[0] for agent in AGENT_SEQUENCES[agent_sequence]]
 
@@ -106,28 +130,28 @@ async def register_agents(runtime: SingleThreadedAgentRuntime,
         await ReasonerAgent.register(
             runtime,
             type=reasoner_topic_type,
-            factory=lambda: ReasonerAgent(model_client=model_client)
+            factory=lambda: ReasonerAgent(model_client=reason_client)
         )
 
     if "extract_agent" in agents_to_register:
         await ExtractorAgent.register(
             runtime,
             type=extractor_topic_type,
-            factory=lambda: ExtractorAgent(model_client=model_client, top_n_chunk=top_n_chunk)
+            factory=lambda: ExtractorAgent(model_client=extract_verify_client, top_n_chunk=top_n_chunk)
         )
 
     if "executor_agent" in agents_to_register:
         await ExecutorAgent.register(
             runtime,
             type=executor_topic_type,
-            factory=lambda: ExecutorAgent(model_client=model_client)
+            factory=lambda: ExecutorAgent(model_client=execute_client)
         )
 
     if "verifier_agent" in agents_to_register:
         await VerifierAgent.register(
             runtime,
             type=verifier_topic_type,
-            factory=lambda: VerifierAgent(model_client=model_client)
+            factory=lambda: VerifierAgent(model_client=extract_verify_client)
         )
 
     if "formate_output" in agents_to_register:
@@ -149,7 +173,7 @@ async def publish_tasks(runtime: SingleThreadedAgentRuntime, task_contexts: List
             topic_id=TopicId(reasoner_topic_type, source="default"),
         )
 
-async def main(args):
+async def main(args, config):
     """
     The main asynchronous function to process all task contexts.
     """
@@ -167,13 +191,30 @@ async def main(args):
     task_contexts = inputs_to_contexts(task_inputs)
 
     runtime = SingleThreadedAgentRuntime()
-    await register_agents(runtime, agent_sequence, output_path, output_file, top_n_chunk)
+    await register_agents(runtime=runtime, config=config,agent_sequence=agent_sequence, output_path=output_path, output_file=output_file, top_n_chunk=top_n_chunk)
     runtime.start()
     await publish_tasks(runtime, task_contexts)
     await runtime.stop_when_idle()
 
+def load_config(config_path: str) -> Dict[str, Any]:
+    """
+    Loads configuration parameters from a YAML file.
+    """
+    if not os.path.exists(config_path):
+        raise FileNotFoundError(f"Configuration file not found at path: {config_path}")
+
+    with open(config_path, "r") as file:
+        try:
+            config = yaml.safe_load(file)
+            logging.info(f"Configuration loaded successfully from {config_path}.")
+        except yaml.YAMLError as e:
+            raise ValueError(f"Error parsing YAML file: {e}")
+
+    return config
 
 if __name__ == "__main__":
     args = parse_args()
-    asyncio.run(main(args))
+    config = load_config(config_path=args.config)
+
+    asyncio.run(main(args, config))
 
