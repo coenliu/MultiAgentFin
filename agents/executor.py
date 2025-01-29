@@ -80,10 +80,10 @@ class ExecutorAgent(RoutedAgent):
         # Check if this is an initial execution or a review-based execution
         if not task_context.executor_task or not task_context.executor_task.results:
             # **Initial Execution**
-            prompt = (f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
+            prompt = (f"Please NOTE You are tasked with writing Python code based on the provided context."   
+                      f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
                       f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}.\n"
                       f"You need to end with code by print(answer). And answer within 10 lines of code.")
-
             llm_result = await self._model_client.create(
                 messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
                 cancellation_token=ctx.cancellation_token,

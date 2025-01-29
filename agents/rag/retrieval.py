@@ -85,7 +85,6 @@ class FormulaRetriever:
         """
         try:
             results = self.collection.query(query_texts=[query], n_results=n_results)
-            print(f"Query executed successfully for: '{results}'.")
             return results
         except Exception as e:
             print(f"Error querying collection: {e}")

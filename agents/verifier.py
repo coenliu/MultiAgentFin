@@ -110,7 +110,7 @@ class VerifierAgent(RoutedAgent):
     async def handle_execute_review(self, message: ReviewExecute, ctx: MessageContext) -> None:
         task_id = message.task_id
         task_context = TASK_CONTEXT_MAPPING[task_id]
-        max_turn = 5
+        max_turn = 6
         last_result = task_context.executor_task.results[-1]
         review_results = last_result.review
 
@@ -153,6 +153,3 @@ class VerifierAgent(RoutedAgent):
                 task_id=task_id
             )
             await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))
-
-        # output_task = OutputTask(task="", task_id=message.task_id)
-        # await self.publish_message(message=output_task, topic_id=TopicId(output_topic_type, source=self.id.key))
