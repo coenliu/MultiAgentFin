@@ -9,7 +9,7 @@ from autogen_core import (
     type_subscription,
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
-from dataclass import TASK_CONTEXT_MAPPING, executor_topic_type, verifier_topic_type, Message, TaskContext, ExecuteTask, ExecutorResults, VerifyTask
+from dataclass import ReviewExecute, TASK_CONTEXT_MAPPING, executor_topic_type, verifier_topic_type, Message, TaskContext, ExecuteTask, ExecutorResults, VerifyTask
 from prompts import SYS_PROMPT_EXECUTOR
 from autogen import ConversableAgent
 from autogen.coding import LocalCommandLineCodeExecutor
@@ -25,39 +25,121 @@ class ExecutorAgent(RoutedAgent):
         self._model_client = model_client
 
 
+    # @message_handler
+    # async def handle_execute_task(self, message: ExecuteTask, ctx: MessageContext) -> None:
+    #     #TODO
+    #     task_id = message.task_id
+    #     task_context = TASK_CONTEXT_MAPPING[task_id]
+    #
+    #     prompt = (f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
+    #               f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}"
+    #               f"You need to end with code by print(answer). And answer within 10 lines code")
+    #
+    #     print(f"----------- the prmpt with comment {prompt} \n")
+    #     llm_result = await self._model_client.create(
+    #         messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
+    #         cancellation_token=ctx.cancellation_token,
+    #     )
+    #     response = llm_result.content
+    #     assert isinstance(response, str)
+    #
+    #     code_res = self.run_code(response)
+    #
+    #     executor_res = ExecutorResults(
+    #         code=response,
+    #         answer=code_res,
+    #         review="pending"
+    #     )
+    #
+    #     # print(f"{'-' * 80}\n{self.id.type}:\n {code_res}")
+    #     # verify_task = VerifyTask(task="", task_id=message.task_id)
+    #
+    #     task_context.executor_task = ExecuteTask(task=message.task, task_id=message.task_id)
+    #     task_context.executor_task.results.append(executor_res)
+    #
+    #     review_execute = ReviewExecute(
+    #         task_id=message.task_id,
+    #         code=response,
+    #         code_res=code_res,
+    #     )
+    #
+    #     if task_context.executor_task.get_review():
+    #         review_results = task_context.executor_task.get_review()
+    #     else:
+    #         review_results = None
+    #
+    #     prompt += f"Here is comments from Verifier agent to help you refine your answer {review_results}"
+    #
+    #     await self.publish_message(review_execute, topic_id=TopicId(verifier_topic_type, source=self.id.key))
+    #     # await self.publish_message(verify_task, topic_id=TopicId(verifier_topic_type, source=self.id.key))
     @message_handler
     async def handle_execute_task(self, message: ExecuteTask, ctx: MessageContext) -> None:
-        #TODO
         task_id = message.task_id
         task_context = TASK_CONTEXT_MAPPING[task_id]
 
-        prompt = (f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
-                  f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}"
-                  f"You need to end with code by print(answer). And answer within 10 lines code")
+        # Check if this is an initial execution or a review-based execution
+        if not task_context.executor_task or not task_context.executor_task.results:
+            # **Initial Execution**
+            prompt = (f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
+                      f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}.\n"
+                      f"You need to end with code by print(answer). And answer within 10 lines of code.")
 
+            llm_result = await self._model_client.create(
+                messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
+                cancellation_token=ctx.cancellation_token,
+            )
+            response = llm_result.content
+            assert isinstance(response, str)
 
-        llm_result = await self._model_client.create(
-            messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
-            cancellation_token=ctx.cancellation_token,
-        )
-        response = llm_result.content
-        assert isinstance(response, str)
+            code_res = self.run_code(response)
 
-        code_res = self.run_code(response)
+            executor_res = ExecutorResults(
+                code=response,
+                answer=code_res,
+                review="pending"
+            )
 
-        executor_res = ExecutorResults(
-            code=response,
-            answer=code_res,
-            review="pending"
-        )
+            # Initialize ExecuteTask and append results
+            task_context.executor_task = ExecuteTask(task=message.task, task_id=message.task_id)
+            task_context.executor_task.results.append(executor_res)
 
-        # print(f"{'-' * 80}\n{self.id.type}:\n {code_res}")
-        verify_task = VerifyTask(task="", task_id=message.task_id)
+            # Create and publish ReviewExecute for verifier
+            review_execute = ReviewExecute(
+                task_id=message.task_id,
+                code=response,
+                code_res=code_res,
+            )
+            await self.publish_message(review_execute, topic_id=TopicId(verifier_topic_type, source=self.id.key))
 
-        task_context.executor_task = ExecuteTask(task=message.task, task_id=message.task_id)
-        task_context.executor_task.results.append(executor_res)
+        else:
+            last_result = task_context.executor_task.results[-1]
+            review_results = last_result.review
 
-        await self.publish_message(verify_task, topic_id=TopicId(verifier_topic_type, source=self.id.key))
+            # Append verifier comments to the prompt
+            prompt = (f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
+                      f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}.\n"
+                      f"Here are the comments from the Verifier agent to help you refine your answer: {review_results}\n"
+                      f"Refine your code accordingly. Ensure it ends with print(answer) and is within 10 lines.")
+
+            llm_result = await self._model_client.create(
+                messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
+                cancellation_token=ctx.cancellation_token,
+            )
+            response = llm_result.content
+            assert isinstance(response, str)
+
+            code_res = self.run_code(response)
+
+            # Update the last ExecutorResults with the new response
+            last_result.code = response
+            last_result.answer = code_res
+
+            review_execute = ReviewExecute(
+                task_id=message.task_id,
+                code=response,
+                code_res=code_res,
+            )
+            await self.publish_message(review_execute, topic_id=TopicId(verifier_topic_type, source=self.id.key))
 
     def run_code(self, message_with_code_block: str) -> str:
         temp_dir = tempfile.TemporaryDirectory()

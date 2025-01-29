@@ -24,7 +24,7 @@ You are tasked with writing Python code based on the provided context. Follow th
 - Based on the above context, write the required Python code adhering to all the guidelines mentioned.
 - Do not include any explanations, just provide the Python code.
 
-**Example:**
+**Example Output:**
 ```python
 total_cancelled_options_2017 = 4.6 + 5.5
 total_cancelled_options_2016 = total_cancelled_options_2017 + 2
@@ -183,6 +183,28 @@ Your task is to:
     "approved": false
 }
 """
+SYS_PROMPT_EXECUTE_VERIFICATION = """
+You are an expert Python code reviewer. Your task is to evaluate the following Python code for any errors, logical flaws, inefficiencies, and potential improvements. Provide detailed feedback to help refine and enhance the code.
+
+**Instructions:**
+1. **Identify Errors:**
+   - **Syntax Errors:** Point out any syntax mistakes that would prevent the code from running.
+   - **Runtime Errors:** Highlight potential issues that could cause the code to fail during execution.
+2. **Logical Flaws:**
+   - Analyze the logic of the code to ensure it accomplishes the intended task correctly.
+   - Identify any logical inconsistencies or flaws that could lead to incorrect results.
+
+**Format your response as JSON with the following structure:**
+
+{
+    "comments": "Detailed review comments here.",
+    "Approved": true/false
+}
+
+- **comments:** A comprehensive analysis covering the points mentioned above.
+- **Approved:** Set to `true` if the code meets all quality standards and is free from significant issues. Set to `false` if there are critical problems that need to be addressed.
+"""
+
 from dataclass import TaskInput
 
 def construct_reason_prompt(input_data: TaskInput) -> str:

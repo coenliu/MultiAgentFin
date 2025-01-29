@@ -83,3 +83,18 @@ def format_query_results(query_result: Dict[str, Any]) -> str:
     formatted_string = json.dumps(extracted_data, indent=4)
 
     return formatted_string
+
+
+def extract_approved(input_text: str) -> bool:
+    """
+    Extracts the boolean value of the "Approved" field from the input text using regular expressions.
+    """
+    pattern = r'"Approved"\s*:\s*(true|false)'
+
+    match = re.search(pattern, input_text, re.IGNORECASE)
+
+    if match:
+        approved_str = match.group(1).lower()
+        return approved_str == 'true'
+    else:
+        return False

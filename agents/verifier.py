@@ -8,11 +8,11 @@ from autogen_core import (
     type_subscription,
 )
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
-from dataclass import extractor_topic_type, ReviewExtractResults, ReviewExtract, reasoner_topic_type, ActionResults,ReasonerActionTask, TASK_CONTEXT_MAPPING, verifier_topic_type, Message, TaskContext, VerifyTask, OutputTask, output_topic_type, VerifierResults
-from prompts import SYS_PROMPT_VERIFICATION, construct_review_extractor_prompt
+from dataclass import executor_topic_type,ExecuteTask, ReviewExecute, extractor_topic_type, ReviewExtractResults, ReviewExtract, reasoner_topic_type, ActionResults,ReasonerActionTask, TASK_CONTEXT_MAPPING, verifier_topic_type, Message, TaskContext, VerifyTask, OutputTask, output_topic_type, VerifierResults
+from prompts import SYS_PROMPT_VERIFICATION, construct_review_extractor_prompt, SYS_PROMPT_EXECUTE_VERIFICATION
 from agents.rag.retrieval import FormulaRetriever
 import json
-from agents.utils import format_query_results
+from agents.utils import format_query_results,extract_approved
 @type_subscription(topic_type=verifier_topic_type)
 class VerifierAgent(RoutedAgent):
     def __init__(self, model_client: ChatCompletionClient) -> None:
@@ -22,6 +22,10 @@ class VerifierAgent(RoutedAgent):
         )
         self._model_client = model_client
         self.formula_retriever = FormulaRetriever(collection_name="my_collection")
+        self._execute_review_message = SystemMessage(
+            content=SYS_PROMPT_EXECUTE_VERIFICATION
+        )
+        self.current_turn = 0
 
 
     @message_handler
@@ -101,3 +105,54 @@ class VerifierAgent(RoutedAgent):
         )
 
         await self.publish_message(message=result, topic_id=TopicId(extractor_topic_type, self.id.key))
+
+    @message_handler
+    async def handle_execute_review(self, message: ReviewExecute, ctx: MessageContext) -> None:
+        task_id = message.task_id
+        task_context = TASK_CONTEXT_MAPPING[task_id]
+        max_turn = 5
+        last_result = task_context.executor_task.results[-1]
+        review_results = last_result.review
+
+        if extract_approved(input_text=review_results) or self.current_turn >= max_turn:
+            output_task = OutputTask(task="", task_id=message.task_id)
+            await self.publish_message(message=output_task, topic_id=TopicId(output_topic_type, source=self.id.key))
+            return
+
+        prompt = f"""You need to evaluate following and give your review comments: \n
+        executor agent result:  {message.code}\n Answer: {message.code_res}
+        if there is ValueError, SyntaxError etc, you should set Approved: False
+        **Format your response as JSON** 
+        ...
+        end with your answer with: Approved: True or False
+        """
+        #
+        llm_result = await self._model_client.create(
+            messages=[self._execute_review_message, UserMessage(content=prompt, source=self.id.key)],
+            cancellation_token=ctx.cancellation_token,
+        )
+        response = llm_result.content
+        assert isinstance(response, str)
+        last_result.review = response
+
+        verifier_result = VerifierResults(
+            session_id="",
+            reasoner_comment="",
+            extractor_comment="",
+            executor_comment=response,
+            approved=False,
+        )
+        task_context.verify_task = VerifyTask(task="", task_id=message.task_id)
+        task_context.verify_task.results.append(verifier_result)
+
+        if message.code_res:
+            self.current_turn = self.current_turn + 1
+            task_context.executor_task.update_review(review=response)
+            executor_task = ExecuteTask(
+                task="",
+                task_id=task_id
+            )
+            await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))
+
+        # output_task = OutputTask(task="", task_id=message.task_id)
+        # await self.publish_message(message=output_task, topic_id=TopicId(output_topic_type, source=self.id.key))

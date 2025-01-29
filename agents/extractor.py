@@ -89,10 +89,6 @@ class ExtractorAgent(RoutedAgent):
         response = await self.send_request(prompt=message.results, ctx=ctx)
 
         task_context = TASK_CONTEXT_MAPPING.get(self.task_id)
-        if not task_context:
-            # Handle the case where task_id is not found
-            print(f"TaskContext not found for task_id: {self.task_id}")
-            return
 
         prompt = f"Based on the reviewed results, answer the question again {response} \n"
 

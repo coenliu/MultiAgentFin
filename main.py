@@ -24,7 +24,7 @@ reason_client = OpenAIChatCompletionClient(
     api_key="placeholder",
     temperature=0.1,
     top_p=0.9,
-    max_tokens=500,
+    max_tokens=800,
     model_capabilities={
         "vision": False,
         "function_calling": True,
@@ -38,7 +38,7 @@ extract_verify_client = OpenAIChatCompletionClient(
     api_key="placeholder",
     temperature=0.1,
     top_p=0.9,
-    max_tokens=500,
+    max_tokens=800,
     model_capabilities={
         "vision": False,
         "function_calling": True,
@@ -47,12 +47,12 @@ extract_verify_client = OpenAIChatCompletionClient(
 )
 
 execute_client = OpenAIChatCompletionClient(
-    model="meta-llama/Llama-3.2-1B-Instruct",
+    model="meta-llama/Llama-3.2-1B-Instruct", #"meta-llama/Llama-3.2-1B-Instruct", "meta-llama/CodeLlama-7b-Instruct-hf"
     base_url="http://localhost:8000/v1",
     api_key="placeholder",
     temperature=0.1,
     top_p=0.9,
-    max_tokens=500,
+    max_tokens=800,
     model_capabilities={
         "vision": False,
         "function_calling": True,

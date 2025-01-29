@@ -19,6 +19,12 @@ class ReviewExtract:
     context: str
 
 @dataclass
+class ReviewExecute:
+    task_id:str
+    code: str
+    code_res: str
+
+@dataclass
 class ReviewExtractResults:
     results: str
 
@@ -116,6 +122,19 @@ class ExecuteTask:
         if not self.results:
             return ""
         return self.results[-1].answer
+
+    def get_review(self) -> str:
+        if not self.results:
+            return ""
+        return self.results[-1].review
+
+    def update_review(self, review: str):
+        if not self.results:
+            return
+        self.results[-1].review = review
+
+    def get_last_execute_task(self) -> ExecutorResults:
+        return  self.results[-1]
 
 
 @dataclass
