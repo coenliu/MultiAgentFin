@@ -26,10 +26,19 @@ You are tasked with writing Python code based on the provided context. Follow th
 
 **Example Output:**
 ```python
-total_cancelled_options_2017 = 4.6 + 5.5
-total_cancelled_options_2016 = total_cancelled_options_2017 + 2
-total_cancelled_options_2015 = total_cancelled_options_2016 + 0
+# Total number of stock options cancelled in 2017 (in millions)
+total_cancelled_options_2017 = 4.6 + 5.5  # 4.6 million and 5.5 million options cancelled
+
+# Total number of stock options cancelled in 2016 (in millions)
+total_cancelled_options_2016 = total_cancelled_options_2017 + 2  # Adding 2 million options cancelled in 2016
+
+# Total number of stock options cancelled in 2015 (in millions)
+total_cancelled_options_2015 = total_cancelled_options_2016 + 0  # Adding 0 million options cancelled in 2015
+
+# Final answer: Total stock options cancelled from 2017 to 2015
 answer = total_cancelled_options_2015
+
+# Print the total number of stock options cancelled
 print(answer)
 ```
 """

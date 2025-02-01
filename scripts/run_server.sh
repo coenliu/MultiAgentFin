@@ -1,6 +1,6 @@
 #MODEL_NAME="$1"
 #autogen -n "$MODEL_NAME"
-#MODEL_DIR="../megred-model-path"
+#MODEL_DIR="../sft_llama3"
 #autogen -d "$MODEL_DIR"
 #python -O -u -m vllm.entrypoints.openai.api_server \
 #    --port=8000 \

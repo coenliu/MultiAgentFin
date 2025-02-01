@@ -1,4 +1,6 @@
 import chromadb
+from chromadb.config import Settings
+
 import json
 import uuid
 from typing import List, Dict, Optional
@@ -11,7 +13,10 @@ class FormulaRetriever:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         data_url = os.path.join(script_dir, "formula.json")
 
-        self.chroma_client = chromadb.Client()
+        self.chroma_client = chromadb.Client(Settings(
+            persist_directory=os.path.join(script_dir, "chroma_db"),
+            anonymized_telemetry=False
+        ))
         self.collection = self._initialize_collection(collection_name)
         self.data = self._load_json_data(data_url)
         self.add_chunks_to_collection()

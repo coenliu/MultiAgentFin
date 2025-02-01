@@ -18,6 +18,7 @@ from dataloader.parquet_dataset import ParquetDataset, load_parquet
 from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts
 from agents.formate_output import FormateOutput
 from typing import Any, List,Dict
+
 reason_client = OpenAIChatCompletionClient(
     model="meta-llama/Meta-Llama-3-8B-Instruct", # meta-llama/Meta-Llama-3-8B-Instruct,llama-finetuned test: meta-llama/Llama-3.2-1B-Instruct
     base_url="http://localhost:8000/v1",
@@ -47,7 +48,7 @@ extract_verify_client = OpenAIChatCompletionClient(
 )
 
 execute_client = OpenAIChatCompletionClient(
-    model="meta-llama/CodeLlama-7b-Instruct-hf", #"meta-llama/Llama-3.2-1B-Instruct", "meta-llama/CodeLlama-7b-Instruct-hf"
+    model="meta-llama/CodeLlama-13b-Instruct-hf", #"meta-llama/Llama-3.2-1B-Instruct", "meta-llama/CodeLlama-7b-Instruct-hf"
     base_url="http://localhost:8003/v1",
     api_key="placeholder",
     temperature=0.1,
@@ -56,9 +57,52 @@ execute_client = OpenAIChatCompletionClient(
     model_capabilities={
         "vision": False,
         "function_calling": True,
-        "json_output": True,
+        "json_output": False,
     },
 )
+
+# for test only
+# reason_client = OpenAIChatCompletionClient(
+#     model="meta-llama/Llama-3.2-1B-Instruct", # meta-llama/Meta-Llama-3-8B-Instruct,llama-finetuned test: meta-llama/Llama-3.2-1B-Instruct
+#     base_url="http://localhost:8000/v1",
+#     api_key="placeholder",
+#     temperature=0.1,
+#     top_p=0.9,
+#     max_tokens=800,
+#     model_capabilities={
+#         "vision": False,
+#         "function_calling": True,
+#         "json_output": True,
+#     },
+# )
+#
+# extract_verify_client = OpenAIChatCompletionClient(
+#     model="meta-llama/Llama-3.2-1B-Instruct", #"meta-llama/Llama-3.2-3B-Instruct"
+#     base_url="http://localhost:8000/v1",
+#     api_key="placeholder",
+#     temperature=0.1,
+#     top_p=0.9,
+#     max_tokens=800,
+#     model_capabilities={
+#         "vision": False,
+#         "function_calling": True,
+#         "json_output": True,
+#     },
+# )
+#
+# execute_client = OpenAIChatCompletionClient(
+#     model="meta-llama/Llama-3.2-1B-Instruct", #"meta-llama/Llama-3.2-1B-Instruct", "meta-llama/CodeLlama-7b-Instruct-hf"
+#     base_url="http://localhost:8000/v1",
+#     api_key="placeholder",
+#     temperature=0.1,
+#     top_p=0.9,
+#     max_tokens=800,
+#     model_capabilities={
+#         "vision": False,
+#         "function_calling": True,
+#         "json_output": True,
+#     },
+# )
 
 AGENT_SEQUENCES = {
     "default": [

@@ -79,7 +79,6 @@ class ExecutorAgent(RoutedAgent):
 
         # Check if this is an initial execution or a review-based execution
         if not task_context.executor_task or not task_context.executor_task.results:
-            # **Initial Execution**
             prompt = (f"Please NOTE You are tasked with writing Python code based on the provided context."   
                       f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
                       f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}.\n"
@@ -116,7 +115,8 @@ class ExecutorAgent(RoutedAgent):
             review_results = last_result.review
 
             # Append verifier comments to the prompt
-            prompt = (f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
+            prompt = (f"Please NOTE You are tasked with writing Python code based on the provided context." 
+                      f"Here is the formula {task_context.reasoner_task.get_formula_from_reason()} \n"
                       f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}.\n"
                       f"Here are the comments from the Verifier agent to help you refine your answer: {review_results}\n"
                       f"Refine your code accordingly. Ensure it ends with print(answer) and is within 10 lines.")
@@ -133,6 +133,13 @@ class ExecutorAgent(RoutedAgent):
             # Update the last ExecutorResults with the new response
             last_result.code = response
             last_result.answer = code_res
+
+            executor_res = ExecutorResults(
+                code=response,
+                answer=code_res,
+                review=review_results
+            )
+            task_context.executor_task.results.append(executor_res)
 
             review_execute = ReviewExecute(
                 task_id=message.task_id,
@@ -151,7 +158,6 @@ class ExecutorAgent(RoutedAgent):
             "code_executor_agent",
             llm_config=False,  # Turn off LLM for this agent.
             code_execution_config={"executor": executor},  # Use the local command line code executor.
-            # human_input_mode="ALWAYS",  # Always take human input for this agent for safety.
         )
         # print(f"The code input:{'-' * 80}\n{self.id.type}:\n {message_with_code_block}")
         reply = code_executor_agent.generate_reply(messages=[{"role": "user", "content": message_with_code_block}])

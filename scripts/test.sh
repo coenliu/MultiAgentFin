@@ -11,25 +11,25 @@ FEW_SHOT=0  # Update as needed for the number of few-shot examples
 TOP_N=100 # Update as needed to limit the number of samples
 DATASET_NAME="CodeFinQA" #CodeFinQA,FinCode,  CodeTAT-QA, TAT-QA,  SEC-NUM,ConvFinQA,
 CONFIG_FILE="configs/config.yaml"
-OUTPUT_PATH="results/test"  # Update the output path for results
-OUTPUT_FILE="Test_MCTS_rollout20_Action_CodeFinQA_MultiAgent_full.csv" #
+OUTPUT_PATH="results/test/test_100"  # Update the output path for results
+OUTPUT_FILE="Test_rollout20_Action_CodeFinQA_code13B_top100.csv" #
 LLM_GPU_MEMORY_UTILIZATION=0.9  # Update as needed
 LLM_MAX_TOKENS=8000  # Before upload to cluster
 TEMPERATURE=0.1  # Update as needed
 
 # Run the main script
-python main.py \
-  --data_path $DATA_PATH \
-  --top_n $TOP_N \
-  --dataset_name $DATASET_NAME \
-  --output_path $OUTPUT_PATH \
-  --output_file $OUTPUT_FILE \
-  --temperature $TEMPERATURE
-
-#full example
 #python main.py \
 #  --data_path $DATA_PATH \
+#  --top_n $TOP_N \
 #  --dataset_name $DATASET_NAME \
 #  --output_path $OUTPUT_PATH \
 #  --output_file $OUTPUT_FILE \
 #  --temperature $TEMPERATURE
+
+#full example
+python main.py \
+  --data_path $DATA_PATH \
+  --dataset_name $DATASET_NAME \
+  --output_path $OUTPUT_PATH \
+  --output_file $OUTPUT_FILE \
+  --temperature $TEMPERATURE

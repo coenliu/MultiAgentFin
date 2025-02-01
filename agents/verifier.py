@@ -117,6 +117,7 @@ class VerifierAgent(RoutedAgent):
         if extract_approved(input_text=review_results) or self.current_turn >= max_turn:
             output_task = OutputTask(task="", task_id=message.task_id)
             await self.publish_message(message=output_task, topic_id=TopicId(output_topic_type, source=self.id.key))
+            self.current_turn = 0
             return
 
         prompt = f"""You need to evaluate following and give your review comments: \n
