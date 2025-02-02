@@ -18,7 +18,6 @@ import logging
 import asyncio
 import concurrent.futures
 import re
-from .utils import extract_formula, extract_variables, split_variables_from_formula
 
 
 logging.basicConfig(level=logging.INFO)
@@ -215,48 +214,3 @@ class ReasonerAgent(RoutedAgent):
                 logger.warning("Future is already done. Cannot set result.")
         else:
             logger.warning("No pending action in the queue. Ignoring the score.")
-
-
-
-    # @message_handler
-        # async def handle_reason_task(self, message: ReasonTask, ctx: MessageContext) -> None:
-        #     task_id = message.task_id
-        #     task_context = TASK_CONTEXT_MAPPING[task_id]
-        #     prompt = construct_reason_prompt(task_context.input_data)
-        #     session_id = str(uuid.uuid4())
-        #     self._session_memory.setdefault(session_id, []).append(message)
-        #
-        #     # TODO need to abstract
-        #     llm_result = await self._model_client.create(
-        #         messages=[self._system_message, UserMessage(content=prompt, source=self.id.key)],
-        #         cancellation_token=ctx.cancellation_token,
-        #     )
-        #     response = llm_result.content
-        #     assert isinstance(response, str)
-        #     # print(f"{'-'*80}\n{self.id.type}:\n{response}")
-        #
-        #     # TODO need to save the response to reasoner results
-        #
-        #     # TODO need to extract the  variables from response
-        #
-        #     # extract_res = ExtractorResults(
-        #     #     review="Pending"
-        #     # )
-        #     # extract_res.add_reasoner_var_extractor(reasoner_vars=response)
-        #     #
-        #     reasoner_results = ReasonerResults(
-        #         review="Review content",
-        #         formulas=response,
-        #         variables=response
-        #     )
-        #
-        #     extract_task = ExtractTask(
-        #         task="",
-        #         task_id=message.task_id
-        #     )
-        #
-        #     # Update task context
-        #     task_context.reasoner_task = ReasonTask(task=message.task, task_id=message.task_id)
-        #     task_context.reasoner_task.results.append(reasoner_results)
-        #
-        #     await self.publish_message(message=extract_task, topic_id=TopicId(extractor_topic_type, source=self.id.key))

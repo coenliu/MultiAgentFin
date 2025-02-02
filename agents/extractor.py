@@ -14,7 +14,7 @@ from dataclass import ReviewExtractResults, ReviewExtract, TASK_CONTEXT_MAPPING,
 from prompts import SYS_PROMPT_EXTRACTOR,construct_extractor_prompt
 from typing import Dict, List
 from modules.bm25 import BM25Model
-from .utils import extract_formula, extract_variables
+from .utils import extract_variables
 
 @type_subscription(topic_type=extractor_topic_type)
 class ExtractorAgent(RoutedAgent):
@@ -49,20 +49,23 @@ class ExtractorAgent(RoutedAgent):
         # TODO need to abstract
         response = await self.send_request(prompt=prompt, ctx=ctx)
 
-        await self.send_review_task(response=response)
+        #TODO for test extract
+        executor_task = ExecuteTask(
+            task="",
+            task_id=self.task_id
+        )
+        extractor_results = ExtractorResults(
+            extracted_var_value=f"Variables: {variables} \n Extracted:{response}",
+            review="not set",
+        )
 
-        # extractor_results = ExtractorResults(
-        #     extracted_var_value=f"Variables: {variables} \n Extracted:{response}",
-        #     review="pending"
-        # )
-        # executor_task = ExecuteTask(
-        #     task="",
-        #     task_id=message.task_id
-        # )
+        task_context.extractor_task = ExtractTask(task="", task_id=self.task_id)
+        task_context.extractor_task.results.append(extractor_results)
 
-        # task_context.extractor_task = ExtractTask(task=message.task, task_id=message.task_id)
-        # task_context.extractor_task.results.append(extractor_results)
-        # await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))
+        await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))
+
+        # TODO for verify agent
+        # await self.send_review_task(response=response)
 
     async def send_request(self, prompt: str, ctx: MessageContext) -> str:
         """
@@ -90,7 +93,7 @@ class ExtractorAgent(RoutedAgent):
 
         task_context = TASK_CONTEXT_MAPPING.get(self.task_id)
 
-        prompt = f"Based on the reviewed results, answer the question again {response} \n"
+        prompt = f"Based on the reviewed results： {response}, answer the question again  \n"
 
         re_answer = await self.send_request(prompt=prompt, ctx=ctx)
 

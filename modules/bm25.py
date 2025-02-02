@@ -4,14 +4,9 @@ import re
 import logging
 
 class BM25Model:
-    def __init__(self, model_name: str, top_k: int = 4, **kwargs: Any) -> None:
+    def __init__(self, model_name: str, top_k: int = 2, **kwargs: Any) -> None:
         """
         Initialize the BM25-based model.
-
-        Args:
-            model_name (str): Name of the model.
-            top_k (int): Number of top chunks to return for predictions.
-            kwargs (Any): Additional arguments for BM25 configuration.
         """
         self._bm25 = None
         self._chunks = []
@@ -21,14 +16,6 @@ class BM25Model:
     def get_top_chunks(self, query: str, passage: str, top_k: int = None) -> List[Dict[str, Union[str, float]]]:
         """
         Retrieve the most relevant chunks for the given query and passage.
-
-        Args:
-            query (str): The query text.
-            passage (str): The mixed text and table passage.
-            top_k (int, optional): Number of top chunks to return. Defaults to self.top_k.
-
-        Returns:
-            List[Dict[str, Union[str, float]]]: The top `top_k` most similar chunks with their similarity scores.
         """
         if not isinstance(query, str):
             raise ValueError(f"Query should be a string, but got {type(query).__name__}. Content: {query}")
@@ -93,14 +80,6 @@ class BM25Model:
     def chunk_mixed_content(self, passages: str, max_chunk_size: int = 500) -> List[str]:
         """
         Chunk a mixed content of paragraphs and tables into manageable pieces.
-        Each paragraph is treated as a single chunk, and each table is treated as a single chunk.
-
-        Args:
-            passages (str): The input passage containing mixed text and table data.
-            max_chunk_size (int): The maximum size of each chunk.
-
-        Returns:
-            List[str]: A list of chunks.
         """
         lines = passages.splitlines()
         chunks = []
