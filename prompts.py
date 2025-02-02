@@ -236,6 +236,7 @@ def construct_reason_prompt(input_data: TaskInput) -> str:
             f"What's the formula for following Question: {input_data.question}\n"
         )
     elif input_data.task == "FinCode":
+        # TODO NO CONTEXT PROVIDED
         prompt += (
             f"Context: {input_data.context}\n"
             f"What's the formula for following Question: {input_data.question}\n"

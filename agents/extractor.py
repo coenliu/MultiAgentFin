@@ -32,8 +32,8 @@ class ExtractorAgent(RoutedAgent):
 
     @message_handler
     async def handle_extract_task(self, message: ExtractTask, ctx: MessageContext) -> None:
-        self.task_id = message.task_id  # Set the current task_id
-        task_context = TASK_CONTEXT_MAPPING[self.task_id]
+        task_id = message.task_id  # Set the current task_id
+        task_context = TASK_CONTEXT_MAPPING[task_id]
 
         #TODO need to load comments from Verifier
         raw_response =  task_context.reasoner_task.get_var_from_reason()
@@ -52,14 +52,14 @@ class ExtractorAgent(RoutedAgent):
         #TODO for test extract
         executor_task = ExecuteTask(
             task="",
-            task_id=self.task_id
+            task_id=task_id
         )
         extractor_results = ExtractorResults(
             extracted_var_value=f"Variables: {variables} \n Extracted:{response}",
             review="not set",
         )
 
-        task_context.extractor_task = ExtractTask(task="", task_id=self.task_id)
+        task_context.extractor_task = ExtractTask(task="", task_id=task_id)
         task_context.extractor_task.results.append(extractor_results)
 
         await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))

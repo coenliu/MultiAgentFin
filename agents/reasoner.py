@@ -119,10 +119,10 @@ class ReasonerAgent(RoutedAgent):
 
         extract_task = ExtractTask(
             task="",
-            task_id=message.task_id
+            task_id=task_id
         )
 
-        task_context.reasoner_task = ReasonTask(task=message.task, task_id=message.task_id)
+        task_context.reasoner_task = ReasonTask(task=message.task, task_id=task_id)
         task_context.reasoner_task.results.append(reasoner_results)
 
         await self.publish_message(message=extract_task, topic_id=TopicId(extractor_topic_type, source=self.id.key))

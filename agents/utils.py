@@ -7,48 +7,13 @@ def extract_variables(input_text: str) -> str:
     """
     Extracts variables and their descriptions using regex from the input text.
     """
-    variables = []
-    json_block_pattern = r'```json\s*(\{.*?\})\s*```'
-    json_blocks = re.findall(json_block_pattern, input_text, re.DOTALL)
+    pattern = r'"variables":\s*\{[^{}]*\}'
+    matches = re.findall(pattern, input_text, re.IGNORECASE)
 
-    json_content = None
-    if json_blocks:
-        # Use the last JSON block found.
-        json_content = json_blocks[-1]
+    if matches:
+        return matches[-1]
     else:
-        # Fallback: try to extract any JSON-like object that contains "variables"
-        json_object_pattern = r'(\{.*"variables"\s*:\s*\{.*?\}.*\})'
-        json_objects = re.findall(json_object_pattern, input_text, re.DOTALL)
-        if json_objects:
-            json_content = json_objects[-1]
-
-    # If we have some JSON content, try to parse it.
-    if json_content:
-        try:
-            data = json.loads(json_content)
-            if "variables" in data and isinstance(data["variables"], dict):
-                # Build variables list from the JSON object.
-                for key, value in data["variables"].items():
-                    # Convert value to string in case it is numeric.
-                    variables.append(f"{key.strip()}: {str(value).strip()}")
-                print(f"Extracted variables from JSON content: {variables}")
-        except json.JSONDecodeError as e:
-            print("Error parsing JSON content:", e)
-
-    # Fallback to text-based extraction if no variables were found in JSON.
-    if not variables:
-        text_pattern = r"(?i)\bVariable\s*(\d+):?\s*(.+?)(?=\n|$)"
-        matches = re.findall(text_pattern, input_text)
-        if matches:
-            number, desc = matches[-1]
-            variables = [f"Variable {number.strip()}: {desc.strip()}"]
-        else:
-            return "not found"
-    return ", ".join(sorted(set(variables)))
-
-
-
-
+        return "No 'variables' block found."
 
 def split_variables_from_formula(input_text: str):
     variable_pattern = r'\b[A-Za-z_][A-Za-z0-9_]*\b'
@@ -120,59 +85,17 @@ def extract_formula(input_text: str) -> str:
     """
     Extracts the formula from the input text using multiple strategies:
     """
-    formula = None
+    pattern_single = r'"formula"\s*:\s*"([^"]+)"'
+    # Pattern for list format formula
+    pattern_list = r'"formula"\s*:\s*\[(.*?)\]'
 
-    # -- Step 1: JSON extraction --
-    # Look for a JSON block fenced with triple backticks.
-    json_block_pattern = r'```json\s*(\{.*?\})\s*```'
-    json_blocks = re.findall(json_block_pattern, input_text, re.DOTALL)
+    # Find matches
+    match_single = re.findall(pattern_single, input_text, re.IGNORECASE)
+    match_list = re.findall(pattern_list, input_text, re.IGNORECASE)
 
-    json_content = None
-    if json_blocks:
-        json_content = json_blocks[-1]
-    else:
-        # Fallback: try to extract any JSON-like object that contains "formula"
-        json_object_pattern = r'(\{.*"formula".*\})'
-        json_objects = re.findall(json_object_pattern, input_text, re.DOTALL)
-        if json_objects:
-            json_content = json_objects[-1]
+    if match_list:
+        # Extract individual formulas from the list
+        formulas = re.findall(r'"(.*?)"', match_list[-1])
+        return "\n".join(formulas) if formulas else "No 'formula' block found."
 
-    if json_content:
-        try:
-            data = json.loads(json_content)
-            # First try a top-level "formula" key.
-            if "formula" in data and isinstance(data["formula"], str) and data["formula"].strip():
-                formula = data["formula"].strip()
-            else:
-                # If not found, recursively search for any nested "formula" keys.
-                formulas = recursive_extract_formula(data)
-                if formulas:
-                    # Take the last found formula.
-                    formula = formulas[-1]
-            # Uncomment the next line to debug JSON extraction.
-            # print(f"Extracted formula from JSON: {formula}")
-        except json.JSONDecodeError as e:
-            print("Error parsing JSON content for formula:", e)
-
-    # -- Step 2: Section extraction --
-    if not formula:
-        # Look for a "**Formula:**" section and capture its content until the next section marker (e.g., ** or end of text).
-        formula_section_pattern = r"\*\*Formula:\*\*\s*(.*?)\s*(?=\*\*|$)"
-        match = re.search(formula_section_pattern, input_text, re.DOTALL)
-        if match:
-            formula_candidate = match.group(1).strip()
-            if formula_candidate:
-                formula = formula_candidate
-
-
-    # -- Step 3: Fallback text extraction --
-    if not formula:
-        # Look for a line that starts with "Formula" followed by ':' or '=' and capture the rest of the line.
-        text_pattern = r"(?i)\bFormula\s*[:=]\s*(.+?)(?=\n|$)"
-        matches = re.findall(text_pattern, input_text)
-        if matches:
-            formula = matches[-1].strip()
-        else:
-            return "not found"
-
-    return formula if formula else "not found"
+    return match_single[-1] if match_single else "No 'formula' block found."
