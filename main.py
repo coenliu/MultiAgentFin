@@ -19,6 +19,7 @@ from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts
 from agents.formate_output import FormateOutput
 from typing import Any, List,Dict
 
+
 # reason_client = OpenAIChatCompletionClient(
 #     model="meta-llama/Meta-Llama-3-8B-Instruct", # meta-llama/Meta-Llama-3-8B-Instruct,llama-finetuned test: meta-llama/Llama-3.2-1B-Instruct
 #     base_url="http://localhost:8000/v1",
@@ -216,13 +217,23 @@ async def publish_tasks(runtime: SingleThreadedAgentRuntime, task_contexts: List
     """
     Publishes tasks to the runtime for processing.
     """
-    for idx, ctx in (enumerate(task_contexts, start=1)):
+    semaphore = asyncio.Semaphore(100)
+    async def publish_single(ctx: TaskContext):
         task_id = str(uuid.uuid4())
         TASK_CONTEXT_MAPPING[task_id] = ctx
-        await runtime.publish_message(
-            ReasonTask(task="", task_id=task_id),
-            topic_id=TopicId(reasoner_topic_type, source="default"),
-        )
+
+        async with semaphore:
+            return await runtime.publish_message(
+                ReasonTask(task="", task_id=task_id),
+                topic_id=TopicId(reasoner_topic_type, source="default"),
+            )
+
+    publish_coros = [publish_single(ctx) for ctx in task_contexts]
+    results = await asyncio.gather(*publish_coros, return_exceptions=True)
+
+    for idx, result in enumerate(results):
+        if isinstance(result, Exception):
+            raise RuntimeError(f"Failed to publish task at index {idx}: {result}")
 
 async def main(args, config):
     """

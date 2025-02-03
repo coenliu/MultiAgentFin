@@ -18,9 +18,9 @@ import logging
 import asyncio
 import concurrent.futures
 import re
+import autogen_core
 
-
-logging.basicConfig(level=logging.INFO)
+logging.getLogger('autogen_core').propagate = False
 logger = logging.getLogger(__name__)
 @type_subscription(topic_type=reasoner_topic_type)
 class ReasonerAgent(RoutedAgent):
