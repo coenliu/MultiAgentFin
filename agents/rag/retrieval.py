@@ -48,10 +48,6 @@ class FormulaRetriever:
 
     @staticmethod
     def split_json_into_chunks(data: List[Dict[str, str]]) -> List[Dict[str, str]]:
-        """
-        Splits a list of JSON objects into individual chunks.
-        Each chunk will contain one JSON object with keys 'formula_name', 'formula', and optionally 'meaning'.
-        """
         chunks = []
         for entry in data:
             if 'formula_name' in entry and 'formula' in entry:

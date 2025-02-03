@@ -24,7 +24,15 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 @type_subscription(topic_type=reasoner_topic_type)
 class ReasonerAgent(RoutedAgent):
-    def __init__(self, model_client: ChatCompletionClient) -> None:
+    def __init__(
+            self,
+            model_client: ChatCompletionClient,
+            exploration_weight: float = 1.414,
+            weight_scheduler: str = "exp",
+            num_rollouts: int = 20,  # default should 20
+            discount: float = 1.0,
+            verbose: bool = False
+    ) -> None:
         super().__init__("A formula and variable identify agent.")
         self._system_message = SystemMessage(
             content=SYS_PROMPT_REASONER
@@ -36,7 +44,14 @@ class ReasonerAgent(RoutedAgent):
         self.current_context = ""
         self.action_queue: asyncio.Queue = asyncio.Queue()
 
-        
+        self._mcts_params = {
+            "exploration_weight": exploration_weight,
+            "weight_scheduler": weight_scheduler,
+            "num_rollouts": num_rollouts,
+            "discount": discount,
+            "verbose": verbose
+        }
+
     async def get_reward_async(self, action: str) -> float:
         future = asyncio.get_event_loop().create_future()
         await self.action_queue.put(future)
@@ -62,12 +77,12 @@ class ReasonerAgent(RoutedAgent):
         """
         if self._mcts_searcher is None:
             self._mcts_searcher = MCTS_Searcher_Custom(
-                exploration_weight=1.414,
-                weight_scheduler="exp",
-                num_rollouts=20, # default should 20
-                discount=1.0,
+                exploration_weight=self._mcts_params["exploration_weight"],
+                weight_scheduler=self._mcts_params["weight_scheduler"],
+                num_rollouts=self._mcts_params["num_rollouts"],
+                discount=self._mcts_params["discount"],
                 get_reward_func=self.get_reward_async,
-                verbose=False
+                verbose=self._mcts_params["verbose"]
             )
             logger.info("Initialized MCTS_Searcher_Custom.")
         return self._mcts_searcher

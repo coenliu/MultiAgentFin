@@ -174,7 +174,14 @@ async def register_agents(runtime: SingleThreadedAgentRuntime,
         await ReasonerAgent.register(
             runtime,
             type=reasoner_topic_type,
-            factory=lambda: ReasonerAgent(model_client=reason_client)
+            factory=lambda: ReasonerAgent(
+                model_client=reason_client,
+                exploration_weight = config["reasoner"]["mcts"]["exploration_weight"],
+                weight_scheduler = config["reasoner"]["mcts"]["weight_scheduler"],
+                num_rollouts = config["reasoner"]["mcts"]["num_rollouts"],
+                discount = config["reasoner"]["mcts"]["discount"],
+                verbose = config["reasoner"]["mcts"]["verbose"]
+           )
         )
 
     if "extract_agent" in agents_to_register:

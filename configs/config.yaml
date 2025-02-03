@@ -1,5 +1,11 @@
-openai:
-  api_key: your_vllm_api_key_here   # If vLLM requires. If not, keep blank.
+
+reasoner:
+  mcts:
+    exploration_weight: 1.414
+    weight_scheduler: "exp"
+    num_rollouts: 20
+    discount: 1.0
+    verbose: False
 
 agents:
   reason_agent:
