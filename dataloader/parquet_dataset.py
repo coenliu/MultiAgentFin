@@ -1,21 +1,5 @@
 import pandas as pd
 
-
-
-
-def load_parquet(parquet_file_path):
-    """
-    Loads the data from the Parquet file.
-
-    Args:
-        parquet_file_path (str): Path to the Parquet file.
-
-    Returns:
-        pd.DataFrame: DataFrame containing the data.
-    """
-    df = pd.read_parquet(parquet_file_path)
-    return df
-
 class ParquetDataset:
     def __init__(self, data_frame: pd.DataFrame):
         """

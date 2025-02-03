@@ -22,6 +22,7 @@ import autogen_core
 
 logging.getLogger('autogen_core').propagate = False
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
 @type_subscription(topic_type=reasoner_topic_type)
 class ReasonerAgent(RoutedAgent):
     def __init__(

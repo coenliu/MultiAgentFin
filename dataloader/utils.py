@@ -3,6 +3,7 @@ import logging
 from dataclass import TaskInput, TaskContext
 from .parquet_dataset import ParquetDataset
 from typing import List
+import pandas as pd
 
 task_dict = {
     "fincode_code.json": "FinCode",
@@ -79,3 +80,26 @@ def inputs_to_contexts(task_inputs: List[TaskInput]) -> List[TaskContext]:
         List[TaskContext]: The corresponding TaskContext objects.
     """
     return [TaskContext(input_data=input_data) for input_data in task_inputs]
+
+
+
+def load_parquet(parquet_file_path):
+    df = pd.read_parquet(parquet_file_path)
+    return df
+
+def load_and_prepare_dataset(
+    data_path: str, task_name: str, top_n: int
+) -> ParquetDataset:
+
+    df = load_parquet(data_path)
+    dataset = ParquetDataset(df)
+    dataset = dataset.filter_by_task(task_name)
+
+    if top_n is not None:
+        dataset = dataset.select_top_n(top_n)
+        logging.info(f"Processing only the top {top_n} samples.")
+
+    if len(dataset) == 0:
+        exit(0)
+
+    return dataset

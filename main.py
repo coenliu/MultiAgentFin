@@ -14,8 +14,8 @@ from autogen_ext.models.openai import OpenAIChatCompletionClient
 from dataclass import TASK_CONTEXT_MAPPING, reasoner_topic_type, executor_topic_type, extractor_topic_type,verifier_topic_type, ReasonTask, TaskContext, output_topic_type
 import argparse
 import logging
-from dataloader.parquet_dataset import ParquetDataset, load_parquet
-from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts
+from dataloader.parquet_dataset import ParquetDataset
+from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts, load_and_prepare_dataset
 from agents.formate_output import FormateOutput
 from typing import Any, List,Dict
 
@@ -129,22 +129,6 @@ AGENT_SEQUENCES = {
     # ],
 }
 
-def load_and_prepare_dataset(
-    data_path: str, task_name: str, top_n: int
-) -> ParquetDataset:
-
-    df = load_parquet(data_path)
-    dataset = ParquetDataset(df)
-    dataset = dataset.filter_by_task(task_name)
-
-    if top_n is not None:
-        dataset = dataset.select_top_n(top_n)
-        logging.info(f"Processing only the top {top_n} samples.")
-
-    if len(dataset) == 0:
-        exit(0)
-
-    return dataset
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Run multi-agent system with Manager Agent. No pipeline.")
@@ -217,7 +201,7 @@ async def publish_tasks(runtime: SingleThreadedAgentRuntime, task_contexts: List
     """
     Publishes tasks to the runtime for processing.
     """
-    semaphore = asyncio.Semaphore(100)
+    semaphore = asyncio.Semaphore(500)
     async def publish_single(ctx: TaskContext):
         task_id = str(uuid.uuid4())
         TASK_CONTEXT_MAPPING[task_id] = ctx
@@ -240,11 +224,15 @@ async def main(args, config):
     The main asynchronous function to process all task contexts.
     """
     agent_sequence = args.sequence
-    dataset = load_and_prepare_dataset(
-        data_path=args.data_path,
-        task_name=args.dataset_name,
-        top_n=args.top_n
-    )
+
+    if args.dataset_name == "FinancialMath":
+        dataset = None
+    else:
+        dataset = load_and_prepare_dataset(
+            data_path=args.data_path,
+            task_name=args.dataset_name,
+            top_n=args.top_n
+        )
     output_file = args.output_file
     output_path = args.output_path
     task_inputs = dataset_to_task_inputs(dataset=dataset)
