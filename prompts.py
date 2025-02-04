@@ -26,17 +26,21 @@ You are tasked with writing Python code based on the provided context. Follow th
 
 **Example Output:**
 ```python
-# Total number of stock options cancelled in 2017 (in millions)
-total_cancelled_options_2017 = 4.6 + 5.5  # 4.6 million and 5.5 million options cancelled
 
-# Total number of stock options cancelled in 2016 (in millions)
-total_cancelled_options_2016 = total_cancelled_options_2017 + 2  # Adding 2 million options cancelled in 2016
 
-# Total number of stock options cancelled in 2015 (in millions)
+
+initialize variables
+net_interest_revenue_2009 = 896
+
+initialize variables
+total_operating_expenses_2009 = 3173
+
+initialize these variables
 total_cancelled_options_2015 = total_cancelled_options_2016 + 0  # Adding 0 million options cancelled in 2015
 
-# Final answer: Total stock options cancelled from 2017 to 2015
-answer = total_cancelled_options_2015
+# Final answer: percent of net interest revenue where total operating expenses in 2009
+percent_2009 = net_interest_revenue_2009 / total_operating_expenses_2009
+answer = percent_2009 * 100
 
 # Print the total number of stock options cancelled
 print(answer)
