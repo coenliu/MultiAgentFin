@@ -15,7 +15,7 @@ from dataclass import TASK_CONTEXT_MAPPING, reasoner_topic_type, executor_topic_
 import argparse
 import logging
 from dataloader.parquet_dataset import ParquetDataset
-from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts, load_and_prepare_dataset
+from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts, load_and_prepare_dataset, load_finmath_dataset
 from agents.formate_output import FormateOutput
 from typing import Any, List,Dict
 
@@ -201,7 +201,7 @@ async def publish_tasks(runtime: SingleThreadedAgentRuntime, task_contexts: List
     """
     Publishes tasks to the runtime for processing.
     """
-    semaphore = asyncio.Semaphore(500)
+    semaphore = asyncio.Semaphore(1000)
     async def publish_single(ctx: TaskContext):
         task_id = str(uuid.uuid4())
         TASK_CONTEXT_MAPPING[task_id] = ctx
@@ -226,7 +226,7 @@ async def main(args, config):
     agent_sequence = args.sequence
 
     if args.dataset_name == "FinancialMath":
-        dataset = None
+        dataset = load_finmath_dataset(top_n=args.top_n)
     else:
         dataset = load_and_prepare_dataset(
             data_path=args.data_path,

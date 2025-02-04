@@ -1,9 +1,13 @@
 import json
 import logging
+
+from pandas import DataFrame
+
 from dataclass import TaskInput, TaskContext
 from .parquet_dataset import ParquetDataset
 from typing import List
 import pandas as pd
+from .finmath import FinMathDataset
 
 task_dict = {
     "fincode_code.json": "FinCode",
@@ -24,12 +28,6 @@ logging.basicConfig(level=logging.INFO)
 def load_system_message(json_file_path):
     """
     Loads the system message from a JSON file.
-
-    Args:
-        json_file_path (str): Path to the JSON file containing the system message.
-
-    Returns:
-        str: The system message loaded from the file.
     """
     with open(json_file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -39,14 +37,6 @@ def load_system_message(json_file_path):
 def dataset_to_task_inputs(dataset: ParquetDataset) -> List[TaskInput]:
     """
     Converts a ParquetDataset into a list of TaskInput objects.
-
-    Args:
-        dataset (ParquetDataset): The dataset to convert.
-
-    Returns:    task_inputs = dataset_to_task_inputs(dataset = dataset)
-
-    task_contexts = inputs_to_contexts(task_inputs)  # Convert TaskInputs to TaskContexts
-        List[TaskInput]: A list of TaskInput objects.
     """
     task_inputs = []
 
@@ -72,12 +62,6 @@ def dataset_to_task_inputs(dataset: ParquetDataset) -> List[TaskInput]:
 def inputs_to_contexts(task_inputs: List[TaskInput]) -> List[TaskContext]:
     """
     Converts a list of TaskInput objects into a list of TaskContext objects.
-
-    Args:
-        task_inputs (List[TaskInput]): The input data for each task.
-
-    Returns:
-        List[TaskContext]: The corresponding TaskContext objects.
     """
     return [TaskContext(input_data=input_data) for input_data in task_inputs]
 
@@ -103,3 +87,6 @@ def load_and_prepare_dataset(
         exit(0)
 
     return dataset
+
+def load_finmath_dataset(top_n: int) -> DataFrame:
+    pass

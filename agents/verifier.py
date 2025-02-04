@@ -121,7 +121,7 @@ class VerifierAgent(RoutedAgent):
             return
 
         prompt = f"""You need to evaluate following and give your review comments: \n
-        executor agent result:  {message.code}\n Answer: {message.code_res}
+        executor agent code:  {message.code}\n code executed results: {message.code_res}
         if there is ValueError, SyntaxError etc, you should set Approved: False
         **Format your response as JSON** 
         ...

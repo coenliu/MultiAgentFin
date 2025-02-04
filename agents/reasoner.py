@@ -18,7 +18,6 @@ import logging
 import asyncio
 import concurrent.futures
 import re
-import autogen_core
 
 logging.getLogger('autogen_core').propagate = False
 logger = logging.getLogger(__name__)
@@ -57,7 +56,7 @@ class ReasonerAgent(RoutedAgent):
         future = asyncio.get_event_loop().create_future()
         await self.action_queue.put(future)
 
-        await self.action_to_verifier(action)
+        asyncio.create_task(self.action_to_verifier(action))
         logger.info(f"Submitted action '{action}' for evaluation. Awaiting score...")
         try:
             score = await asyncio.wait_for(future, timeout=10)  #  # Adjust timeout as needed
