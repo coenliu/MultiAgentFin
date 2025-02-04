@@ -14,7 +14,7 @@ import logging
 logger = logging.getLogger(__name__)
 import sys
 import io
-
+import textwrap
 @type_subscription(topic_type=output_topic_type)
 class FormateOutput(RoutedAgent):
     def __init__(self, output_file: str, output_path: str):
@@ -116,6 +116,8 @@ class FormateOutput(RoutedAgent):
     def execute_python_code(self, code: str) -> str:
         """
         """
+        code = textwrap.dedent(code).lstrip()
+
         old_stdout = sys.stdout
         sys.stdout = buffer = io.StringIO()
         try:
