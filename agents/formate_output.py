@@ -12,6 +12,8 @@ from autogen_core import (
 from dataclass import TASK_CONTEXT_MAPPING, TaskContext,output_topic_type,OutputTask
 import logging
 logger = logging.getLogger(__name__)
+import sys
+import io
 
 @type_subscription(topic_type=output_topic_type)
 class FormateOutput(RoutedAgent):
@@ -34,19 +36,23 @@ class FormateOutput(RoutedAgent):
             raise
 
     def generate(self, context: TaskContext) -> Dict[str, Any]:
+        answer = context.executor_task.get_answer()
+        if not answer:
+            code = context.executor_task.get_code()
+            answer = self.execute_python_code(code=code)
 
         final_output = {
                     "task_name": context.input_data.task,
                     "context": context.input_data.context,
                     "question": context.input_data.question,
-                    "answer": context.input_data.answer,
+                    "answer": answer,
                     "program": context.input_data.program,
                     "model_output": f"{context.executor_task.get_answer()}",
                     "evaluations": "",
                     "reasoner_output": f"{context.reasoner_task.get_formula_from_reason()}",
                     "reasoner_actions":f"{context.reasoner_task.get_actions_from_reason()}",
                     "extractor_output":f"{context.extractor_task.get_extracted_var()}",
-                    "executor_output": f"{context.executor_task.get_code()} \n {context.executor_task.get_answer()}",
+                    "executor_output": f"{context.executor_task.get_code()} \n {answer}",
                     "verifier_output": f"{context.verify_task.get_verify_comment()}",
                 }
         return final_output
@@ -106,6 +112,21 @@ class FormateOutput(RoutedAgent):
 
         except Exception as e:
             raise RuntimeError(f"Failed to save final output as CSV: {e}") from e
+
+    def execute_python_code(self, code: str) -> str:
+        """
+        """
+        old_stdout = sys.stdout  # CHANGED: Save original stdout.
+        sys.stdout = buffer = io.StringIO()  # CHANGED: Redirect stdout to capture output.
+        try:
+            exec(code, {})  # Execute code in an empty namespace.
+        except Exception as e:
+            result = f"Error during code execution: {e}"
+        else:
+            result = buffer.getvalue()
+        finally:
+            sys.stdout = old_stdout  # CHANGED: Restore original stdout.
+        return result.strip()
 # # formate_output.py
 # import csv
 # import json

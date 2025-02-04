@@ -111,13 +111,11 @@ class VerifierAgent(RoutedAgent):
         task_id = message.task_id
         task_context = TASK_CONTEXT_MAPPING[task_id]
         max_turn = 6
-        last_result = task_context.executor_task.results[-1]
-        review_results = last_result.review
 
-        if extract_approved(input_text=review_results) or self.current_turn >= max_turn:
+        if self.current_turn >= max_turn:
             output_task = OutputTask(task="", task_id=message.task_id)
             await self.publish_message(message=output_task, topic_id=TopicId(output_topic_type, source=self.id.key))
-            self.current_turn = 0
+            self.current_turn = 0  # Reset the turn counter.
             return
 
         prompt = f"""You need to evaluate following and give your review comments: \n
@@ -125,7 +123,7 @@ class VerifierAgent(RoutedAgent):
         if there is ValueError, SyntaxError etc, you should set Approved: False
         **Format your response as JSON** 
         ...
-        end with your answer with: Approved: True or False
+        End your response with: Approved: True or False.
         """
         #
         llm_result = await self._model_client.create(
@@ -134,6 +132,8 @@ class VerifierAgent(RoutedAgent):
         )
         response = llm_result.content
         assert isinstance(response, str)
+
+        last_result = task_context.executor_task.results[-1]
         last_result.review = response
 
         verifier_result = VerifierResults(
@@ -146,11 +146,14 @@ class VerifierAgent(RoutedAgent):
         task_context.verify_task = VerifyTask(task="", task_id=message.task_id)
         task_context.verify_task.results.append(verifier_result)
 
-        if message.code_res:
-            self.current_turn = self.current_turn + 1
-            task_context.executor_task.update_review(review=response)
-            executor_task = ExecuteTask(
-                task="",
-                task_id=task_id
-            )
-            await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))
+        # if approve
+        if extract_approved(input_text=response):
+            output_task = OutputTask(task="", task_id=message.task_id)
+            await self.publish_message(message=output_task, topic_id=TopicId(output_topic_type, source=self.id.key))
+            self.current_turn = 0
+            return
+
+        self.current_turn += 1
+        task_context.executor_task.update_review(review=response)
+        executor_task = ExecuteTask(task="", task_id=task_id)
+        await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))
