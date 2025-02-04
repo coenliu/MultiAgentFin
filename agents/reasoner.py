@@ -43,6 +43,7 @@ class ReasonerAgent(RoutedAgent):
         self.current_question = ""
         self.current_context = ""
         self.action_queue: asyncio.Queue = asyncio.Queue()
+        self.default_reward = 1.0
 
         self._mcts_params = {
             "exploration_weight": exploration_weight,
@@ -215,10 +216,10 @@ class ReasonerAgent(RoutedAgent):
                 logger.info(f"Extracted score using regex: {score}")
             except ValueError:
                 logger.warning(f"Invalid score format: {match.group(1)}. Defaulting to 0.0.")
-                score = 0.0
+                score = self.default_reward
         else:
             logger.warning("No 'score' field found in the message. Defaulting to 0.0.")
-            score = 0.0
+            score = self.default_reward
 
         if not self.action_queue.empty():
             future = await self.action_queue.get()

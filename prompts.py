@@ -29,14 +29,12 @@ You are tasked with writing Python code based on the provided context. Follow th
 
 
 
-initialize variables
+# initialize variables
 net_interest_revenue_2009 = 896
 
-initialize variables
+# initialize variables
 total_operating_expenses_2009 = 3173
 
-initialize these variables
-total_cancelled_options_2015 = total_cancelled_options_2016 + 0  # Adding 0 million options cancelled in 2015
 
 # Final answer: percent of net interest revenue where total operating expenses in 2009
 percent_2009 = net_interest_revenue_2009 / total_operating_expenses_2009

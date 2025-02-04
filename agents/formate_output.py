@@ -36,10 +36,6 @@ class FormateOutput(RoutedAgent):
             raise
 
     def generate(self, context: TaskContext) -> Dict[str, Any]:
-        answer = context.executor_task.get_answer()
-        if not answer:
-            code = context.executor_task.get_code()
-            answer = self.execute_python_code(code=code)
 
         final_output = {
                     "task_name": context.input_data.task,
@@ -47,12 +43,12 @@ class FormateOutput(RoutedAgent):
                     "question": context.input_data.question,
                     "answer": context.input_data.answer,
                     "program": context.input_data.program,
-                    "model_output": f"{answer}",
+                    "model_output": f"{context.executor_task.get_answer()}",
                     "evaluations": "",
                     "reasoner_output": f"{context.reasoner_task.get_formula_from_reason()}",
                     "reasoner_actions":f"{context.reasoner_task.get_actions_from_reason()}",
                     "extractor_output":f"{context.extractor_task.get_extracted_var()}",
-                    "executor_output": f"{context.executor_task.get_code()} \n {answer}",
+                    "executor_output": f"{context.executor_task.get_code()} \n {context.executor_task.get_answer()}",
                     "verifier_output": f"{context.verify_task.get_verify_comment()}",
                 }
         return final_output
@@ -112,20 +108,3 @@ class FormateOutput(RoutedAgent):
 
         except Exception as e:
             raise RuntimeError(f"Failed to save final output as CSV: {e}") from e
-
-    def execute_python_code(self, code: str) -> str:
-        """
-        """
-        code = textwrap.dedent(code).lstrip()
-
-        old_stdout = sys.stdout
-        sys.stdout = buffer = io.StringIO()
-        try:
-            exec(code, {})
-        except Exception as e:
-            result = f"Error during code execution: {e}"
-        else:
-            result = buffer.getvalue()
-        finally:
-            sys.stdout = old_stdout
-        return result.strip()

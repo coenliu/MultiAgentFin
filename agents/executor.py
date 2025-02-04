@@ -15,6 +15,10 @@ from autogen import ConversableAgent
 from autogen.coding import LocalCommandLineCodeExecutor
 import tempfile
 from .utils import extract_formula
+import textwrap
+import io
+import sys
+
 
 @type_subscription(topic_type=executor_topic_type)
 class ExecutorAgent(RoutedAgent):
@@ -26,7 +30,7 @@ class ExecutorAgent(RoutedAgent):
         self._model_client = model_client
 
     def _has_code_error(self, output: str) -> bool:
-        error_keywords = ["Traceback", "NameError", "SyntaxError", "TypeError", "ValueError", "IndexError","KeyError", "AttributeError" ]
+        error_keywords = ["Traceback", "NameError", "SyntaxError", "TypeError", "ValueError", "IndexError","KeyError", "AttributeError", "Error"]
         return any(keyword in output for keyword in error_keywords)
 
     @message_handler
@@ -73,13 +77,21 @@ class ExecutorAgent(RoutedAgent):
             response = llm_result.content
             assert isinstance(response, str)
 
-            code_res = self.run_code(response)
-            if not self._has_code_error(code_res):
+            code_res_cli = self.run_code(response)
+            code_res_inprocess = self.execute_python_code(response)
+            combined_output = (
+                f"Local Executor Output:\n{code_res_cli}\n\n"
+                f"In-Process Executor Output:\n{code_res_inprocess}"
+            )
+
+            if not self._has_code_error(code_res) and not self._has_code_error(code_res_inprocess):
+                code_res = combined_output
                 break
             else:
                 prompt = (
-                    f"Your previous code produced the following error:\n{code_res}\n"
+                    f"Your previous code produced the following error:\n{combined_output}\n"
                     f"{re_prompt}"
+                    f"Your previous Code: {response}"
                 )
                 attempt += 1
 
@@ -117,3 +129,19 @@ class ExecutorAgent(RoutedAgent):
         reply = code_executor_agent.generate_reply(messages=[{"role": "user", "content": message_with_code_block}])
         # print(f"The code output:{'-' * 80}\n{self.id.type}:\n {reply}")
         return reply
+
+    def execute_python_code(self, code: str) -> str:
+
+        code = textwrap.dedent(code).lstrip()
+
+        old_stdout = sys.stdout
+        sys.stdout = buffer = io.StringIO()
+        try:
+            exec(code, {})  # Execute in an isolated global namespace.
+        except Exception as e:
+            result = f"Error during code execution: {e}"
+        else:
+            result = buffer.getvalue()
+        finally:
+            sys.stdout = old_stdout
+        return result.strip()
