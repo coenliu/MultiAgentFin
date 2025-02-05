@@ -94,6 +94,7 @@ class ExecutorAgent(RoutedAgent):
                     f"Your previous Code: {response}"
                 )
                 attempt += 1
+                code_res = combined_output
 
         executor_res = ExecutorResults(
             code=response,
