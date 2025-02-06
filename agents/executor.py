@@ -37,21 +37,21 @@ class ExecutorAgent(RoutedAgent):
     async def handle_execute_task(self, message: ExecuteTask, ctx: MessageContext) -> None:
         task_id = message.task_id
         task_context = TASK_CONTEXT_MAPPING[task_id]
-        formula = extract_formula(task_context.reasoner_task.get_formula_from_reason())
+        formula = task_context.reasoner_task.get_formula_from_reason()
 
         if not task_context.executor_task or not task_context.executor_task.results:
             prompt = (f"Please NOTE You are tasked with writing Python code based on the provided context."
-                      f"Here is the formula {formula} \n"
+                      f"Here is the formula from other assistant {formula} \n"
                       f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}.\n"
-                      f"Make sure that  initialize these variables at the start of your code.\n"
+                      f"Make sure that initialize extracted value at the start of your code.\n"
                       f"You need to end with code by print(answer). And answer within 10 lines of code.")
         else:
             review_results = task_context.executor_task.results[-1].review
             prompt = (f"Please NOTE You are tasked with writing Python code based on the provided context."
-                      f"Here is the formula {formula} \n"
+                      f"Here is the formula other assistant {formula} \n"
                       f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}.\n"
+                      f"Make sure that initialize extracted value at the start of your code.\n"
                       f"Here are the comments from the Verifier agent to help you refine your answer: {review_results}\n"
-                       f"Make sure that  initialize these variables at the start of your code.\n"
                       f"Refine your code accordingly. Ensure it ends with print(answer) and within 10 lines.")
 
         # llm_result = await self._model_client.create(

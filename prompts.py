@@ -24,17 +24,13 @@ You are tasked with writing Python code based on the provided context. Follow th
 - Based on the above context, write the required Python code adhering to all the guidelines mentioned.
 - Do not include any explanations, just provide the Python code.
 
-**Example Output:**
+**Few-shot Example:**
 ```python
-
-
-
 # initialize variables
 net_interest_revenue_2009 = 896
 
 # initialize variables
 total_operating_expenses_2009 = 3173
-
 
 # Final answer: percent of net interest revenue where total operating expenses in 2009
 percent_2009 = net_interest_revenue_2009 / total_operating_expenses_2009
@@ -43,6 +39,8 @@ answer = percent_2009 * 100
 # Print the total number of stock options cancelled
 print(answer)
 ```
+**Notes:**
+DO NOT USE THIS EXAMPLE AS YOUR ANSWER, MAKE SURE YOU ARE USING DATA FROM OTHER ASSISTANT
 """
 
 # System prompt for the Reasoning Agent

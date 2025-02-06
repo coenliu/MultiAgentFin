@@ -43,7 +43,7 @@ class ReasonerAgent(RoutedAgent):
         self.current_question = ""
         self.current_context = ""
         self.action_queue: asyncio.Queue = asyncio.Queue()
-        self.default_reward = 1.0
+        self.default_reward = 0.0
 
         self._mcts_params = {
             "exploration_weight": exploration_weight,
