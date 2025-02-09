@@ -118,7 +118,8 @@ class VerifierAgent(RoutedAgent):
             self.current_turn = 0  # Reset the turn counter.
             return
 
-        prompt = f"""You need to evaluate following and give your review comments: \n
+        prompt = f"""What’s the problem with the above code? You should check the code line by line. \n.
+        give your review comments: \n
         executor agent code:  {message.code}\n code executed results: {message.code_res}
         if there is ValueError, SyntaxError etc, you should set Approved: False
         **Format your response as JSON** 

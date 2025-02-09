@@ -15,7 +15,7 @@ from dataclass import TASK_CONTEXT_MAPPING, reasoner_topic_type, executor_topic_
 import argparse
 import logging
 from dataloader.parquet_dataset import ParquetDataset
-from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts, load_and_prepare_dataset, load_finmath_dataset
+from dataloader.utils import dataset_to_task_inputs, inputs_to_contexts, load_and_prepare_dataset, load_finmath_dataset, finmath_to_taskinput
 from agents.formate_output import FormateOutput
 from typing import Any, List,Dict
 
@@ -137,6 +137,7 @@ def parse_args():
     parser.add_argument("--sequence", type=str, choices=AGENT_SEQUENCES.keys(), default="default", help="Choose the agent sequence to execute.")
     parser.add_argument('--dataset_name', type=str, default=None, help="CodeFinQA")
     parser.add_argument("--data_path", type=str, required=True, help="Path to Parquet data.")
+    parser.add_argument("--finmath_data_path", type=str, default="data/financialmath/validation.json", help="Path to FinancialMath data.")
     parser.add_argument("--output_path", type=str, default="", help="Output path for task results.")
     parser.add_argument('--output_file', type=str, default="llama_outputs.csv", help="Name to the output CSV file")
     parser.add_argument('--temperature', type=float, default=0.3, help="Temperature for text generation")
@@ -226,16 +227,18 @@ async def main(args, config):
     agent_sequence = args.sequence
 
     if args.dataset_name == "FinancialMath":
-        dataset = load_finmath_dataset(top_n=args.top_n)
+        dataset = load_finmath_dataset(file_path= args.finmath_data_path, top_n=args.top_n)
+        task_inputs = finmath_to_taskinput(dataset)
     else:
         dataset = load_and_prepare_dataset(
             data_path=args.data_path,
             task_name=args.dataset_name,
             top_n=args.top_n
         )
+        task_inputs = dataset_to_task_inputs(dataset=dataset)
+
     output_file = args.output_file
     output_path = args.output_path
-    task_inputs = dataset_to_task_inputs(dataset=dataset)
     top_n_chunk = args.top_n_chunk
 
     task_contexts = inputs_to_contexts(task_inputs)

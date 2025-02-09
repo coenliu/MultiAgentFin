@@ -63,5 +63,3 @@ def select_100_dataset():
 
     print(f"Sampled data has been saved to {output_file} with unique IDs starting at 0.")
 
-
-select_100_dataset()

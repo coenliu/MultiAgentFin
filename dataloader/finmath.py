@@ -2,8 +2,7 @@ import json
 import random
 
 class FinMathDataset:
-    def __init__(self, file_path):
-        file_path="data/financialmath/validation.json"
+    def __init__(self, file_path:str):
         with open(file_path, 'r', encoding='utf-8') as f:
             self.data = json.load(f)
 
@@ -25,3 +24,6 @@ class FinMathDataset:
     def select_top_n(self, n):
 
         return self.data[:n]
+
+    def get_dataset(self):
+        return self.data

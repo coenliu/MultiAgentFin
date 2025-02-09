@@ -32,10 +32,9 @@ class ExtractorAgent(RoutedAgent):
 
     @message_handler
     async def handle_extract_task(self, message: ExtractTask, ctx: MessageContext) -> None:
-        task_id = message.task_id  # Set the current task_id
-        task_context = TASK_CONTEXT_MAPPING[task_id]
+        self.task_id = message.task_id  # Set the current task_id
+        task_context = TASK_CONTEXT_MAPPING[self.task_id]
 
-        #TODO need to load comments from Verifier
         raw_response =  task_context.reasoner_task.get_var_from_reason()
         self.current_question = task_context.input_data.question
         self.current_context = task_context.input_data.context
@@ -43,23 +42,23 @@ class ExtractorAgent(RoutedAgent):
         variables = extract_variables(raw_response)
         context = task_context.input_data.context
 
-        relevant_chunks = self._bm25_model.get_top_chunks(query=self.current_question, passage=context)
+        relevant_chunks = self._bm25_model.get_top_chunks(query=variables, passage=context)
 
-        prompt = construct_extractor_prompt(variables=variables, relevant_chunks=relevant_chunks, input_question=self.current_question)
+        prompt = construct_extractor_prompt(variables=variables, relevant_chunks=self.current_context, input_question=self.current_question)
         # TODO need to abstract
         response = await self.send_request(prompt=prompt, ctx=ctx)
 
         #TODO for test extract
         executor_task = ExecuteTask(
             task="",
-            task_id=task_id
+            task_id=self.task_id
         )
         extractor_results = ExtractorResults(
             extracted_var_value=f"Variables: {variables} \n Extracted:{response}",
             review="not set",
         )
 
-        task_context.extractor_task = ExtractTask(task="", task_id=task_id)
+        task_context.extractor_task = ExtractTask(task="", task_id=self.task_id)
         task_context.extractor_task.results.append(extractor_results)
 
         await self.publish_message(executor_task, topic_id=TopicId(executor_topic_type, source=self.id.key))

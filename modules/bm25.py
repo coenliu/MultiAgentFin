@@ -19,8 +19,8 @@ class BM25Model:
         """
         if not isinstance(query, str):
             raise ValueError(f"Query should be a string, but got {type(query).__name__}. Content: {query}")
-        if not isinstance(passage, str):
-            raise ValueError(f"Passage should be a string, but got {type(passage).__name__}. Content: {passage}")
+        if not isinstance(passage, str) or passage.strip() == "":
+            passage = query.lower()
 
         self._chunks = self.chunk_mixed_content(passage)
         self._setup_bm25_index(self._chunks)

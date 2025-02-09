@@ -88,5 +88,49 @@ def load_and_prepare_dataset(
 
     return dataset
 
-def load_finmath_dataset(top_n: int) -> DataFrame:
-    pass
+def load_finmath_dataset(file_path:str,top_n:int) -> DataFrame:
+
+    data_finmath = FinMathDataset(file_path=file_path).get_dataset()
+    if top_n is not None:
+        data_finmath = data_finmath[:top_n]
+
+    if len(data_finmath) == 0:
+        exit(0)
+
+    data = []
+
+    for json_data in data_finmath:
+        row = {
+            "question": json_data.get("question", ""),
+            "answer": json_data.get("ground_truth", None),
+            "task": "FinancialMath",
+            "context": "\n".join(json_data.get("tables", [])),
+            "context_type": json_data.get("topic", ""),
+            "options": None,
+            "program": json_data.get("python_solution", None)
+        }
+        data.append(row)
+
+    return pd.DataFrame(data)
+
+def finmath_to_taskinput(dataset: DataFrame) -> List[TaskInput]:
+    task_inputs = []
+
+    for idx, row in dataset.iterrows():
+        try:
+            task_input = TaskInput(
+                question=row.get("question", ""),
+                answer=row.get("answer", None),
+                task=row.get("task", ""),
+                context=row.get("context", ""),
+                context_type=row.get("context_type", None),
+                options=row.get("options", None),
+                program=row.get("program", None),
+            )
+            task_inputs.append(task_input)
+        except Exception as e:
+            logging.warning(f"Failed to convert row {idx} to TaskInput: {e}")
+
+    logging.info(f"Converted {len(task_inputs)} rows into TaskInput objects.")
+    return task_inputs
+
