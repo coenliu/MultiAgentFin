@@ -42,7 +42,7 @@ class ExtractorAgent(RoutedAgent):
         variables = extract_variables(raw_response)
         context = task_context.input_data.context
 
-        relevant_chunks = self._bm25_model.get_top_chunks(query=variables, passage=context)
+        relevant_chunks = self._bm25_model.get_top_chunks(query=self.current_question, passage=context)
 
         prompt = construct_extractor_prompt(variables=variables, relevant_chunks=self.current_context, input_question=self.current_question)
         # TODO need to abstract

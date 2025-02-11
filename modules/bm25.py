@@ -4,7 +4,7 @@ import re
 import logging
 
 class BM25Model:
-    def __init__(self, model_name: str, top_k: int = 2, **kwargs: Any) -> None:
+    def __init__(self, model_name: str, top_k: int = 4, **kwargs: Any) -> None:
         """
         Initialize the BM25-based model.
         """
