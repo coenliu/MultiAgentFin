@@ -9,9 +9,10 @@ results/
 .AppleDouble
 .LSOverride
 sft_llama3
+figures
 # Icon must end with two \r
 Icon
-
+data/augementation
 # Thumbnails
 ._*
 
