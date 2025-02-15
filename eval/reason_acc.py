@@ -31,7 +31,7 @@ def extract_numbers(input_string, normalize_large=True, large_threshold=1_000_00
         return []
 
 
-def normalize_number(value, decimals=2):
+def normalize_number(value, decimals=1):
 
     try:
         return round(float(str(value).replace(",", "").strip()), decimals)
@@ -123,7 +123,7 @@ def process_directory(directory_path, answer_column, generated_text_column, tole
 
 # Example Usage
 if __name__ == "__main__":
-    directory_path = '../results/from_cluster2'  # Path to the directory with CSV files
+    directory_path = '../results/finmath'  # Path to the directory with CSV files
     answer_column = 'answer'
     generated_text_column = 'model_output'
     tolerance = 0.02  # Adjust tolerance as needed

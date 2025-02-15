@@ -202,7 +202,7 @@ async def publish_tasks(runtime: SingleThreadedAgentRuntime, task_contexts: List
     """
     Publishes tasks to the runtime for processing.
     """
-    semaphore = asyncio.Semaphore(1000)
+    semaphore = asyncio.Semaphore(500)
     async def publish_single(ctx: TaskContext):
         task_id = str(uuid.uuid4())
         TASK_CONTEXT_MAPPING[task_id] = ctx
@@ -244,7 +244,7 @@ async def main(args, config):
     task_contexts = inputs_to_contexts(task_inputs)
 
     runtime = SingleThreadedAgentRuntime()
-    await register_agents(runtime=runtime, config=config,agent_sequence=agent_sequence, output_path=output_path, output_file=output_file, top_n_chunk=top_n_chunk)
+    await register_agents(runtime=runtime, config=config, agent_sequence=agent_sequence, output_path=output_path, output_file=output_file, top_n_chunk=top_n_chunk)
     runtime.start()
     await publish_tasks(runtime, task_contexts)
     await runtime.stop_when_idle()

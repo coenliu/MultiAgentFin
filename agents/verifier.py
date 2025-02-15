@@ -66,8 +66,7 @@ class VerifierAgent(RoutedAgent):
     async def handle_reasoner_action(self, message: ReasonerActionTask, ctx: MessageContext) -> None:
         prompt = message.action
 
-        #TODO should have logic to find the query
-        query_text = message.question  # Replace with dynamic query if needed
+        query_text = message.question
         query_results = self.formula_retriever.query_collection(query=query_text, n_results=2)
 
         if query_results:

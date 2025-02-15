@@ -11,7 +11,7 @@ from autogen_core import (
 from autogen_core.models import ChatCompletionClient, SystemMessage, UserMessage
 from dataclass import ReviewExtractResults, ReviewExtract, TASK_CONTEXT_MAPPING, extractor_topic_type, executor_topic_type, ExtractTask, ReasonTask, ReasonerResults, ExecuteTask, \
     TaskContext, ExtractorResults,verifier_topic_type
-from prompts import SYS_PROMPT_EXTRACTOR,construct_extractor_prompt
+from prompts import SYS_PROMPT_EXTRACTOR,construct_extractor_prompt_1_turn
 from typing import Dict, List
 from modules.bm25 import BM25Model
 from .utils import extract_variables
@@ -44,7 +44,10 @@ class ExtractorAgent(RoutedAgent):
 
         relevant_chunks = self._bm25_model.get_top_chunks(query=self.current_question, passage=context)
 
-        prompt = construct_extractor_prompt(variables=variables, relevant_chunks=self.current_context, input_question=self.current_question)
+        if self.current_context == None:
+            self.current_context = self.current_question
+
+        prompt = construct_extractor_prompt_1_turn(variables=variables, relevant_chunks=self.current_context, input_question=self.current_question)
         # TODO need to abstract
         response = await self.send_request(prompt=prompt, ctx=ctx)
 

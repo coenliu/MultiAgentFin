@@ -41,21 +41,23 @@ class ExecutorAgent(RoutedAgent):
         formula = task_context.reasoner_task.get_formula_from_reason()
 
         if not task_context.executor_task or not task_context.executor_task.results:
-            prompt = (f"Please NOTE You are tasked with writing Python code based on the provided context."
+            prompt = (f"Please NOTE You are tasked with writing Python code based on the provided context.THINK THIS STEP BY STEP"
                       f"Here is the formula from other assistant {formula} \n"
                       f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}.\n"
                       f"Here is the question to answer {task_context.input_data.question}.\n"
                       f"Make sure that initialize extracted value at the start of your code.\n"
+                      f"IGNORE THE symbol like $, million.... ONLY FOCUS ON NUMBERS  "
                       f"You need to end with code by print(answer). And answer within 10 lines of code."
                       f"** ALWAYS REMEMBER THE Instructions.")
         else:
             review_results = task_context.executor_task.results[-1].review
-            prompt = (f"Please NOTE You are tasked with writing Python code based on the provided context."
+            prompt = (f"Please NOTE You are tasked with writing Python code based on the provided context. THINK THIS STEP BY STEP"
                       f"Here is the formula other assistant {formula} \n"
                       f"Here is the extracted value {task_context.extractor_task.get_extracted_var()}.\n"
                       f"Make sure that initialize extracted value at the start of your code.\n"
                       f"Your previous code: f{task_context.executor_task.get_code()}"
                       f"Here are the comments from the Verifier agent to help you refine your answer: {review_results}\n"
+                      f"IGNORE THE symbol like $, million.... ONLY FOCUS ON NUMBERS "
                       f"Refine your code accordingly. Ensure it ends with print(answer) and within 10 lines."
                       f"** ALWAYS REMEMBER THE Instructions.")
 

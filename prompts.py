@@ -257,20 +257,43 @@ def construct_reason_prompt(input_data: TaskInput) -> str:
             f"Question: {input_data.question}\n"
             f"Answer:"
         )
+    elif input_data.task == "FinancialMath":
+        prompt += (
+            f"Context: {input_data.context}\n"
+            f"Question: {input_data.question}\n"
+            f"Answer:"
+        )
     else:
         raise ValueError(f"Unknown task type: {input_data.task}")
 
     return prompt
+
+REASON_ACTION_ClAIFY = "Clarify the question to ensure understanding."
+REASON_ACTION_QUESTION_STRUCTURE = "Break down the question into its structural components."
+REASON_ACTION_IDENTIFY_VAR = "Identify variables and it's meaning involved in the question."
+REASON_ACTION_THINKING_ONE_MORE = "Think through the relationships between the variables."
+REASON_ACTION_DERIVE_ABSTRACT = "Derive an abstract formula or method to solve the question"
+
+ACTION_MEANINGS = {
+    "REASON_ACTION_ClAIFY": "Clarify the question to ensure understanding.",
+    "REASON_ACTION_QUESTION_STRUCTURE": "Break down the question into its structural components.",
+    "REASON_ACTION_IDENTIFY_VAR": "Identify variables and its meaning involved in the question.",
+    "REASON_ACTION_THINKING_ONE_MORE": "Think through the relationships between the variables.",
+    "REASON_ACTION_DERIVE_ABSTRACT": "Derive an abstract formula or method to solve the question.",
+}
 
 
 def construct_action_evaluation_prompt(current_question: str, current_context: str, action: str) -> str:
     """
     Constructs the evaluation prompt for the VerifierAgent.
     """
+    action_meaning = ACTION_MEANINGS.get(action, "No additional information available for this action.")
+
     prompt = f"""You need to evaluate the following action and provide a score based on its effectiveness and correctness. \n
             Question: {current_question}
             Context: {current_context}
             Action: {action}
+            **Action Meaning**: {action_meaning}
             **Provide your response as a JSON object with two keys:**
             - **"comments"**: A string containing your review comments.
             - **"score"**: A numerical value between 0 and 1, where 1 indicates full approval and 0 indicates disapproval.
@@ -286,7 +309,7 @@ def construct_action_evaluation_prompt(current_question: str, current_context: s
 #     """
 #     return prompt
 
-def construct_extractor_prompt(variables: str, relevant_chunks: List[Dict[str, Union[str, float]]], input_question: str) -> str:
+def construct_extractor_prompt_1_turn(variables: str, relevant_chunks: List[Dict[str, Union[str, float]]], input_question: str) -> str:
     return f"""
     ─────────────────────────────  
     Step 1: Chunk the Input  
@@ -295,9 +318,9 @@ def construct_extractor_prompt(variables: str, relevant_chunks: List[Dict[str, U
       First, read the text and split it into its natural segments. Identify the sections that are narrative paragraphs and those that are tables.  
     - **Example:**  
       If the text includes a table with rows like "2011 net revenue | $2,045" and a paragraph describing "net revenue decreased by $191 million", treat these as separate chunks.
-
     ***Context:***
     {relevant_chunks}
+    
     ─────────────────────────────  
     Step 2: Identify Key Variables  
     ─────────────────────────────  
@@ -334,13 +357,6 @@ def construct_extractor_prompt(variables: str, relevant_chunks: List[Dict[str, U
       - Option C: $1,900 million
       - Option D: $1,800 million
       - **Explanation:** The text states "in 2012 it was $1,854 million," so that is the correct figure.
-    
-    - **Variable: Nuclear Volume Effect**
-      - Option A: $33 million  *(Correct)*
-      - Option B: $30 million
-      - Option C: $35 million
-      - Option D: $40 million
-      - **Explanation:** The phrase "a $33 million impact from nuclear volume changes" clearly points to $33 million as the correct value.
     ─────────────────────────────  
     Step 5: Structured Output  
     ─────────────────────────────  
@@ -369,7 +385,8 @@ def construct_extractor_prompt(variables: str, relevant_chunks: List[Dict[str, U
     5. Present your final answer in the structured format shown above.
     
     Please confirm that you understand these instructions, and then proceed with processing the provided input.  
-      
+    Based on the previous analysis to answer the question: {input_question}
+    Therefore the answer to the question is xxx.  
     """
 
 def construct_review_extractor_prompt(question: str, context: str, extraxt_results: str) -> str:
@@ -402,11 +419,9 @@ def construct_review_extractor_prompt(question: str, context: str, extraxt_resul
     """
     return prompt
 
-REASON_ACTION_ClAIFY = ""
-REASON_ACTION_QUESTION_STRUCTURE = ""
-REASON_ACTION_IDENTIFY_VAR = ""
-REASON_ACTION_THINKING_ONE_MORE = ""
-REASON_ACTION_DERIVE_ABSTRACT = ""
+
+
+
 
 ACTIONS = {
     "REASON_ACTION_CLARIFY":

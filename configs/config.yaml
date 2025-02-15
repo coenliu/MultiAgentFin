@@ -3,7 +3,7 @@ reasoner:
   mcts:
     exploration_weight: 1.414
     weight_scheduler: "exp"
-    num_rollouts: 20 #default 20
+    num_rollouts: 1 #default 20
     discount: 1.0
     verbose: False
 
