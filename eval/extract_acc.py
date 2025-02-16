@@ -63,12 +63,6 @@ def process_csv(file_path, answer_column, generated_text_column):
         correct_rate = (df['is_correct'].sum() / len(df)) * 100 if len(df) > 0 else 0
 
         print(f"Processed file: {file_path}")
-        # print("Answer | Extracted Numbers | Correct")
-        # print("-" * 40)
-        # for index, row in df.iterrows():
-        #     if not row['is_correct']:
-        #         normalized_answer = normalize_number(row[answer_column])
-        #         print(f"{normalized_answer} | {row['extracted_numbers']} | {row['is_correct']}")
 
         print(f"Total Correct: {df['is_correct'].sum()}/{len(df)}")
         print(f"Correct Rate: {correct_rate:.2f}%\n")
@@ -121,8 +115,3 @@ if __name__ == "__main__":
     combined_results, overall_correct_rate, correct_rate_variance = process_directory(
         directory_path, answer_column, generated_text_column
     )
-
-    # Save combined results to a new CSV file
-    # if not combined_results.empty:
-    #     combined_results.to_csv("aggregated_results.csv", index=False)
-    #     print("Aggregated results saved to aggregated_results.csv")

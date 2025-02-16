@@ -20,51 +20,8 @@ from agents.formate_output import FormateOutput
 from typing import Any, List,Dict
 
 
-# reason_client = OpenAIChatCompletionClient(
-#     model="meta-llama/Meta-Llama-3-8B-Instruct", # meta-llama/Meta-Llama-3-8B-Instruct,llama-finetuned test: meta-llama/Llama-3.2-1B-Instruct
-#     base_url="http://localhost:8000/v1",
-#     api_key="placeholder",
-#     temperature=0.1,
-#     top_p=0.9,
-#     max_tokens=800,
-#     model_capabilities={
-#         "vision": False,
-#         "function_calling": True,
-#         "json_output": True,
-#     },
-# )
-#
-# extract_verify_client = OpenAIChatCompletionClient(
-#     model="meta-llama/Meta-Llama-3-8B-Instruct", #"meta-llama/Llama-3.2-3B-Instruct"
-#     base_url="http://localhost:8000/v1",
-#     api_key="placeholder",
-#     temperature=0.1,
-#     top_p=0.9,
-#     max_tokens=800,
-#     model_capabilities={
-#         "vision": False,
-#         "function_calling": True,
-#         "json_output": True,
-#     },
-# )
-#
-# execute_client = OpenAIChatCompletionClient(
-#     model="meta-llama/CodeLlama-13b-Instruct-hf", #"meta-llama/Llama-3.2-1B-Instruct", "meta-llama/CodeLlama-7b-Instruct-hf"
-#     base_url="http://localhost:8003/v1",
-#     api_key="placeholder",
-#     temperature=0.1,
-#     top_p=0.9,
-#     max_tokens=800,
-#     model_capabilities={
-#         "vision": False,
-#         "function_calling": True,
-#         "json_output": False,
-#     },
-# )
-
-# for test only
 reason_client = OpenAIChatCompletionClient(
-    model="meta-llama/Llama-3.2-1B-Instruct", # meta-llama/Meta-Llama-3-8B-Instruct,llama-finetuned test: meta-llama/Llama-3.2-1B-Instruct
+    model="meta-llama/Meta-Llama-3-8B-Instruct",
     base_url="http://localhost:8000/v1",
     api_key="placeholder",
     temperature=0.1,
@@ -78,7 +35,7 @@ reason_client = OpenAIChatCompletionClient(
 )
 
 extract_verify_client = OpenAIChatCompletionClient(
-    model="meta-llama/Llama-3.2-1B-Instruct", #"meta-llama/Llama-3.2-3B-Instruct"
+    model="meta-llama/Meta-Llama-3-8B-Instruct", #"meta-llama/Llama-3.2-3B-Instruct"
     base_url="http://localhost:8000/v1",
     api_key="placeholder",
     temperature=0.1,
@@ -92,8 +49,8 @@ extract_verify_client = OpenAIChatCompletionClient(
 )
 
 execute_client = OpenAIChatCompletionClient(
-    model="meta-llama/Llama-3.2-1B-Instruct", #"meta-llama/Llama-3.2-1B-Instruct", "meta-llama/CodeLlama-7b-Instruct-hf"
-    base_url="http://localhost:8000/v1",
+    model="meta-llama/CodeLlama-13b-Instruct-hf", #"meta-llama/Llama-3.2-1B-Instruct", "meta-llama/CodeLlama-7b-Instruct-hf"
+    base_url="http://localhost:8003/v1",
     api_key="placeholder",
     temperature=0.1,
     top_p=0.9,
@@ -113,20 +70,6 @@ AGENT_SEQUENCES = {
         ("verifier_agent", "VerifyAgent"),
         ("formate_output", "FormateOutput"),
     ],
-    # "no_reason": [
-    #     ("extract_agent", "ExtractionAgent"),
-    #     ("calculation_agent", "CalculationAgent"),
-    #     ("final_output_agent", "FinalOutputAgent"),
-    # ],
-    # "no_extract": [
-    #     ("reason_agent", "ReasonAgent"),
-    #     ("calculation_agent", "CalculationAgent"),
-    #     ("final_output_agent", "FinalOutputAgent"),
-    # ],
-    # "no_reason_extract": [
-    #     ("calculation_agent", "CalculationAgent"),
-    #     ("final_output_agent", "FinalOutputAgent"),
-    # ],
 }
 
 
@@ -142,6 +85,7 @@ def parse_args():
     parser.add_argument('--output_file', type=str, default="llama_outputs.csv", help="Name to the output CSV file")
     parser.add_argument('--temperature', type=float, default=0.3, help="Temperature for text generation")
     parser.add_argument('--top_n_chunk', type=int, default=4, help="Number of top chunks to use in the extractor")
+    parser.add_argument('--rollout', type=int, default=20, help="Number of rollouts in reasoner")
     return parser.parse_args()
 
 async def register_agents(runtime: SingleThreadedAgentRuntime,
@@ -225,6 +169,9 @@ async def main(args, config):
     The main asynchronous function to process all task contexts.
     """
     agent_sequence = args.sequence
+
+    if args.rollout:
+        config["rollout"] = args.rollout
 
     if args.dataset_name == "FinancialMath":
         dataset = load_finmath_dataset(file_path= args.finmath_data_path, top_n=args.top_n)

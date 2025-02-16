@@ -14,16 +14,8 @@ figures
 Icon
 data/augementation
 scripts/server
-scripts/case_codefinqa.sh
-scripts/codefinqa.sh
-scripts/codetatqa.sh
-scripts/fincode.sh
-scripts/finmath.sh
-scripts/reason_task.sh
-scripts/rollout.sh
-scripts/run_server.sh
-scripts/test_extract.sh
-scripts/test_codetat.sh
+!scripts/test.sh
+
 # Thumbnails
 ._*
 
