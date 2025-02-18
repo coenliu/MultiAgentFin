@@ -1,8 +1,3 @@
-#export PYTHONPATH=/Users/chenghao/Work/Code/FinReason:$PYTHONPATH
-export PYTHONPATH=/home/chenghao/anaconda3/envs/MultiAgentFin:$PYTHONPATH
-#export PYTHONPATH=/data/cliu797/project/FinReason:$PYTHONPATH
-#export DISKCACHE_PATH=/data/cliu797/diskcache
-export no_proxy=127.0.0.1,localhost
 
 
 #PIPELINE="reason"
